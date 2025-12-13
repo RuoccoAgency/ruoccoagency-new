@@ -21,7 +21,7 @@ export function About() {
               <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-secondary opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
               
               <img 
-                src="/gianluca.jpg" 
+                src="/gianluca-profile.jpg" 
                 alt="Gianluca Ruocco" 
                 className="w-full h-full object-cover relative z-10 bg-muted transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
