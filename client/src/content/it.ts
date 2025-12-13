@@ -119,7 +119,7 @@ export const content = {
     title: "Chi Sono",
     name: "Gianluca Ruocco",
     role: "Founder & Automation Expert",
-    bio: "Mi chiamo Gianluca Ruocco e aiuto aziende e studi professionali a recuperare tempo e aumentare i profitti grazie all'intelligenza artificiale. Specializzato in automazioni, assistenti virtuali e sviluppo web, il mio obiettivo è trasformare la tecnologia in un vantaggio competitivo concreto e misurabile per la tua attività.",
+    bio: "Mi chiamo Gianluca Ruocco, sono il fondatore di RuoccoAgency e aiuto aziende e studi professionali a recuperare tempo e aumentare i profitti grazie all'intelligenza artificiale. Specializzato in automazioni, assistenti virtuali e sviluppo web, il mio obiettivo è trasformare la tecnologia in un vantaggio competitivo concreto e misurabile per la tua attività.",
   },
   faq: {
     title: "Domande Frequenti",
