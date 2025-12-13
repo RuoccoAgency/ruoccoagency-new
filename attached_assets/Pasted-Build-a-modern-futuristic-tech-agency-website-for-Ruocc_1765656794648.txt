@@ -1,0 +1,208 @@
+Build a modern, futuristic/tech agency website for RuoccoAgency in Italian, for Gianluca Ruocco.
+
+Contacts (use these everywhere needed)
+
+Website: ruoccoagency.com
+
+Email: ruoccoagency@gmail.com
+
+Phone: +39 380 641 3543
+
+Multilingual requirement
+
+For now: Italian only (complete the Italian site first).
+
+Prepare the code structure so it’s easy to duplicate later into an identical English version (e.g., text constants in a single file, or a simple dictionary object). Do NOT implement language switch yet—just make it easy for later.
+
+Tech stack (mandatory)
+
+Next.js (App Router) + TypeScript
+
+Tailwind CSS
+
+Framer Motion for animations
+
+lucide-react for icons
+
+Smooth scrolling + subtle parallax effects
+
+Mobile-first, fast performance, clean code, reusable components
+
+Visual style (mandatory)
+
+Modern, premium, slightly tech (not too “gamer”)
+
+Dark background with purple/blue gradient accents, neon glows, animated particles/grid
+
+Many micro-animations: hover glow, animated borders, gradient shifts, floating elements, reveal-on-scroll
+
+Futuristic UI details: glassmorphism cards, thin outlines, animated lines/nodes/circuits, subtle noise texture
+
+Keep it readable and professional (clients are businesses)
+
+Site structure (single-page landing with anchors)
+
+Create a single-page landing with anchored sections:
+
+Home (hero)
+
+Services
+
+How it works
+
+Case studies (placeholder)
+
+About (with photo placeholder)
+
+FAQ
+
+Contact
+
+Copywriting (Italian, concise, persuasive)
+
+Tone: professional, clear, confident, not exaggerated. Focus on outcomes: more leads, less missed messages, time saved, 24/7 availability.
+
+HERO section (must include)
+
+Headline suggestion:
+“Automazioni e Assistenti AI che trasformano richieste in clienti, 24/7.”
+Subheadline (1–2 lines): explain that Gianluca helps businesses capture and qualify leads via website chatbots, WhatsApp assistants, phone AI agents, plus modern websites and SEO.
+Primary CTA: “Richiedi una demo”
+Secondary CTA: “Vedi i servizi”
+Add 3 quick benefit bullets:
+
+Risposte immediate h24
+
+Meno chiamate perse / più richieste qualificate
+
+Sito moderno + SEO per farsi trovare
+
+Services section (must include 4 cards)
+
+Assistenti virtuali (Chatbot) per Sito Web
+
+Assistenti WhatsApp (WhatsApp Business)
+
+Assistenti telefonici AI (voice agents)
+
+Siti web moderni + Ottimizzazione SEO
+For each: short description + 3 bullet features + icon.
+
+“How it works” section (must include)
+
+3–4 steps with animated timeline:
+
+Analisi & obiettivo
+
+Setup & integrazioni (Calendar/CRM)
+
+Test & ottimizzazione
+
+Go-live + supporto
+
+“Why it works” / Value section (must include)
+
+Explain simply:
+
+People contact outside working hours
+
+Speed to respond increases conversions
+
+Assistant qualifies leads and sends all details to the team
+
+Case studies section (placeholder)
+
+Create 3 placeholder cards with “Coming soon” badge:
+
+“Studio Dentistico – +X% richieste”
+
+“Clinica – riduzione chiamate perse”
+
+“Servizi locali – lead qualificati”
+
+About section (must include photo + bio)
+
+Title: “Chi sono”
+Text: 4–6 lines in Italian:
+“Mi chiamo Gianluca Ruocco e aiuto aziende e studi professionali a…”
+Explain: automation, assistants, websites, SEO; focus on measurable outcomes.
+Add a photo placeholder expecting local file:
+
+/public/gianluca.jpg
+Add contact row with:
+
+ruoccoagency@gmail.com
+
++39 380 641 3543
+
+ruoccoagency.com
+
+FAQ section (must include)
+
+At least 6 FAQs:
+
+“Serve cambiare sito?”
+
+“Funziona con WhatsApp Business?”
+
+“Può passare a un operatore umano?”
+
+“Integrazione con Google Calendar/CRM?”
+
+“Tempi di attivazione?”
+
+“Cosa serve da parte mia?”
+
+Contact section (must include a working form)
+
+Fields:
+
+Nome e Cognome
+
+Email
+
+Telefono (optional)
+
+Tipo di attività
+
+Cosa ti serve (textarea)
+Buttons: “Invia richiesta”
+Implement form submission to a Next.js API route that:
+
+validates fields
+
+logs the lead server-side
+
+returns success/error
+Show animated success/error states.
+Add TODO comments for later:
+
+Save to Supabase
+
+Send email notification to ruoccoagency@gmail.com
+
+Navigation + UX (must include)
+
+Sticky navbar with animated underline
+
+Smooth scroll to sections
+
+Floating CTA button on mobile (“Richiedi demo”)
+
+Footer with quick links + contacts (email/phone/domain)
+
+Performance friendly: keep effects optimized
+
+Code organization (mandatory)
+
+Components in /components/sections/*
+
+Text content in a single file (e.g. /content/it.ts) so later you can duplicate to /content/en.ts with identical structure
+
+Add clear comments where to change links and colors
+
+Deliverables
+
+Provide full code in the Replit project
+
+Ensure npm install and npm run dev works
