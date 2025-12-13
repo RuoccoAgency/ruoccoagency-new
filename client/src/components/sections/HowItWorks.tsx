@@ -1,5 +1,5 @@
 import { content } from "@/content/it";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useMotionValueEvent } from "framer-motion";
 import { useRef } from "react";
 
 export function HowItWorks() {
@@ -9,7 +9,14 @@ export function HowItWorks() {
     offset: ["start 80%", "end 50%"]
   });
 
-  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  const scaleY = useMotionValue(0);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const currentMax = scaleY.get();
+    if (latest > currentMax) {
+      scaleY.set(latest);
+    }
+  });
 
   return (
     <section id="how-it-works" className="py-24 relative">
@@ -30,8 +37,10 @@ export function HowItWorks() {
           <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block bg-white/5">
              <motion.div 
                style={{ scaleY, originY: 0 }}
-               className="absolute top-0 left-0 right-0 w-full h-full bg-gradient-to-b from-secondary via-primary to-secondary"
-             />
+               className="absolute top-0 left-0 right-0 w-full h-full bg-gradient-to-b from-secondary via-primary to-secondary shadow-[0_0_20px_hsla(var(--primary),0.8),0_0_40px_hsla(var(--primary),0.5)] drop-shadow-[0_0_10px_hsla(var(--secondary),0.8)]"
+             >
+                <div className="absolute inset-0 bg-primary/30 blur-sm -z-10" />
+             </motion.div>
           </div>
 
           <div className="space-y-12 md:space-y-24">
