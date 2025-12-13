@@ -36,7 +36,7 @@ export function About() {
             viewport={{ once: true }}
             className="w-full md:w-1/2"
           >
-            <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6 text-gradient-logo">
               {content.about.title}
             </h2>
             

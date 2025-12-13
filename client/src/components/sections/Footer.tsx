@@ -13,7 +13,7 @@ export function Footer() {
                 alt="RuoccoAgency Logo" 
                 className="w-8 h-8 object-contain" 
               />
-              <h2 className="text-2xl font-bold text-white font-display">{content.nav.logo}</h2>
+              <h2 className="text-2xl font-bold text-white font-display text-gradient-logo">{content.nav.logo}</h2>
             </div>
             <p className="text-muted-foreground max-w-md">
               {content.hero.subheadline}

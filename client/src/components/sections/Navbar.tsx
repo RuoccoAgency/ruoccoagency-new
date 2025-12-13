@@ -44,7 +44,7 @@ export function Navbar() {
         <a 
           href="#home" 
           onClick={(e) => scrollToSection(e, "#home")}
-          className="flex items-center gap-3 text-2xl font-bold font-display tracking-tighter text-white hover:text-primary transition-colors group"
+          className="flex items-center gap-3 text-2xl font-bold font-display tracking-tighter text-white hover:text-primary transition-colors group text-gradient-logo"
         >
           <img 
             src={logo} 

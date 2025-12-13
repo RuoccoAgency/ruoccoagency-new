@@ -18,7 +18,7 @@ export function Services() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold font-display text-white mb-4"
+            className="text-3xl md:text-5xl font-bold font-display text-white mb-4 text-gradient-logo"
           >
             {content.services.title}
           </motion.h2>
