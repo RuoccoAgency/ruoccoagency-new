@@ -11,19 +11,24 @@ import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30">
-      <Navbar />
-      <main>
-        <Hero />
-        <Services />
-        <HowItWorks />
-        <WhyItWorks />
-        <CaseStudies />
-        <About />
-        <FAQ />
-        <Contact />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30 relative">
+      {/* Animated Gradient Background */}
+      <div className="fixed inset-0 z-0 pointer-events-none animate-gradient-bg" />
+      
+      <div className="relative z-10">
+        <Navbar />
+        <main>
+          <Hero />
+          <Services />
+          <HowItWorks />
+          <WhyItWorks />
+          <CaseStudies />
+          <About />
+          <FAQ />
+          <Contact />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import logo from "@assets/Progetto_senza_titolo_(8)_(1)_1765658448175.png";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,8 +44,13 @@ export function Navbar() {
         <a 
           href="#home" 
           onClick={(e) => scrollToSection(e, "#home")}
-          className="text-2xl font-bold font-display tracking-tighter text-white hover:text-primary transition-colors"
+          className="flex items-center gap-3 text-2xl font-bold font-display tracking-tighter text-white hover:text-primary transition-colors group"
         >
+          <img 
+            src={logo} 
+            alt="RuoccoAgency Logo" 
+            className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(140,82,255,0.5)] transition-transform group-hover:scale-110" 
+          />
           {content.nav.logo}
         </a>
 
@@ -63,9 +69,8 @@ export function Navbar() {
           ))}
           <Button 
             variant="default" 
-            className="bg-primary hover:bg-primary/90 text-white font-medium rounded-full px-6 shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:shadow-[0_0_25px_rgba(124,58,237,0.5)] transition-all"
+            className="bg-primary hover:bg-primary/90 text-white font-medium rounded-full px-6 shadow-[0_0_15px_rgba(140,82,255,0.3)] hover:shadow-[0_0_25px_rgba(140,82,255,0.5)] transition-all"
             onClick={(e) => {
-              // Cast to unknown first to treat as generic event, then pass href
               scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#contact");
             }}
           >

@@ -1,4 +1,5 @@
 import { content } from "@/content/it";
+import logo from "@assets/Progetto_senza_titolo_(8)_(1)_1765658448175.png";
 
 export function Footer() {
   return (
@@ -6,7 +7,14 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="col-span-1 md:col-span-2">
-            <h2 className="text-2xl font-bold text-white font-display mb-4">{content.nav.logo}</h2>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src={logo} 
+                alt="RuoccoAgency Logo" 
+                className="w-8 h-8 object-contain" 
+              />
+              <h2 className="text-2xl font-bold text-white font-display">{content.nav.logo}</h2>
+            </div>
             <p className="text-muted-foreground max-w-md">
               {content.hero.subheadline}
             </p>
