@@ -42,14 +42,14 @@
 
 :root {
   /* Updated Palette based on Logo */
-  /* Deep dark background with blue tint */
-  --background: 240 30% 4%; 
+  /* Deep dark background with blue tint - Made darker for particles */
+  --background: 240 30% 2%; 
   --foreground: 210 20% 98%;
 
-  --card: 240 30% 6%;
+  --card: 240 30% 4%;
   --card-foreground: 210 20% 98%;
 
-  --popover: 240 30% 6%;
+  --popover: 240 30% 4%;
   --popover-foreground: 210 20% 98%;
 
   /* Logo Purple (Right side of gradient) */

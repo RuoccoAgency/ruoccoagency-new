@@ -17,6 +17,7 @@ import {
 import { motion } from "framer-motion";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { Reveal } from "@/components/ui/Reveal";
 
 const formSchema = z.object({
   name: z.string().min(2, "Il nome deve essere di almeno 2 caratteri"),
@@ -50,11 +51,6 @@ export function Contact() {
     
     console.log("Form submitted:", values);
     
-    // In a real app, this would be:
-    // await fetch('/api/contact', { method: 'POST', body: JSON.stringify(values) });
-    // TODO: Save to Supabase
-    // TODO: Send email to ruoccoagency@gmail.com
-
     setIsSubmitting(false);
     setIsSuccess(true);
     toast({
@@ -68,35 +64,39 @@ export function Contact() {
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         
         <div className="text-center mb-16">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold font-display text-white mb-4"
-          >
-            {content.contact.title}
-          </motion.h2>
-          <p className="text-muted-foreground text-lg">{content.contact.subtitle}</p>
+          <Reveal width="100%">
+            <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-4">
+              {content.contact.title}
+            </h2>
+          </Reveal>
+          <Reveal delay={0.1} width="100%">
+            <p className="text-muted-foreground text-lg">{content.contact.subtitle}</p>
+          </Reveal>
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-card/50 border border-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-2xl"
+          transition={{ duration: 0.6 }}
+          className="bg-card/50 border border-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-2xl hover:shadow-primary/5 transition-shadow duration-500"
         >
           {isSuccess ? (
             <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
-              <div className="h-16 w-16 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 mb-4">
+              <motion.div 
+                initial={{ scale: 0 }} 
+                animate={{ scale: 1 }} 
+                className="h-16 w-16 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 mb-4"
+              >
                 <CheckCircle2 className="h-8 w-8" />
-              </div>
+              </motion.div>
               <h3 className="text-2xl font-bold text-white">Grazie!</h3>
               <p className="text-muted-foreground text-lg max-w-md">
                 {content.contact.form.success}
               </p>
               <Button 
                 variant="outline" 
-                className="mt-6"
+                className="mt-6 hover:bg-white/10"
                 onClick={() => {
                   setIsSuccess(false);
                   form.reset();
@@ -116,7 +116,7 @@ export function Contact() {
                       <FormItem>
                         <FormLabel className="text-white">{content.contact.form.name}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Mario Rossi" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50" />
+                          <Input placeholder="Mario Rossi" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -129,7 +129,7 @@ export function Contact() {
                       <FormItem>
                         <FormLabel className="text-white">{content.contact.form.email}</FormLabel>
                         <FormControl>
-                          <Input placeholder="mario@azienda.com" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50" />
+                          <Input placeholder="mario@azienda.com" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -145,7 +145,7 @@ export function Contact() {
                       <FormItem>
                         <FormLabel className="text-white">{content.contact.form.phone}</FormLabel>
                         <FormControl>
-                          <Input placeholder="+39 333 1234567" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50" />
+                          <Input placeholder="+39 333 1234567" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -158,7 +158,7 @@ export function Contact() {
                       <FormItem>
                         <FormLabel className="text-white">{content.contact.form.type}</FormLabel>
                         <FormControl>
-                          <Input placeholder="Studio Legale, E-commerce, ecc." {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50" />
+                          <Input placeholder="Studio Legale, E-commerce, ecc." {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -175,7 +175,7 @@ export function Contact() {
                       <FormControl>
                         <Textarea 
                           placeholder="Descrivi brevemente di cosa hai bisogno..." 
-                          className="min-h-[120px] bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 resize-none" 
+                          className="min-h-[120px] bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 resize-none transition-colors" 
                           {...field} 
                         />
                       </FormControl>
@@ -187,7 +187,7 @@ export function Contact() {
                 <Button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className="w-full h-12 text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(124,58,237,0.3)] hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all"
+                  className="w-full h-12 text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(140,82,255,0.3)] hover:shadow-[0_0_30px_rgba(140,82,255,0.5)] active:scale-[0.98] transition-all duration-300"
                 >
                   {isSubmitting ? (
                     <>

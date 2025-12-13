@@ -8,12 +8,14 @@ import { About } from "@/components/sections/About";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { ParticlesBackground } from "@/components/ui/ParticlesBackground";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30 relative">
       {/* Animated Gradient Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none animate-gradient-bg" />
+      <div className="fixed inset-0 z-0 pointer-events-none animate-gradient-bg opacity-40" />
+      <ParticlesBackground />
       
       <div className="relative z-10">
         <Navbar />

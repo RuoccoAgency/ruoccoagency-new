@@ -1,10 +1,11 @@
 import { content } from "@/content/it";
 import { motion } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 
 export function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 bg-black/20 relative">
-      <div className="container mx-auto px-4">
+    <section id="how-it-works" className="py-24 relative">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -24,31 +25,36 @@ export function HowItWorks() {
             {content.howItWorks.steps.map((step, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: index * 0.2, duration: 0.6, type: "spring", stiffness: 50 }}
                 className={`flex flex-col md:flex-row items-center gap-8 ${
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
-                {/* Content */}
-                <div className="flex-1 text-center md:text-left">
-                  <div className={`p-6 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm hover:border-primary/30 transition-colors ${
+                {/* Content Card */}
+                <div className="flex-1 w-full text-center md:text-left">
+                  <div className={`group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] backdrop-blur-sm shadow-lg hover:shadow-primary/10 ${
                      index % 2 === 0 ? "md:text-right" : "md:text-left"
                   }`}>
-                    <h3 className="text-xl font-bold text-white mb-2">
-                      <span className="text-primary mr-2">0{index + 1}.</span>
-                      {step.title}
-                    </h3>
-                    <p className="text-muted-foreground">{step.description}</p>
+                    <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"} justify-center md:justify-start`}>
+                      <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
+                         <span className="text-lg font-bold text-primary font-display">{index + 1}</span>
+                      </div>
+                      <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                        {step.title}
+                      </h3>
+                    </div>
+                    
+                    <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                   </div>
                 </div>
 
                 {/* Center Node */}
                 <div className="relative flex items-center justify-center w-12 h-12 shrink-0">
-                  <div className="w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(124,58,237,0.5)] z-10" />
-                  <div className="absolute w-8 h-8 rounded-full bg-primary/20 animate-pulse" />
+                  <div className="w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(124,58,237,0.5)] z-10 ring-4 ring-background" />
+                  <div className="absolute w-12 h-12 rounded-full bg-primary/20 animate-pulse" />
                 </div>
 
                 {/* Empty Space for alignment */}
