@@ -1,8 +1,16 @@
 import { content } from "@/content/it";
-import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 
 export function HowItWorks() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 80%", "end 50%"]
+  });
+
+  const scaleY = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
   return (
     <section id="how-it-works" className="py-24 relative">
       <div className="container mx-auto px-4 relative z-10">
@@ -17,9 +25,14 @@ export function HowItWorks() {
           </motion.h2>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Vertical Line for Desktop */}
-          <div className="absolute left-[50%] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent hidden md:block" />
+        <div ref={containerRef} className="relative max-w-5xl mx-auto">
+          {/* Vertical Line for Desktop - Animated */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block bg-white/5">
+             <motion.div 
+               style={{ scaleY, originY: 0 }}
+               className="absolute top-0 left-0 right-0 w-full h-full bg-gradient-to-b from-secondary via-primary to-secondary"
+             />
+          </div>
 
           <div className="space-y-12 md:space-y-24">
             {content.howItWorks.steps.map((step, index) => (
@@ -29,7 +42,7 @@ export function HowItWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ delay: index * 0.2, duration: 0.6, type: "spring", stiffness: 50 }}
-                className={`flex flex-col md:flex-row items-center gap-8 ${
+                className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 ${
                   index % 2 === 0 ? "md:flex-row-reverse" : ""
                 }`}
               >
@@ -52,12 +65,12 @@ export function HowItWorks() {
                 </div>
 
                 {/* Center Node */}
-                <div className="relative flex items-center justify-center w-12 h-12 shrink-0">
+                <div className="relative flex items-center justify-center w-12 h-12 shrink-0 z-20">
                   <div className="w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(124,58,237,0.5)] z-10 ring-4 ring-background" />
                   <div className="absolute w-12 h-12 rounded-full bg-primary/20 animate-pulse" />
                 </div>
 
-                {/* Empty Space for alignment */}
+                {/* Empty Space for alignment - matches flex-1 of content */}
                 <div className="flex-1 hidden md:block" />
               </motion.div>
             ))}
