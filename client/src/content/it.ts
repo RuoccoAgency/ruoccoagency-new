@@ -19,11 +19,11 @@ export const content = {
     headline: "Automazioni e Assistenti AI che trasformano richieste in clienti, 24/7.",
     subheadline: "Aiutiamo aziende e professionisti a catturare e qualificare lead automaticamente tramite chatbot, assistenti WhatsApp e agenti vocali AI.",
     ctaPrimary: "Richiedi una demo",
-    ctaSecondary: "Vedi i servizi",
-    benefits: [
-      "Risposte immediate h24",
-      "Meno chiamate perse / più lead qualificati",
-      "Sito moderno + SEO per farsi trovare",
+    ctaSecondary: "Parliamone su WhatsApp",
+    socialProof: [
+      "Partner certificati Meta",
+      "Sviluppo Rapido",
+      "Supporto H24"
     ],
   },
   services: {
@@ -31,28 +31,28 @@ export const content = {
     subtitle: "Soluzioni tecnologiche avanzate per scalare il tuo business",
     items: [
       {
-        title: "Assistenti Virtuali (Chatbot)",
-        description: "Chatbot intelligenti integrati nel tuo sito web per rispondere alle domande frequenti e qualificare i visitatori.",
-        features: ["Disponibilità 24/7", "Qualificazione lead automatica", "Prenotazione appuntamenti"],
+        title: "Assistenti Virtuali & Chatbot",
+        description: "Chatbot intelligenti per Sito Web e WhatsApp che rispondono 24/7, qualificano i clienti e fissano appuntamenti.",
+        features: ["Risposte immediate", "Integrazione WhatsApp", "Qualificazione Lead"],
         icon: "Bot",
       },
       {
-        title: "Assistenti WhatsApp Business",
-        description: "Automazioni potenti su WhatsApp per gestire comunicazioni, inviare promemoria e chiudere vendite.",
-        features: ["Risposte istantanee", "Follow-up automatici", "Integrazione CRM"],
-        icon: "MessageSquare",
-      },
-      {
-        title: "Agenti Vocali AI",
-        description: "Assistenti telefonici che rispondono alle chiamate, prendono messaggi e fissano appuntamenti per te.",
-        features: ["Gestione chiamate in entrata", "Nessuna chiamata persa", "Tono naturale e professionale"],
+        title: "Agenti Telefonici AI",
+        description: "Voice agents avanzati che gestiscono le chiamate in entrata e uscita, come una segretaria virtuale instancabile.",
+        features: ["Gestione chiamate", "Voce naturale", "Nessuna attesa"],
         icon: "Phone",
       },
       {
         title: "Siti Web Moderni + SEO",
-        description: "Siti web veloci, ottimizzati per i motori di ricerca e progettati per convertire i visitatori in clienti.",
-        features: ["Design Premium & Responsive", "Ottimizzazione SEO", "Velocità estrema"],
+        description: "Sviluppo siti web ad alta conversione, veloci e posizionati sui motori di ricerca per attirare traffico qualificato.",
+        features: ["Design Premium", "Ottimizzazione SEO", "Mobile First"],
         icon: "Globe",
+      },
+      {
+        title: "Automazioni + CRM",
+        description: "Colleghiamo i tuoi strumenti (CRM, Calendar, Email) per eliminare il lavoro manuale e gestire i lead automaticamente.",
+        features: ["Integrazioni Custom", "Gestione Database", "Workflow Automatici"],
+        icon: "Zap",
       },
     ],
   },
@@ -60,20 +60,16 @@ export const content = {
     title: "Come Funziona",
     steps: [
       {
-        title: "Analisi & Obiettivo",
-        description: "Studiamo il tuo business e identifichiamo i processi da automatizzare per massimizzare i risultati.",
+        title: "Analisi & Strategia",
+        description: "Analizziamo i tuoi processi attuali e identifichiamo dove l'AI può portare il massimo ROI immediato.",
       },
       {
-        title: "Setup & Integrazioni",
-        description: "Configuriamo gli assistenti AI e li integriamo con i tuoi strumenti esistenti (Calendar, CRM).",
+        title: "Sviluppo & Setup",
+        description: "Costruiamo e configuriamo i tuoi assistenti AI, integrandoli perfettamente con i tuoi sistemi esistenti.",
       },
       {
-        title: "Test & Ottimizzazione",
-        description: "Testiamo rigorosamente ogni flusso e ottimizziamo le risposte per garantire la massima efficacia.",
-      },
-      {
-        title: "Go-live + Supporto",
-        description: "Lanciamo il sistema e forniamo supporto continuo per assicurare che tutto funzioni perfettamente.",
+        title: "Lancio & Ottimizzazione",
+        description: "Andiamo live e monitoriamo le performance, ottimizzando costantemente per massimizzare le conversioni.",
       },
     ],
   },
@@ -160,6 +156,7 @@ export const content = {
       type: "Tipo di attività",
       message: "Cosa ti serve?",
       submit: "Invia Richiesta",
+      whatsapp: "Scrivici su WhatsApp",
       success: "Messaggio inviato con successo! Ti risponderemo presto.",
       error: "Si è verificato un errore. Riprova più tardi.",
     },

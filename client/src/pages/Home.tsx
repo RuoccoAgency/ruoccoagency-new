@@ -8,10 +8,12 @@ import { About } from "@/components/sections/About";
 import { FAQ } from "@/components/sections/FAQ";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { ParticleBackground } from "@/components/ui/ParticleBackground";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30">
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-secondary/30">
+      <ParticleBackground />
       <Navbar />
       <main>
         <Hero />

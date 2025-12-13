@@ -1,0 +1,115 @@
+Create a modern, high-converting Italian website for my agency RuoccoAgency.
+IMPORTANT: I am attaching my logo image. The entire site must strictly follow the exact color palette of my logo (primary, secondary, gradients). Extract the palette from the logo and use it consistently across backgrounds, buttons, borders, glows, highlights, icons, links, and section accents. No random colors.
+
+Brand / Content
+
+Brand name: RuoccoAgency
+
+Domain: ruoccoagency.com
+
+Phone: +39 380 641 3543
+
+Email: ruoccoagency@gmail.com
+
+Language: Italian only for now (later we’ll clone in English)
+
+Tone: premium, modern, futuristic/tech, trustworthy.
+
+Services to include
+
+Assistenti virtuali (chatbot) per Sito + WhatsApp
+
+Assistenti telefonici AI
+
+Siti web moderni e professionali
+
+SEO (ottimizzazione + posizionamento)
+
+Automazioni + CRM
+
+Layout (one-page + sections)
+
+Hero (strong headline + subheadline + 2 CTA buttons: “Richiedi una demo” / “Parliamone su WhatsApp”)
+
+Social proof strip (3–5 short trust bullets)
+
+Services (cards)
+
+How it works (3 steps)
+
+Case-style section (even if placeholder)
+
+About me (Gianluca + placeholder for my photo)
+
+FAQ
+
+Contact form + WhatsApp CTA + contact info
+
+Footer with links + contacts
+
+Logo placement (mandatory)
+
+Navbar: place my logo to the left of the text “RuoccoAgency”
+
+Footer: place my logo again, aligned with brand + contacts
+
+Use the same logo file and keep it sharp, sized properly for mobile and desktop.
+
+Animations & effects (MUCH more than usual)
+
+I want the site full of modern, smooth, premium animations (but still fast):
+
+Smooth page transitions and section reveals on scroll
+
+Parallax background gradients
+
+Floating particles / subtle tech noise
+
+Glowing lines / circuit-style animated SVG paths
+
+Hover microinteractions on every card/button/link (lift, glow, gradient shift)
+
+Animated gradient borders, shimmering highlights
+
+Text effects: slight kinetic typography in hero (subtle)
+
+“Magnetic” buttons (cursor attraction) on desktop
+
+Animated counters in social proof (optional)
+
+Neon glow accents matching the logo colors
+All animations must be smooth, not cheap, and must respect performance (use requestAnimationFrame, CSS transforms, reduced motion support).
+
+Tech requirements
+
+Build with a modern stack (Next.js + Tailwind preferred) or equivalent React setup.
+
+Fully responsive, mobile-first.
+
+Add prefers-reduced-motion fallback.
+
+Optimize performance (lazy-load images, minimal heavy libs).
+
+Contact form must send an email notification (use a simple server route or email service placeholder), and also allow saving leads later (structure code so I can connect Supabase later).
+
+Include SEO basics: meta tags, OpenGraph, clean headings, fast loading.
+
+Visual style
+
+Use my logo colors everywhere.
+
+Background: gradient + subtle futuristic texture.
+
+Typography: modern and clean (choose a premium font pairing).
+
+Components: glassmorphism + neon accents, but readable.
+
+Keep copy in Italian, persuasive and business-focused.
+
+Deliver the full project with clean structure and clear instructions on where to replace:
+
+logo file
+
+my photo
+
+form email destination
