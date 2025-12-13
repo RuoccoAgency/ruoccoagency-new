@@ -3,7 +3,7 @@ import { content } from "@/content/it";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MagneticButton } from "@/components/ui/MagneticButton";
+import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,14 +43,9 @@ export function Navbar() {
         <a 
           href="#home" 
           onClick={(e) => scrollToSection(e, "#home")}
-          className="flex items-center gap-3 group"
+          className="text-2xl font-bold font-display tracking-tighter text-white hover:text-primary transition-colors"
         >
-          <div className="relative w-10 h-10 overflow-hidden rounded-full border border-white/10 group-hover:border-primary/50 transition-colors">
-            <img src="/logo.png" alt="RuoccoAgency Logo" className="w-full h-full object-contain" />
-          </div>
-          <span className="text-xl md:text-2xl font-bold font-display tracking-tighter text-white group-hover:text-primary transition-colors">
-            {content.nav.logo}
-          </span>
+          {content.nav.logo}
         </a>
 
         {/* Desktop Menu */}
@@ -63,17 +58,19 @@ export function Navbar() {
               className="text-sm font-medium text-muted-foreground hover:text-white transition-colors relative group"
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-brand transition-all group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
             </a>
           ))}
-          <MagneticButton
-            className="bg-gradient-brand text-white font-medium rounded-full px-6 py-2 shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:shadow-[0_0_25px_rgba(124,58,237,0.5)] transition-all"
+          <Button 
+            variant="default" 
+            className="bg-primary hover:bg-primary/90 text-white font-medium rounded-full px-6 shadow-[0_0_15px_rgba(124,58,237,0.3)] hover:shadow-[0_0_25px_rgba(124,58,237,0.5)] transition-all"
             onClick={(e) => {
+              // Cast to unknown first to treat as generic event, then pass href
               scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#contact");
             }}
           >
             {content.nav.cta}
-          </MagneticButton>
+          </Button>
         </div>
 
         {/* Mobile Toggle */}
@@ -105,14 +102,14 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              <button 
-                className="w-full bg-gradient-brand py-3 rounded-lg text-white font-bold mt-4"
+              <Button 
+                className="w-full bg-primary mt-4"
                 onClick={(e) => {
                   scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#contact");
                 }}
               >
                 {content.nav.cta}
-              </button>
+              </Button>
             </div>
           </motion.div>
         )}
