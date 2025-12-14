@@ -79,7 +79,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-card/50 border border-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-2xl hover:shadow-primary/5 transition-shadow duration-500"
+          className="group bg-card/50 border border-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
         >
           {isSuccess ? (
             <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">

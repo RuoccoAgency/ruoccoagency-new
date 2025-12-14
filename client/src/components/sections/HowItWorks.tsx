@@ -37,9 +37,9 @@ export function HowItWorks() {
           <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block bg-white/5">
              <motion.div 
                style={{ scaleY, originY: 0 }}
-               className="absolute top-0 left-0 right-0 w-full h-full bg-gradient-to-b from-secondary via-primary to-secondary shadow-[0_0_20px_hsla(var(--primary),0.8),0_0_40px_hsla(var(--primary),0.5)] drop-shadow-[0_0_10px_hsla(var(--secondary),0.8)]"
+               className="absolute top-0 left-0 right-0 w-full h-full bg-gradient-to-b from-secondary via-primary to-secondary shadow-[0_0_30px_hsla(var(--primary),1),0_0_60px_hsla(var(--primary),0.8)] drop-shadow-[0_0_15px_hsla(var(--secondary),1)]"
              >
-                <div className="absolute inset-0 bg-primary/30 blur-sm -z-10" />
+                <div className="absolute inset-0 bg-primary/50 blur-md -z-10" />
              </motion.div>
           </div>
 

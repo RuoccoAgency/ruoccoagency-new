@@ -6,7 +6,7 @@ export function About() {
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-12 lg:gap-24 max-w-6xl mx-auto">
           
           {/* Image Placeholder */}
           <motion.div 
@@ -50,7 +50,7 @@ export function About() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Founder
+              Founder of RuoccoAgency
             </motion.div>
             
             <Reveal delay={0.1}>

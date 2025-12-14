@@ -33,9 +33,12 @@ export function ParticlesBackground() {
         this.x = Math.random() * canvas!.width;
         this.y = Math.random() * canvas!.height;
         this.size = Math.random() * 2 + 0.5; // Small dots
-        this.speedX = Math.random() * 0.5 - 0.25; // Slow movement
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.opacity = Math.random() * 0.5 + 0.1;
+        // Depth effect: larger particles move faster
+        const depth = Math.random(); // 0 to 1
+        this.size = depth * 2 + 0.5; 
+        this.speedX = (Math.random() * 0.5 - 0.25) * (depth + 0.5); 
+        this.speedY = (Math.random() * 0.5 - 0.25) * (depth + 0.5);
+        this.opacity = depth * 0.5 + 0.1;
       }
 
       update() {

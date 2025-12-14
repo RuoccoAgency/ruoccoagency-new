@@ -1,0 +1,84 @@
+IMPORTANT:
+Do NOT redesign the website structure, content, copy, or layout.
+Do NOT remove or rewrite any existing section.
+Apply ONLY the changes listed below.
+
+1. “About / Chi Sono” section alignment
+
+Center the entire “Chi Sono” section horizontally within the page.
+
+The section is currently too left-aligned: move it to a more central, balanced position.
+
+Keep the image, text, spacing, and typography exactly the same — only adjust alignment.
+
+2. Founder badge under the title
+
+Under the “Chi Sono” title, add a pill-style badge identical to the existing “AI Automation Agency” button style.
+
+Text inside the badge: “Founder of RuoccoAgency”
+
+Same gradient, glow, blur, border radius, and hover animation as the original button.
+
+3. Form card glow effect
+
+Apply the same glow, neon border, and hover animation used on the service cards to the contact form card.
+
+The form must feel like an interactive futuristic card:
+
+soft neon glow
+
+subtle floating effect
+
+smooth hover transition
+
+Do NOT change form fields, labels, text, or layout.
+
+4. “How it works” vertical line animation
+
+Enhance the vertical line:
+
+make it more glowing
+
+stronger neon effect
+
+smoother gradient
+
+Animate the line so it draws progressively on scroll.
+
+Once the line reaches the end, it must NOT reset or go backwards on reverse scroll.
+
+Everything else in the section must remain untouched.
+
+5. Global animation upgrade (WOW effect)
+
+Increase animations across the site while keeping it elegant and premium:
+
+more micro-interactions
+
+smoother transitions
+
+subtle 3D depth (parallax, tilt, floating)
+
+Animations must feel futuristic, high-end, and impressive, not chaotic.
+
+The goal is that users say “WOW” when scrolling.
+
+6. Background
+
+Keep the black animated background with white particles.
+
+Slightly enhance depth and motion (parallax or slow drift).
+
+Do NOT change colors.
+
+❗ Final rules
+
+Do NOT change colors.
+
+Do NOT change text.
+
+Do NOT change sections order.
+
+Do NOT simplify animations — increase quality instead.
+
+ONLY apply what is explicitly written above.
