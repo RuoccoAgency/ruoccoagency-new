@@ -1,0 +1,277 @@
+import { useEffect } from "react";
+import { Navbar } from "@/components/sections/Navbar";
+import { Footer } from "@/components/sections/Footer";
+import { ParticlesBackground } from "@/components/ui/ParticlesBackground";
+import { servicesData } from "@/content/services";
+import { useRoute, useLocation } from "wouter";
+import { motion } from "framer-motion";
+import { Bot, MessageSquare, Phone, Globe, LucideIcon, ArrowRight, CheckCircle2, ChevronDown, ChevronLeft } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
+
+const iconMap: Record<string, LucideIcon> = {
+  Bot,
+  MessageSquare,
+  Phone,
+  Globe,
+};
+
+export default function ServiceDetailPage() {
+  const [, params] = useRoute("/services/:slug");
+  const [, setLocation] = useLocation();
+  const slug = params?.slug;
+
+  const service = servicesData.find((s) => s.slug === slug);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
+
+  if (!service) {
+    return (
+      <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4">
+        <h1 className="text-4xl font-bold mb-4 text-white">Servizio non trovato</h1>
+        <p className="text-muted-foreground mb-8">Il servizio che stai cercando non esiste.</p>
+        <Button onClick={() => setLocation("/services")}>Torna ai servizi</Button>
+      </div>
+    );
+  }
+
+  const Icon = iconMap[service.icon];
+
+  return (
+    <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30 relative">
+      <div className="fixed inset-0 z-0 pointer-events-none animate-gradient-bg opacity-40" />
+      <ParticlesBackground />
+      
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <Navbar />
+        
+        <main className="flex-grow pt-32 pb-24">
+          <div className="container mx-auto px-4">
+            {/* Breadcrumb */}
+            <div className="mb-8 flex items-center gap-2 text-sm text-muted-foreground">
+              <button onClick={() => setLocation("/")} className="hover:text-white transition-colors">Home</button>
+              <span>/</span>
+              <button onClick={() => setLocation("/services")} className="hover:text-white transition-colors">Servizi</button>
+              <span>/</span>
+              <span className="text-primary">{service.title}</span>
+            </div>
+
+            <button 
+              onClick={() => setLocation("/services")}
+              className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors group"
+            >
+              <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+              Torna ai servizi
+            </button>
+
+            {/* Hero Section */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-24">
+              <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-primary text-sm font-medium mb-6 backdrop-blur-sm">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                  </span>
+                  Servizio Premium
+                </div>
+                <h1 className="text-4xl md:text-6xl font-bold font-display text-white mb-6 text-gradient-logo leading-tight">
+                  {service.title}
+                </h1>
+                <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+                  {service.longDescription}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button 
+                    size="lg" 
+                    className="bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12 text-base shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:shadow-[0_0_30px_rgba(124,58,237,0.6)] transition-all"
+                    onClick={() => {
+                        const contactEl = document.getElementById("contact");
+                        if (contactEl) {
+                            contactEl.scrollIntoView({ behavior: "smooth" });
+                        } else {
+                            setLocation("/#contact");
+                        }
+                    }}
+                  >
+                    {service.ctaText || "Richiedi Demo"}
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative"
+              >
+                <div className="aspect-square rounded-3xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center justify-center relative overflow-hidden group">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-secondary/20 opacity-50 group-hover:opacity-70 transition-opacity duration-700" />
+                  {Icon && <Icon className="h-32 w-32 text-white/80 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]" />}
+                  
+                  {/* Floating Elements */}
+                  <div className="absolute top-10 left-10 p-4 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-xl animate-float">
+                    <div className="h-2 w-16 bg-white/20 rounded-full mb-2" />
+                    <div className="h-2 w-24 bg-white/10 rounded-full" />
+                  </div>
+                  <div className="absolute bottom-10 right-10 p-4 rounded-2xl bg-black/40 border border-white/10 backdrop-blur-xl animate-float" style={{ animationDelay: "2s" }}>
+                    <div className="h-2 w-20 bg-primary/40 rounded-full mb-2" />
+                    <div className="h-2 w-12 bg-white/10 rounded-full" />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Features Grid */}
+            <div className="mb-24">
+              <Reveal>
+                <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-12 text-center">Cosa Include</h2>
+              </Reveal>
+              <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {service.features.map((feature, index) => (
+                  <StaggerItem key={index} className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-colors flex items-start gap-4">
+                    <div className="h-8 w-8 rounded-full bg-primary/10 flex items-center justify-center shrink-0 mt-1">
+                      <CheckCircle2 className="h-5 w-5 text-primary" />
+                    </div>
+                    <p className="text-lg text-white/90">{feature}</p>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+            </div>
+
+            {/* Use Cases */}
+            <div className="mb-24 bg-white/5 rounded-3xl p-8 md:p-12 border border-white/10 relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-transparent pointer-events-none" />
+              <Reveal>
+                <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-12 text-center">Casi d'Uso</h2>
+              </Reveal>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                {service.useCases.map((useCase, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.2 }}
+                    className="text-center"
+                  >
+                    <div className="h-12 w-12 rounded-full bg-white/10 flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl border border-white/10">
+                      {index + 1}
+                    </div>
+                    <h3 className="text-xl font-bold text-white mb-3">{useCase.title}</h3>
+                    <p className="text-muted-foreground">{useCase.description}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Process Steps */}
+            <div className="mb-24">
+              <Reveal>
+                <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-16 text-center">Come Funziona</h2>
+              </Reveal>
+              <div className="relative max-w-4xl mx-auto">
+                {/* Line */}
+                <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
+                
+                <div className="space-y-12">
+                  {service.processSteps.map((step, index) => (
+                    <motion.div 
+                      key={index}
+                      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      className={`flex flex-col md:flex-row gap-8 md:items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
+                    >
+                      <div className="flex-1 md:text-right pl-12 md:pl-0">
+                        {index % 2 === 0 && (
+                           <div className="md:pr-12">
+                             <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+                             <p className="text-muted-foreground">{step.description}</p>
+                           </div>
+                        )}
+                        {index % 2 !== 0 && <div className="hidden md:block" />}
+                      </div>
+                      
+                      <div className="absolute left-0 md:left-1/2 w-10 h-10 -translate-x-1/2 flex items-center justify-center bg-background border border-primary/50 rounded-full z-10 shadow-[0_0_15px_rgba(124,58,237,0.4)]">
+                        <div className="w-3 h-3 bg-primary rounded-full" />
+                      </div>
+
+                      <div className="flex-1 pl-12 md:pl-0">
+                        {index % 2 !== 0 && (
+                           <div className="md:pl-12">
+                             <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
+                             <p className="text-muted-foreground">{step.description}</p>
+                           </div>
+                        )}
+                        {index % 2 === 0 && <div className="hidden md:block" />}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* FAQ Optional */}
+            {service.faq && service.faq.length > 0 && (
+              <div className="max-w-3xl mx-auto mb-24">
+                <Reveal>
+                  <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-12 text-center">Domande Frequenti</h2>
+                </Reveal>
+                <Accordion type="single" collapsible className="w-full space-y-4">
+                  {service.faq.map((item, index) => (
+                    <AccordionItem 
+                      key={index} 
+                      value={`item-${index}`}
+                      className="border border-white/10 bg-white/5 rounded-lg px-4 overflow-hidden hover:bg-white/[0.07] transition-colors"
+                    >
+                      <AccordionTrigger className="text-white hover:text-primary hover:no-underline text-left text-lg font-medium py-4">
+                        {item.question}
+                      </AccordionTrigger>
+                      <AccordionContent className="text-muted-foreground pb-4 text-base leading-relaxed">
+                        {item.answer}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            )}
+
+            {/* Bottom CTA */}
+            <div className="text-center bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-12 border border-white/10 relative overflow-hidden">
+               <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+               <div className="relative z-10">
+                 <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-6">Pronto a trasformare il tuo business?</h2>
+                 <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Prenota una consulenza gratuita e scopri come {service.title} può aiutarti a crescere.</p>
+                 <Button 
+                    size="lg" 
+                    className="bg-white text-primary hover:bg-white/90 rounded-full px-8 h-12 text-base font-bold shadow-lg"
+                    onClick={() => {
+                        const contactEl = document.getElementById("contact");
+                        if (contactEl) {
+                            contactEl.scrollIntoView({ behavior: "smooth" });
+                        } else {
+                            setLocation("/#contact");
+                        }
+                    }}
+                  >
+                    Parla con un esperto
+                  </Button>
+               </div>
+            </div>
+
+          </div>
+        </main>
+        
+        <Footer />
+      </div>
+    </div>
+  );
+}

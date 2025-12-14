@@ -20,7 +20,7 @@ export const content = {
     badge: "AI Automation Agency",
     headline: "Automazioni e Assistenti AI che trasformano richieste in clienti, 24/7.",
     subheadline: "Aiutiamo aziende e professionisti a catturare e qualificare lead automaticamente tramite chatbot, assistenti WhatsApp e agenti vocali AI.",
-    ctaPrimary: "Richiedi una demo",
+    ctaPrimary: "Richiedi una demo gratuita",
     ctaSecondary: "Vedi i servizi",
     benefits: [
       "Risposte immediate h24",
@@ -144,7 +144,7 @@ export const content = {
       },
       {
         question: "Quali sono i tempi di attivazione?",
-        answer: "Dipende dalla complessità del progetto, ma generalmente un primo assistente può essere operativo in 1-2 settimane.",
+        answer: "Dipende dalla complessità del progetto, ma generalmente un assistente semplice può essere operativo in 1-2 giorni, mentre un assistente più complesso può essere operativo in 1-2 settimane.",
       },
       {
         question: "Cosa serve da parte mia?",
@@ -172,7 +172,7 @@ export const content = {
     },
   },
   footer: {
-    rights: "© 2024 RuoccoAgency. Tutti i diritti riservati.",
+    rights: "© 2025 RuoccoAgency. Tutti i diritti riservati.",
     privacy: "Privacy Policy",
     terms: "Termini di Servizio",
   },

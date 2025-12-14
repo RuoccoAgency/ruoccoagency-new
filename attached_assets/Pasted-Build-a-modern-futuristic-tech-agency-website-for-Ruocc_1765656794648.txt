@@ -67,7 +67,7 @@ HERO section (must include)
 Headline suggestion:
 “Automazioni e Assistenti AI che trasformano richieste in clienti, 24/7.”
 Subheadline (1–2 lines): explain that Gianluca helps businesses capture and qualify leads via website chatbots, WhatsApp assistants, phone AI agents, plus modern websites and SEO.
-Primary CTA: “Richiedi una demo”
+Primary CTA: “Richiedi una demo gratuita”
 Secondary CTA: “Vedi i servizi”
 Add 3 quick benefit bullets:
 
