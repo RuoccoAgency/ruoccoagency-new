@@ -1,6 +1,7 @@
 import { content } from "@/content/it";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 export function About() {
   return (
@@ -16,19 +17,21 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="w-full md:w-1/2 max-w-md relative"
           >
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-white/5 border border-white/10 relative group shadow-2xl">
-              {/* Glowing Border Effect */}
-              <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-secondary opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
-              
-              <img 
-                src="/gianluca-profile.jpg" 
-                alt="Gianluca Ruocco" 
-                className="w-full h-full object-cover relative z-10 bg-muted transition-transform duration-700 group-hover:scale-105"
-                onError={(e) => {
-                  e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"; // Fallback to a professional stock photo if local file missing
-                }}
-              />
-            </div>
+            <TiltCard intensity={10}>
+              <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-white/5 border border-white/10 relative group shadow-2xl">
+                {/* Glowing Border Effect */}
+                <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-secondary opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
+                
+                <img 
+                  src="/gianluca-profile.jpg" 
+                  alt="Gianluca Ruocco" 
+                  className="w-full h-full object-cover relative z-10 bg-muted transition-transform duration-700 group-hover:scale-105"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"; // Fallback to a professional stock photo if local file missing
+                  }}
+                />
+              </div>
+            </TiltCard>
           </motion.div>
 
           {/* Text Content */}
@@ -50,7 +53,7 @@ export function About() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Founder of RuoccoAgency
+              Founder
             </motion.div>
             
             <Reveal delay={0.1}>

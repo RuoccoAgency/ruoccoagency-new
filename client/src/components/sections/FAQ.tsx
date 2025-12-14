@@ -7,10 +7,14 @@ import {
 } from "@/components/ui/accordion";
 import { motion } from "framer-motion";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
+import { FloatingShape } from "@/components/ui/FloatingShape";
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-24 relative">
+    <section id="faq" className="py-24 relative overflow-hidden">
+       <FloatingShape type="circle" size={500} color="bg-secondary" className="top-0 -left-40 opacity-10 blur-[120px]" duration={25} />
+       <FloatingShape type="ring" size={150} color="border-primary" className="bottom-20 right-10 opacity-10" duration={20} delay={1} />
+
       <div className="container mx-auto px-4 max-w-3xl relative z-10">
         <div className="text-center mb-16">
           <Reveal width="100%">

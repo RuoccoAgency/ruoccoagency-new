@@ -1,6 +1,7 @@
 import { content } from "@/content/it";
 import { motion, useScroll, useTransform, useMotionValue, useMotionValueEvent } from "framer-motion";
 import { useRef } from "react";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 export function HowItWorks() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -57,20 +58,22 @@ export function HowItWorks() {
               >
                 {/* Content Card */}
                 <div className="flex-1 w-full text-center md:text-left">
-                  <div className={`group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] backdrop-blur-sm shadow-lg hover:shadow-primary/10 ${
-                     index % 2 === 0 ? "md:text-right" : "md:text-left"
-                  }`}>
-                    <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"} justify-center md:justify-start`}>
-                      <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
-                         <span className="text-lg font-bold text-primary font-display">{index + 1}</span>
+                  <TiltCard>
+                    <div className={`group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] backdrop-blur-sm shadow-lg hover:shadow-primary/10 ${
+                       index % 2 === 0 ? "md:text-right" : "md:text-left"
+                    }`}>
+                      <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"} justify-center md:justify-start`}>
+                        <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
+                           <span className="text-lg font-bold text-primary font-display">{index + 1}</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                          {step.title}
+                        </h3>
                       </div>
-                      <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                        {step.title}
-                      </h3>
+                      
+                      <p className="text-muted-foreground leading-relaxed">{step.description}</p>
                     </div>
-                    
-                    <p className="text-muted-foreground leading-relaxed">{step.description}</p>
-                  </div>
+                  </TiltCard>
                 </div>
 
                 {/* Center Node */}

@@ -18,6 +18,7 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Reveal } from "@/components/ui/Reveal";
+import { TiltCard } from "@/components/ui/TiltCard";
 
 const formSchema = z.object({
   name: z.string().min(2, "Il nome deve essere di almeno 2 caratteri"),
@@ -79,128 +80,132 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="bg-card/50 border border-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-2xl hover:shadow-primary/5 transition-shadow duration-500"
         >
-          {isSuccess ? (
-            <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
-              <motion.div 
-                initial={{ scale: 0 }} 
-                animate={{ scale: 1 }} 
-                className="h-16 w-16 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 mb-4"
-              >
-                <CheckCircle2 className="h-8 w-8" />
-              </motion.div>
-              <h3 className="text-2xl font-bold text-white">Grazie!</h3>
-              <p className="text-muted-foreground text-lg max-w-md">
-                {content.contact.form.success}
-              </p>
-              <Button 
-                variant="outline" 
-                className="mt-6 hover:bg-white/10"
-                onClick={() => {
-                  setIsSuccess(false);
-                  form.reset();
-                }}
-              >
-                Invia un'altra richiesta
-              </Button>
+          <TiltCard intensity={5}>
+            <div className="bg-card/50 border border-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-2xl hover:shadow-primary/5 transition-shadow duration-500">
+              {isSuccess ? (
+                <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
+                  <motion.div 
+                    initial={{ scale: 0 }} 
+                    animate={{ scale: 1 }} 
+                    className="h-16 w-16 rounded-full bg-green-500/10 flex items-center justify-center text-green-500 mb-4"
+                  >
+                    <CheckCircle2 className="h-8 w-8" />
+                  </motion.div>
+                  <h3 className="text-2xl font-bold text-white">Grazie!</h3>
+                  <p className="text-muted-foreground text-lg max-w-md">
+                    {content.contact.form.success}
+                  </p>
+                  <Button 
+                    variant="outline" 
+                    className="mt-6 hover:bg-white/10"
+                    onClick={() => {
+                      setIsSuccess(false);
+                      form.reset();
+                    }}
+                  >
+                    Invia un'altra richiesta
+                  </Button>
+                </div>
+              ) : (
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">{content.contact.form.name}</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Mario Rossi" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">{content.contact.form.email}</FormLabel>
+                            <FormControl>
+                              <Input placeholder="mario@azienda.com" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">{content.contact.form.phone}</FormLabel>
+                            <FormControl>
+                              <Input placeholder="+39 333 1234567" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="type"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">{content.contact.form.type}</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Studio Legale, E-commerce, ecc." {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white">{content.contact.form.message}</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Descrivi brevemente di cosa hai bisogno..." 
+                              className="min-h-[120px] bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 resize-none transition-colors" 
+                              {...field} 
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <Button 
+                      type="submit" 
+                      disabled={isSubmitting}
+                      className="w-full h-12 text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(140,82,255,0.3)] hover:shadow-[0_0_30px_rgba(140,82,255,0.5)] active:scale-[0.98] transition-all duration-300 relative overflow-hidden group"
+                    >
+                      <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                          Invio in corso...
+                        </>
+                      ) : (
+                        content.contact.form.submit
+                      )}
+                    </Button>
+                  </form>
+                </Form>
+              )}
             </div>
-          ) : (
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">{content.contact.form.name}</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Mario Rossi" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">{content.contact.form.email}</FormLabel>
-                        <FormControl>
-                          <Input placeholder="mario@azienda.com" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">{content.contact.form.phone}</FormLabel>
-                        <FormControl>
-                          <Input placeholder="+39 333 1234567" {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="type"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">{content.contact.form.type}</FormLabel>
-                        <FormControl>
-                          <Input placeholder="Studio Legale, E-commerce, ecc." {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">{content.contact.form.message}</FormLabel>
-                      <FormControl>
-                        <Textarea 
-                          placeholder="Descrivi brevemente di cosa hai bisogno..." 
-                          className="min-h-[120px] bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 resize-none transition-colors" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <Button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full h-12 text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(140,82,255,0.3)] hover:shadow-[0_0_30px_rgba(140,82,255,0.5)] active:scale-[0.98] transition-all duration-300"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      Invio in corso...
-                    </>
-                  ) : (
-                    content.contact.form.submit
-                  )}
-                </Button>
-              </form>
-            </Form>
-          )}
+          </TiltCard>
         </motion.div>
       </div>
     </section>
