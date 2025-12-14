@@ -1,11 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { ParticlesBackground } from "@/components/ui/ParticlesBackground";
 import { servicesData } from "@/content/services";
 import { useRoute, useLocation } from "wouter";
-import { motion } from "framer-motion";
-import { Bot, MessageSquare, Phone, Globe, LucideIcon, ArrowRight, CheckCircle2, ChevronDown, ChevronLeft } from "lucide-react";
+import { motion, useScroll, useMotionValue, useMotionValueEvent } from "framer-motion";
+import { Bot, MessageSquare, Phone, Globe, LucideIcon, ArrowRight, CheckCircle2, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
@@ -24,6 +24,22 @@ export default function ServiceDetailPage() {
 
   const service = servicesData.find((s) => s.slug === slug);
 
+  // Timeline animation logic
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 80%", "end 50%"]
+  });
+
+  const scaleY = useMotionValue(0);
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    const currentMax = scaleY.get();
+    if (latest > currentMax) {
+      scaleY.set(latest);
+    }
+  });
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [slug]);
@@ -33,7 +49,7 @@ export default function ServiceDetailPage() {
       <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4">
         <h1 className="text-4xl font-bold mb-4 text-white">Servizio non trovato</h1>
         <p className="text-muted-foreground mb-8">Il servizio che stai cercando non esiste.</p>
-        <Button onClick={() => setLocation("/services")}>Torna ai servizi</Button>
+        <Button onClick={() => setLocation("/")}>Torna alla Home</Button>
       </div>
     );
   }
@@ -54,17 +70,15 @@ export default function ServiceDetailPage() {
             <div className="mb-8 flex items-center gap-2 text-sm text-muted-foreground">
               <button onClick={() => setLocation("/")} className="hover:text-white transition-colors">Home</button>
               <span>/</span>
-              <button onClick={() => setLocation("/services")} className="hover:text-white transition-colors">Servizi</button>
-              <span>/</span>
               <span className="text-primary">{service.title}</span>
             </div>
 
             <button 
-              onClick={() => setLocation("/services")}
+              onClick={() => setLocation("/")}
               className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors group"
             >
               <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-              Torna ai servizi
+              Torna alla Home
             </button>
 
             {/* Hero Section */}
@@ -172,47 +186,60 @@ export default function ServiceDetailPage() {
               </div>
             </div>
 
-            {/* Process Steps */}
+            {/* Process Steps - Matches HowItWorks timeline style */}
             <div className="mb-24">
               <Reveal>
                 <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-16 text-center">Come Funziona</h2>
               </Reveal>
-              <div className="relative max-w-4xl mx-auto">
-                {/* Line */}
-                <div className="absolute left-[20px] md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/50 to-transparent" />
+              <div ref={containerRef} className="relative max-w-5xl mx-auto">
+                {/* Vertical Line for Desktop - Animated */}
+                <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 hidden md:block bg-white/5">
+                   <motion.div 
+                     style={{ scaleY, originY: 0 }}
+                     className="absolute top-0 left-0 right-0 w-full h-full bg-gradient-to-b from-secondary via-primary to-secondary shadow-[0_0_30px_hsla(var(--primary),1),0_0_60px_hsla(var(--primary),0.8)] drop-shadow-[0_0_15px_hsla(var(--secondary),1)]"
+                   >
+                      <div className="absolute inset-0 bg-primary/50 blur-md -z-10" />
+                   </motion.div>
+                </div>
                 
-                <div className="space-y-12">
+                <div className="space-y-12 md:space-y-24">
                   {service.processSteps.map((step, index) => (
                     <motion.div 
                       key={index}
-                      initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      className={`flex flex-col md:flex-row gap-8 md:items-center ${index % 2 === 0 ? "md:flex-row-reverse" : ""}`}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-100px" }}
+                      transition={{ delay: index * 0.2, duration: 0.6, type: "spring", stiffness: 50 }}
+                      className={`flex flex-col md:flex-row items-center gap-8 md:gap-12 ${
+                        index % 2 === 0 ? "md:flex-row-reverse" : ""
+                      }`}
                     >
-                      <div className="flex-1 md:text-right pl-12 md:pl-0">
-                        {index % 2 === 0 && (
-                           <div className="md:pr-12">
-                             <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                             <p className="text-muted-foreground">{step.description}</p>
-                           </div>
-                        )}
-                        {index % 2 !== 0 && <div className="hidden md:block" />}
+                      {/* Content Card */}
+                      <div className="flex-1 w-full text-center md:text-left">
+                        <div className={`group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] backdrop-blur-sm shadow-lg hover:shadow-primary/10 ${
+                           index % 2 === 0 ? "md:text-right" : "md:text-left"
+                        }`}>
+                          <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"} justify-center md:justify-start`}>
+                            <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">
+                               <span className="text-lg font-bold text-primary font-display">{index + 1}</span>
+                            </div>
+                            <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                              {step.title}
+                            </h3>
+                          </div>
+                          
+                          <p className="text-muted-foreground leading-relaxed">{step.description}</p>
+                        </div>
                       </div>
                       
-                      <div className="absolute left-0 md:left-1/2 w-10 h-10 -translate-x-1/2 flex items-center justify-center bg-background border border-primary/50 rounded-full z-10 shadow-[0_0_15px_rgba(124,58,237,0.4)]">
-                        <div className="w-3 h-3 bg-primary rounded-full" />
+                      {/* Center Node */}
+                      <div className="relative flex items-center justify-center w-12 h-12 shrink-0 z-20">
+                        <div className="w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(124,58,237,0.5)] z-10 ring-4 ring-background" />
+                        <div className="absolute w-12 h-12 rounded-full bg-primary/20 animate-pulse" />
                       </div>
 
-                      <div className="flex-1 pl-12 md:pl-0">
-                        {index % 2 !== 0 && (
-                           <div className="md:pl-12">
-                             <h3 className="text-xl font-bold text-white mb-2">{step.title}</h3>
-                             <p className="text-muted-foreground">{step.description}</p>
-                           </div>
-                        )}
-                        {index % 2 === 0 && <div className="hidden md:block" />}
-                      </div>
+                      {/* Empty Space for alignment */}
+                      <div className="flex-1 hidden md:block" />
                     </motion.div>
                   ))}
                 </div>
