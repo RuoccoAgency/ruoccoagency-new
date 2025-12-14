@@ -8,10 +8,12 @@ import {
 import { motion } from "framer-motion";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
 import { FloatingShape } from "@/components/ui/FloatingShape";
+import { NeonTiltCard } from "@/components/ui/NeonTiltCard";
+import { SectionPortal } from "@/components/ui/SectionPortal";
 
 export function FAQ() {
   return (
-    <section id="faq" className="py-24 relative overflow-hidden">
+    <SectionPortal id="faq" className="py-24 relative overflow-hidden">
        <FloatingShape type="circle" size={500} color="bg-secondary" className="top-0 -left-40 opacity-10 blur-[120px]" duration={25} />
        <FloatingShape type="ring" size={150} color="border-primary" className="bottom-20 right-10 opacity-10" duration={20} delay={1} />
 
@@ -28,22 +30,24 @@ export function FAQ() {
           <Accordion type="single" collapsible className="w-full space-y-4">
             {content.faq.items.map((item, index) => (
               <StaggerItem key={index}>
-                <AccordionItem 
-                  value={`item-${index}`}
-                  className="border border-white/10 bg-white/5 rounded-lg px-4 overflow-hidden hover:bg-white/[0.07] transition-colors"
-                >
-                  <AccordionTrigger className="text-white hover:text-primary hover:no-underline text-left text-lg font-medium py-4">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-4 text-base leading-relaxed">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
+                <NeonTiltCard intensity={5}>
+                  <AccordionItem 
+                    value={`item-${index}`}
+                    className="border-none bg-transparent px-4 overflow-hidden"
+                  >
+                    <AccordionTrigger className="text-white hover:text-primary hover:no-underline text-left text-lg font-medium py-4">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground pb-4 text-base leading-relaxed">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                </NeonTiltCard>
               </StaggerItem>
             ))}
           </Accordion>
         </StaggerContainer>
       </div>
-    </section>
+    </SectionPortal>
   );
 }

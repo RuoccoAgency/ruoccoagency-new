@@ -18,7 +18,8 @@ import { motion } from "framer-motion";
 import { CheckCircle2, Loader2, AlertCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { Reveal } from "@/components/ui/Reveal";
-import { TiltCard } from "@/components/ui/TiltCard";
+import { NeonTiltCard } from "@/components/ui/NeonTiltCard";
+import { SectionPortal } from "@/components/ui/SectionPortal";
 
 const formSchema = z.object({
   name: z.string().min(2, "Il nome deve essere di almeno 2 caratteri"),
@@ -61,7 +62,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-t from-black to-background relative">
+    <SectionPortal id="contact" className="py-24 bg-gradient-to-t from-black to-background relative">
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         
         <div className="text-center mb-16">
@@ -81,8 +82,8 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <TiltCard intensity={5}>
-            <div className="bg-card/50 border border-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm shadow-2xl hover:shadow-primary/5 transition-shadow duration-500">
+          <NeonTiltCard intensity={5}>
+            <div className="p-6 md:p-10 bg-transparent">
               {isSuccess ? (
                 <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
                   <motion.div 
@@ -205,9 +206,9 @@ export function Contact() {
                 </Form>
               )}
             </div>
-          </TiltCard>
+          </NeonTiltCard>
         </motion.div>
       </div>
-    </section>
+    </SectionPortal>
   );
 }

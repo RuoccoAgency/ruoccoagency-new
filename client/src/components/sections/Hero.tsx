@@ -1,53 +1,63 @@
 import { content } from "@/content/it";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import heroBg from "@assets/generated_images/futuristic_abstract_tech_background_with_neon_lines.png";
-import { FloatingShape } from "@/components/ui/FloatingShape";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+  
+  // Mouse parallax state
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const springConfig = { stiffness: 50, damping: 20 };
+  const mouseX = useSpring(0, springConfig);
+  const mouseY = useSpring(0, springConfig);
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { innerWidth, innerHeight } = window;
+      const x = (e.clientX - innerWidth / 2) / innerWidth;
+      const y = (e.clientY - innerHeight / 2) / innerHeight;
+      mouseX.set(x);
+      mouseY.set(y);
+    };
+    
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  const parallaxX = useTransform(mouseX, [-0.5, 0.5], [-20, 20]);
+  const parallaxY = useTransform(mouseY, [-0.5, 0.5], [-20, 20]);
 
   return (
     <section id="home" ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 perspective-1000">
       {/* Background with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/80 to-background z-10" />
-        <motion.div style={{ y }} className="w-full h-full">
+        <motion.div style={{ y: y1, x: parallaxX, scale: 1.1 }} className="w-full h-full">
           <img 
             src={heroBg} 
             alt="Abstract Tech Background" 
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-40"
           />
         </motion.div>
-        
-        {/* Floating 3D Shapes */}
-        <FloatingShape type="circle" size={300} color="bg-primary" className="top-1/4 -left-20 opacity-20 blur-[100px]" duration={10} />
-        <FloatingShape type="circle" size={400} color="bg-secondary" className="bottom-0 -right-20 opacity-20 blur-[120px]" duration={15} delay={2} />
-        <FloatingShape type="ring" size={100} color="border-primary" className="top-1/3 right-[10%] opacity-20" duration={20} delay={1} />
-        <FloatingShape type="ring" size={60} color="border-secondary" className="bottom-1/3 left-[15%] opacity-20" duration={18} delay={3} />
       </div>
 
       <motion.div 
-        style={{ opacity }}
+        style={{ y: y2, x: useTransform(parallaxX, v => -v) }}
         className="container mx-auto px-4 z-10 relative"
       >
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center perspective-1000">
           
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-primary text-sm font-medium mb-6 backdrop-blur-sm cursor-default"
+            initial={{ opacity: 0, rotateX: 20, z: -100 }}
+            animate={{ opacity: 1, rotateX: 0, z: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-primary text-sm font-medium mb-6 backdrop-blur-sm cursor-default hover:bg-white/10 transition-colors"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
@@ -56,29 +66,37 @@ export function Hero() {
             {content.hero.badge}
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20, rotateX: 10 }}
-            animate={{ opacity: 1, y: 0, rotateX: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, type: "spring" }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight text-white mb-6 leading-tight text-gradient-logo"
-            style={{ transformStyle: "preserve-3d" }}
-          >
-            {content.hero.headline}
-          </motion.h1>
+          <div className="relative inline-block mb-6">
+            <motion.h1
+              initial={{ opacity: 0, rotateX: 18, z: 60, y: 50 }}
+              animate={{ opacity: 1, rotateX: 0, z: 0, y: 0 }}
+              transition={{ duration: 1, delay: 0.2, type: "spring", stiffness: 40 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight text-white leading-tight text-gradient-logo relative z-10"
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              {content.hero.headline}
+            </motion.h1>
+            {/* Holographic Shimmer Overlay */}
+            <motion.div 
+              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent z-20 pointer-events-none mix-blend-overlay"
+              animate={{ x: ["-100%", "200%"] }}
+              transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 2 }}
+            />
+          </div>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0, rotateX: 12, z: 40, y: 30 }}
+            animate={{ opacity: 1, rotateX: 0, z: 0, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
             {content.hero.subheadline}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
           >
             <Button 
@@ -86,8 +104,11 @@ export function Hero() {
               className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white rounded-full px-8 h-12 text-base shadow-[0_0_20px_rgba(124,58,237,0.4)] hover:shadow-[0_0_40px_rgba(124,58,237,0.6)] transition-all relative overflow-hidden group"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
-              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 skew-x-12" />
-              <span className="relative z-10 flex items-center">
+              {/* Neon Sweep Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:animate-shine z-10" />
+              <div className="absolute inset-0 rounded-full border border-white/20 animate-pulse-slow" />
+              
+              <span className="relative z-20 flex items-center">
                 {content.hero.ctaPrimary}
                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </span>
@@ -105,14 +126,14 @@ export function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
             className="flex flex-wrap justify-center gap-4 md:gap-8"
           >
             {content.hero.benefits.map((benefit, index) => (
               <motion.div 
                 key={index} 
                 className="flex items-center gap-2 text-sm text-muted-foreground/80"
-                whileHover={{ scale: 1.05, color: "white" }}
+                whileHover={{ scale: 1.05, color: "white", textShadow: "0 0 8px rgba(255,255,255,0.5)" }}
               >
                 <CheckCircle2 className="h-4 w-4 text-secondary" />
                 <span>{benefit}</span>
