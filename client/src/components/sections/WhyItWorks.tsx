@@ -11,7 +11,7 @@ const iconMap: Record<number, LucideIcon> = {
 
 export function WhyItWorks() {
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-black relative overflow-hidden">
+    <section id="why-it-works" className="py-24 bg-gradient-to-b from-background to-black relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
       
       <div className="container mx-auto px-4 relative z-10">

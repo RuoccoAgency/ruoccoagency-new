@@ -7,9 +7,11 @@ export const content = {
     logo: "RuoccoAgency",
     links: [
       { label: "Home", href: "#home" },
+      { label: "Chi Sono", href: "#about" },
       { label: "Servizi", href: "#services" },
       { label: "Come Funziona", href: "#how-it-works" },
-      { label: "Chi Sono", href: "#about" },
+      { label: "Perché Funziona", href: "#why-it-works" },
+      { label: "Casi Studio", href: "#case-studies" },
       { label: "FAQ", href: "#faq" },
     ],
     cta: "Richiedi Demo",

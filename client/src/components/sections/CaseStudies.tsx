@@ -5,7 +5,7 @@ import { StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
 
 export function CaseStudies() {
   return (
-    <section className="py-24 relative">
+    <section id="case-studies" className="py-24 relative">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <motion.h2
