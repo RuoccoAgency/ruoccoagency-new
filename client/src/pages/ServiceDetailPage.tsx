@@ -246,30 +246,6 @@ export default function ServiceDetailPage() {
               </div>
             </div>
 
-            {/* FAQ Optional */}
-            {service.faq && service.faq.length > 0 && (
-              <div className="max-w-3xl mx-auto mb-24">
-                <Reveal>
-                  <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-12 text-center">Domande Frequenti</h2>
-                </Reveal>
-                <Accordion type="single" collapsible className="w-full space-y-4">
-                  {service.faq.map((item, index) => (
-                    <AccordionItem 
-                      key={index} 
-                      value={`item-${index}`}
-                      className="border border-white/10 bg-white/5 rounded-lg px-4 overflow-hidden hover:bg-white/[0.07] transition-colors"
-                    >
-                      <AccordionTrigger className="text-white hover:text-primary hover:no-underline text-left text-lg font-medium py-4">
-                        {item.question}
-                      </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground pb-4 text-base leading-relaxed">
-                        {item.answer}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
-              </div>
-            )}
 
             {/* Bottom CTA */}
             <div className="text-center bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-12 border border-white/10 relative overflow-hidden">

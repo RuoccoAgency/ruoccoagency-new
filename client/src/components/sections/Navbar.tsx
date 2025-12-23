@@ -4,11 +4,13 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { useLocation } from "wouter";
 import logo from "@assets/Progetto_senza_titolo_(8)_(1)_1765658448175.png";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +29,13 @@ export function Navbar() {
         top: offsetTop,
         behavior: "smooth"
       });
+      setMobileMenuOpen(false);
+    } else {
+      if (href.startsWith("#")) {
+        setLocation("/" + href);
+      } else {
+        setLocation(href);
+      }
       setMobileMenuOpen(false);
     }
   };
