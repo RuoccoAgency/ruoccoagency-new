@@ -54,8 +54,8 @@ export function Footer() {
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-muted-foreground">
           <p>{content.footer.rights}</p>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors">{content.footer.privacy}</a>
-            <a href="#" className="hover:text-white transition-colors">{content.footer.terms}</a>
+            <a href="/privacy-policy" className="hover:text-white transition-colors">{content.footer.privacy}</a>
+            <a href="/terms-of-service" className="hover:text-white transition-colors">{content.footer.terms}</a>
           </div>
         </div>
       </div>
