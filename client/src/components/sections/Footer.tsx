@@ -51,11 +51,14 @@ export function Footer() {
           </div>
         </div>
         
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-muted-foreground">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-muted-foreground text-xs md:text-sm">
           <p>{content.footer.rights}</p>
-          <div className="flex gap-6">
-            <a href="/privacy-policy" className="hover:text-white transition-colors">{content.footer.privacy}</a>
-            <a href="/terms-of-service" className="hover:text-white transition-colors">{content.footer.terms}</a>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6">
+            <a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</a>
+            <a href="/terms-of-service" className="hover:text-white transition-colors">Termini di Servizio</a>
+            <a href="/legal-notice" className="hover:text-white transition-colors">Note Legali</a>
+            <a href="/disclaimer" className="hover:text-white transition-colors">Disclaimer</a>
           </div>
         </div>
       </div>

@@ -9,6 +9,10 @@ import ServicesPage from "@/pages/ServicesPage";
 import ServiceDetailPage from "@/pages/ServiceDetailPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
+import CookiePolicy from "@/pages/CookiePolicy";
+import LegalNotice from "@/pages/LegalNotice";
+import Disclaimer from "@/pages/Disclaimer";
+import { CookieBanner } from "@/components/ui/CookieBanner";
 
 function Router() {
   return (
@@ -17,6 +21,9 @@ function Router() {
       <Route path="/services/:slug" component={ServiceDetailPage} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-of-service" component={TermsOfService} />
+      <Route path="/cookie-policy" component={CookiePolicy} />
+      <Route path="/legal-notice" component={LegalNotice} />
+      <Route path="/disclaimer" component={Disclaimer} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -28,6 +35,7 @@ function App() {
       <TooltipProvider>
         <Router />
         <Toaster />
+        <CookieBanner />
       </TooltipProvider>
     </QueryClientProvider>
   );

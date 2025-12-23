@@ -22,53 +22,46 @@ export default function TermsOfService() {
               <h1 className="text-4xl md:text-5xl font-bold font-display text-white mb-8 text-gradient-logo">Termini di Servizio</h1>
               
               <div className="prose prose-invert prose-lg max-w-none bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
-                <p>Ultimo aggiornamento: {new Date().toLocaleDateString('it-IT')}</p>
+                <p><strong>Ultimo aggiornamento:</strong> {new Date().toLocaleDateString('it-IT')}</p>
                 
                 <h3>1. Accettazione dei Termini</h3>
                 <p>
-                  Accedendo al sito web di RuoccoAgency, accetti di essere vincolato da questi termini di servizio, da tutte le leggi e i regolamenti applicabili e accetti di essere responsabile del rispetto di tutte le leggi locali applicabili. Se non sei d'accordo con uno qualsiasi di questi termini, ti è vietato utilizzare o accedere a questo sito.
+                  Accedendo e utilizzando il sito web RuoccoAgency, accetti di rispettare e di essere vincolato dai seguenti Termini di Servizio. 
+                  Se non accetti questi termini, ti invitiamo a non utilizzare il nostro sito.
                 </p>
 
-                <h3>2. Licenza d'Uso</h3>
+                <h3>2. Uso del Sito</h3>
                 <p>
-                  È concesso il permesso di scaricare temporaneamente una copia dei materiali (informazioni o software) sul sito web di RuoccoAgency solo per la visualizzazione transitoria personale e non commerciale. Questa è la concessione di una licenza, non un trasferimento di titolo, e sotto questa licenza non puoi:
-                </p>
-                <ul>
-                  <li>Modificare o copiare i materiali;</li>
-                  <li>Utilizzare i materiali per qualsiasi scopo commerciale o per qualsiasi esposizione pubblica (commerciale o non commerciale);</li>
-                  <li>Tentare di decompilare o risalire al codice sorgente di qualsiasi software contenuto sul sito web di RuoccoAgency;</li>
-                  <li>Rimuovere qualsiasi copyright o altra notazione proprietaria dai materiali; o</li>
-                  <li>Trasferire i materiali a un'altra persona o "rispecchiare" i materiali su qualsiasi altro server.</li>
-                </ul>
-
-                <h3>3. Disclaimer</h3>
-                <p>
-                  I materiali sul sito web di RuoccoAgency sono forniti "così come sono". RuoccoAgency non fornisce alcuna garanzia, espressa o implicita, e con la presente declina e nega tutte le altre garanzie, incluse, senza limitazioni, garanzie implicite o condizioni di commerciabilità, idoneità per un particolare scopo o non violazione della proprietà intellettuale o altra violazione dei diritti.
+                  Il contenuto di questo sito è fornito a scopo puramente informativo per illustrare i servizi professionali offerti. 
+                  L'uso del sito non crea alcun rapporto contrattuale di clientela o professionale tra l'utente e RuoccoAgency.
                 </p>
 
-                <h3>4. Limitazioni</h3>
+                <h3>3. Proprietà Intellettuale</h3>
                 <p>
-                  In nessun caso RuoccoAgency o i suoi fornitori saranno responsabili per eventuali danni (inclusi, senza limitazioni, danni per perdita di dati o profitti, o a causa di interruzione dell'attività) derivanti dall'uso o dall'impossibilità di utilizzare i materiali sul sito web di RuoccoAgency, anche se RuoccoAgency o un rappresentante autorizzato di RuoccoAgency è stato informato oralmente o per iscritto della possibilità di tali danni.
+                  Tutti i contenuti (testi, grafica, loghi, immagini, video) presenti sul sito sono di proprietà di RuoccoAgency o dei rispettivi proprietari e sono protetti dalle leggi sul diritto d'autore. 
+                  È vietata la riproduzione, distribuzione o modifica senza autorizzazione scritta.
                 </p>
 
-                <h3>5. Accuratezza dei Materiali</h3>
+                <h3>4. Limitazione di Responsabilità</h3>
                 <p>
-                  I materiali che appaiono sul sito web di RuoccoAgency potrebbero includere errori tecnici, tipografici o fotografici. RuoccoAgency non garantisce che nessuno dei materiali sul suo sito web sia accurato, completo o aggiornato. RuoccoAgency può apportare modifiche ai materiali contenuti sul suo sito web in qualsiasi momento senza preavviso. Tuttavia, RuoccoAgency non si impegna ad aggiornare i materiali.
+                  RuoccoAgency non sarà responsabile per danni diretti, indiretti, incidentali o consequenziali derivanti dall'uso o dall'impossibilità di utilizzare il sito. 
+                  Non garantiamo che il sito sia privo di errori, virus o interruzioni.
                 </p>
 
-                <h3>6. Link</h3>
+                <h3>5. Link a Terze Parti</h3>
                 <p>
-                  RuoccoAgency non ha esaminato tutti i siti collegati al suo sito web e non è responsabile per i contenuti di tali siti collegati. L'inclusione di qualsiasi link non implica l'approvazione da parte di RuoccoAgency del sito. L'uso di tali siti web collegati è a rischio dell'utente.
+                  Il sito può contenere link a siti web esterni. RuoccoAgency non ha alcun controllo su tali siti e non si assume alcuna responsabilità per i loro contenuti o le loro pratiche sulla privacy.
                 </p>
 
-                <h3>7. Modifiche</h3>
+                <h3>6. Modifiche ai Termini</h3>
                 <p>
-                  RuoccoAgency può rivedere questi termini di servizio per il suo sito web in qualsiasi momento senza preavviso. Utilizzando questo sito web, accetti di essere vincolato dalla versione corrente di questi termini di servizio.
+                  Ci riserviamo il diritto di modificare questi Termini di Servizio in qualsiasi momento. Le modifiche saranno effettive immediatamente dopo la pubblicazione sul sito. 
+                  L'uso continuato del sito dopo tali modifiche costituisce accettazione dei nuovi termini.
                 </p>
 
-                <h3>8. Legge Applicabile</h3>
+                <h3>7. Legge Applicabile</h3>
                 <p>
-                  Questi termini e condizioni sono governati e interpretati in conformità con le leggi italiane e ti sottoponi irrevocabilmente alla giurisdizione esclusiva dei tribunali in quello Stato o località.
+                  Questi termini sono regolati dalle leggi dello Stato Italiano. Per qualsiasi controversia sarà competente in via esclusiva il Foro di residenza del titolare.
                 </p>
               </div>
             </motion.div>

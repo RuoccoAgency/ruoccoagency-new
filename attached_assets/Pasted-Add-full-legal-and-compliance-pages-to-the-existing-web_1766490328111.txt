@@ -1,0 +1,59 @@
+Add full legal and compliance pages to the existing website project.
+
+IMPORTANT:
+- Do NOT change the current design, layout, colors or animations.
+- Just integrate the legal pages cleanly and professionally.
+- Website language: ITALIAN.
+- This is a personal / professional showcase website (not an e-commerce).
+
+PAGES TO ADD:
+
+1. Privacy Policy (GDPR compliant – EU)
+   - Explain what personal data is collected (contact form, email, basic analytics if present).
+   - Identify the website owner as a freelance professional.
+   - Include user rights under GDPR (access, modification, deletion).
+   - Mention third-party services ONLY as generic placeholders (e.g. analytics, hosting).
+   - Write in clear, simple Italian.
+
+2. Cookie Policy
+   - Explain what cookies are.
+   - Include technical cookies and possible analytics cookies.
+   - Describe duration and purpose.
+   - Link clearly to the Privacy Policy.
+
+3. Terms of Service
+   - Define website usage rules.
+   - State that contents are informational and non-binding.
+   - Limit liability.
+   - Clarify that no contractual relationship is created through the site alone.
+
+4. Legal Notice / Note Legali
+   - Website owner information (use placeholder name and city).
+   - Contact email placeholder.
+   - Purpose of the website.
+
+5. Disclaimer
+   - Clarify that content is for informational purposes only.
+   - No guarantees on results or availability.
+
+INTEGRATION REQUIREMENTS:
+- Add links to all legal pages in the website footer:
+  Privacy Policy | Cookie Policy | Termini di Servizio | Note Legali
+- Ensure all pages are accessible and responsive.
+- Keep typography elegant and consistent with the existing site.
+- No backend logic required.
+
+COOKIE CONSENT:
+- Add a simple cookie consent banner (frontend only).
+- Allow Accept / Reject buttons.
+- Store consent locally (localStorage is enough).
+- Banner text in Italian.
+
+DO NOT:
+- Add e-commerce features.
+- Add payments.
+- Add authentication.
+- Overcomplicate legal language.
+
+GOAL:
+Make the website look professional, compliant, and trustworthy without changing its visual identity.
