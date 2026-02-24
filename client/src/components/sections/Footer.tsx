@@ -1,5 +1,5 @@
 import { useLanguage } from "@/hooks/useLanguage";
-import logo from "@assets/Progetto_senza_titolo_(8)_(1)_1765658448175.png";
+import logo from "@/assets/logo.png";
 
 export function Footer() {
   const { content } = useLanguage();
