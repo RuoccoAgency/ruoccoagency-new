@@ -1,16 +1,23 @@
 import { useState, useEffect } from "react";
-import { content } from "@/content/it";
+import { useLanguage } from "@/hooks/useLanguage";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useLocation } from "wouter";
 import logo from "@assets/Progetto_senza_titolo_(8)_(1)_1765658448175.png";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [, setLocation] = useLocation();
+  const { content, language, setLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,6 +92,29 @@ export function Navbar() {
           >
             {content.nav.cta}
           </Button>
+
+          {/* Language Switcher */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="h-10 w-10 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:text-white transition-colors">
+                <span className="text-lg leading-none">{language === "it" ? "🇮🇹" : "🇬🇧"}</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-32 bg-background border-white/10">
+              <DropdownMenuItem 
+                onClick={() => setLanguage("it")}
+                className="cursor-pointer hover:bg-white/5 hover:text-white"
+              >
+                <span className="mr-2 text-lg leading-none">🇮🇹</span> Italiano
+              </DropdownMenuItem>
+              <DropdownMenuItem 
+                onClick={() => setLanguage("en")}
+                className="cursor-pointer hover:bg-white/5 hover:text-white"
+              >
+                <span className="mr-2 text-lg leading-none">🇬🇧</span> English
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
 
         {/* Mobile Toggle */}
@@ -116,6 +146,25 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
+              
+              {/* Mobile Language Switcher */}
+              <div className="flex gap-4 py-2 border-b border-white/5">
+                <Button 
+                  variant="ghost" 
+                  className={cn("flex-1 justify-start", language === "it" && "bg-white/10")} 
+                  onClick={() => { setLanguage("it"); setMobileMenuOpen(false); }}
+                >
+                  <span className="mr-2 text-lg leading-none">🇮🇹</span> Italiano
+                </Button>
+                <Button 
+                  variant="ghost" 
+                  className={cn("flex-1 justify-start", language === "en" && "bg-white/10")} 
+                  onClick={() => { setLanguage("en"); setMobileMenuOpen(false); }}
+                >
+                  <span className="mr-2 text-lg leading-none">🇬🇧</span> English
+                </Button>
+              </div>
+
               <Button 
                 className="w-full bg-primary mt-4"
                 onClick={(e) => {

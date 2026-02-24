@@ -1,4 +1,4 @@
-import { content } from "@/content/it";
+import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
 import { Clock, Zap, Target, LucideIcon } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
@@ -10,6 +10,8 @@ const iconMap: Record<number, LucideIcon> = {
 };
 
 export function WhyItWorks() {
+  const { content } = useLanguage();
+  
   return (
     <section id="why-it-works" className="py-24 bg-gradient-to-b from-background to-black relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>

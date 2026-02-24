@@ -1,4 +1,4 @@
-import { content } from "@/content/it";
+import { useLanguage } from "@/hooks/useLanguage";
 import {
   Accordion,
   AccordionContent,
@@ -9,6 +9,8 @@ import { motion } from "framer-motion";
 import { Reveal, StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
 
 export function FAQ() {
+  const { content } = useLanguage();
+  
   return (
     <section id="faq" className="py-24 relative">
       <div className="container mx-auto px-4 max-w-3xl relative z-10">

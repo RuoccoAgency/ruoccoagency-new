@@ -177,7 +177,7 @@ export const content = {
     },
   },
   footer: {
-    rights: "© 2025 RuoccoAgency. Tutti i diritti riservati.",
+    rights: "© 2026 RuoccoAgency. Tutti i diritti riservati.",
     privacy: "Privacy Policy",
     terms: "Termini di Servizio",
   },

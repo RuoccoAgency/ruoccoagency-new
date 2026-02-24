@@ -1,9 +1,11 @@
-import { content } from "@/content/it";
+import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
 
 export function CaseStudies() {
+  const { content } = useLanguage();
+  
   return (
     <section id="case-studies" className="py-24 relative">
       <div className="container mx-auto px-4 relative z-10">

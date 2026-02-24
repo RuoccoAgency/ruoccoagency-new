@@ -1,8 +1,10 @@
-import { content } from "@/content/it";
+import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function About() {
+  const { content } = useLanguage();
+  
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4">

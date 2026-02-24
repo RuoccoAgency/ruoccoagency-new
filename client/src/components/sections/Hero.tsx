@@ -1,10 +1,12 @@
-import { content } from "@/content/it";
+import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import heroBg from "@assets/generated_images/futuristic_abstract_tech_background_with_neon_lines.png";
 
 export function Hero() {
+  const { content } = useLanguage();
+  
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background with Overlay */}

@@ -1,4 +1,4 @@
-import { content } from "@/content/it";
+import { useLanguage } from "@/hooks/useLanguage";
 import { Bot, MessageSquare, Phone, Globe, LucideIcon, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
@@ -14,6 +14,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export function Services() {
   const [, setLocation] = useLocation();
+  const { content } = useLanguage();
 
   // Match existing services content to the detailed data to get slugs
   const servicesWithSlugs = content.services.items.map((item, index) => {

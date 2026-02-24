@@ -1,8 +1,9 @@
-import { content } from "@/content/it";
+import { useLanguage } from "@/hooks/useLanguage";
 import { motion, useScroll, useTransform, useMotionValue, useMotionValueEvent } from "framer-motion";
 import { useRef } from "react";
 
 export function HowItWorks() {
+  const { content } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,

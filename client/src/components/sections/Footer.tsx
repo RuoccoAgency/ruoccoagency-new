@@ -1,7 +1,9 @@
-import { content } from "@/content/it";
+import { useLanguage } from "@/hooks/useLanguage";
 import logo from "@assets/Progetto_senza_titolo_(8)_(1)_1765658448175.png";
 
 export function Footer() {
+  const { content } = useLanguage();
+  
   return (
     <footer className="bg-black py-12 border-t border-white/10 text-sm">
       <div className="container mx-auto px-4">
