@@ -97,21 +97,23 @@ export function Navbar() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon" className="h-10 w-10 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 hover:text-white transition-colors">
-                <span className="text-lg leading-none">{language === "it" ? "🇮🇹" : "🇬🇧"}</span>
+                <span className="text-xl leading-none">{language === "it" ? "🇮🇹" : "🇬🇧"}</span>
               </Button>
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-32 bg-background border-white/10">
+            <DropdownMenuContent align="end" className="w-40 bg-background/95 backdrop-blur-md border-white/10">
               <DropdownMenuItem 
                 onClick={() => setLanguage("it")}
-                className="cursor-pointer hover:bg-white/5 hover:text-white"
+                className="cursor-pointer hover:bg-white/5 focus:bg-white/10 transition-colors py-2"
               >
-                <span className="mr-2 text-lg leading-none">🇮🇹</span> Italiano
+                <span className="mr-3 text-xl leading-none">🇮🇹</span>
+                <span className="font-medium">Italiano</span>
               </DropdownMenuItem>
               <DropdownMenuItem 
                 onClick={() => setLanguage("en")}
-                className="cursor-pointer hover:bg-white/5 hover:text-white"
+                className="cursor-pointer hover:bg-white/5 focus:bg-white/10 transition-colors py-2"
               >
-                <span className="mr-2 text-lg leading-none">🇬🇧</span> English
+                <span className="mr-3 text-xl leading-none">🇬🇧</span>
+                <span className="font-medium">English</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
