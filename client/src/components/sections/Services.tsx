@@ -54,27 +54,24 @@ export function Services() {
             return (
               <StaggerItem
                 key={index}
-                className="group p-8 rounded-[2rem] bg-gradient-to-br from-white/5 to-transparent border border-white/10 hover:border-primary/50 transition-all duration-500 hover:bg-white/[0.08] backdrop-blur-md hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex flex-col relative overflow-hidden"
+                className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] backdrop-blur-sm hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 flex flex-col"
               >
-                {/* Decorative background glow */}
-                <div className="absolute -right-20 -top-20 h-40 w-40 bg-primary/10 blur-[80px] group-hover:bg-primary/20 transition-colors duration-500" />
-                
-                <div className="h-14 w-14 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-lg border border-white/5">
-                  <Icon className="h-7 w-7 text-white group-hover:text-primary transition-colors" />
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors group-hover:scale-110 duration-300">
+                  <Icon className="h-6 w-6 text-primary" />
                 </div>
                 
-                <h3 className="text-2xl font-black text-white mb-4 group-hover:text-primary transition-colors tracking-tight">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-muted-foreground mb-8 leading-relaxed flex-grow text-base">
+                <p className="text-muted-foreground mb-6 leading-relaxed flex-grow">
                   {service.description}
                 </p>
 
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-2 mb-6">
                   {service.features.map((feature, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm font-medium text-white/60 group-hover:text-white/90 transition-colors">
-                      <div className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(140,82,255,0.8)]" />
+                    <li key={i} className="flex items-center gap-2 text-sm text-white/70">
+                      <div className="h-1.5 w-1.5 rounded-full bg-secondary" />
                       {feature}
                     </li>
                   ))}
@@ -82,10 +79,10 @@ export function Services() {
 
                 <button
                   onClick={() => setLocation(`/services/${service.slug}`)}
-                  className="inline-flex items-center gap-2 text-primary font-bold hover:text-white transition-all group/btn mt-auto uppercase tracking-widest text-xs"
+                  className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary/80 transition-colors group/btn mt-auto"
                 >
-                  Dettagli Servizio
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-2" />
+                  Scopri di più
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                 </button>
               </StaggerItem>
             );
