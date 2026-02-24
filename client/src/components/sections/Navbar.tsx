@@ -156,14 +156,14 @@ export function Navbar() {
                   className={cn("flex-1 justify-start", language === "it" && "bg-white/10")} 
                   onClick={() => { setLanguage("it"); setMobileMenuOpen(false); }}
                 >
-                  <span className="mr-2 text-lg leading-none">🇮🇹</span> Italiano
+                  <span className="mr-2 text-xl leading-none">🇮🇹</span> Italiano
                 </Button>
                 <Button 
                   variant="ghost" 
                   className={cn("flex-1 justify-start", language === "en" && "bg-white/10")} 
                   onClick={() => { setLanguage("en"); setMobileMenuOpen(false); }}
                 >
-                  <span className="mr-2 text-lg leading-none">🇬🇧</span> English
+                  <span className="mr-2 text-xl leading-none">🇬🇧</span> English
                 </Button>
               </div>
 
