@@ -63,6 +63,24 @@ export function CaseStudies() {
                   <p className="text-3xl font-black text-primary italic tracking-tight">
                     {item.stat}
                   </p>
+
+                  <div className="mt-4 flex items-center gap-2 text-white/60 group-hover:text-primary transition-colors duration-300">
+                    <span className="text-xs font-bold uppercase tracking-widest">Visualizza Progetto</span>
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="3" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                    </svg>
+                  </div>
                 </div>
 
                 {/* Glow effect on hover */}
