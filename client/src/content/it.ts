@@ -101,20 +101,21 @@ export const content = {
     subtitle: "I nostri lavori recenti",
     items: [
       {
-        title: "[Nome del tuo Sito]",
-        stat: "Sito Vetrina Completo",
+        title: "Vipiesse Ingrosso | Ciabatte e Pantofole",
+        stat: "E-commerce",
         badge: "Web Design",
-        location: "La tua Città, IT",
+        location: "Napoli, IT",
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop", // Immagine segnaposto
+        url: "https://vipiesse.com",
       },
       {
-        title: "Clinica Privata",
-        stat: "-80% Chiamate Perse",
+        title: "WLD Events ",
+        stat: "Sito Vetrina Completo",
         badge: "Coming Soon",
       },
       {
-        title: "Servizi Locali",
-        stat: "Lead Qualificati",
+        title: "Wedding Planner",
+        stat: "Sito Vetrina Completo",
         badge: "Coming Soon",
       },
     ],
