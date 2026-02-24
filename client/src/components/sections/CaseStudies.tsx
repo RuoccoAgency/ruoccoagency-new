@@ -21,16 +21,22 @@ export function CaseStudies() {
           </p>
         </div>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {content.caseStudies.items.map((item, index) => (
-            <StaggerItem key={index}>
+            <StaggerItem key={index} className={index === 0 ? "md:col-span-2" : ""}>
               <motion.div
-                whileHover={{ y: -10, scale: 1.02 }}
-                initial={{ opacity: 0, y: 30 }}
+                whileHover={{ 
+                  y: -15, 
+                  rotateX: 2, 
+                  rotateY: -2,
+                  transition: { duration: 0.4, ease: "easeOut" }
+                }}
+                initial={{ opacity: 0, y: 50, perspective: 1000 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group relative h-[500px] rounded-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-sm hover:border-primary/50 transition-all cursor-pointer shadow-2xl shadow-black/50"
+                transition={{ duration: 0.7, delay: index * 0.1 }}
+                className="group relative h-[550px] rounded-[2.5rem] overflow-hidden border border-white/20 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl transition-all cursor-pointer shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:shadow-primary/20 hover:border-primary/50"
+                style={{ transformStyle: "preserve-3d" }}
                 onClick={() => {
                   if (item.url) {
                     window.open(item.url, "_blank", "noopener,noreferrer");
@@ -39,48 +45,57 @@ export function CaseStudies() {
               >
                 {item.image && (
                   <div
-                    className="absolute inset-0 bg-cover bg-top transition-transform duration-1000 group-hover:scale-110 group-hover:bg-center"
-                    style={{ backgroundImage: `url(${item.image})` }}
+                    className="absolute inset-0 bg-cover bg-top transition-transform duration-[1.5s] ease-out group-hover:scale-110"
+                    style={{ 
+                      backgroundImage: `url(${item.image})`,
+                      transform: "translateZ(-10px)"
+                    }}
                   />
                 )}
 
-                {/* Overlay with glass effect on hover */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent z-10" />
-                <div className="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 z-20 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                  <div className="flex justify-between items-center mb-4">
+                {/* Depth layers for 3D effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent z-10" />
+                
+                {/* Content with 3D translation */}
+                <div 
+                  className="absolute bottom-0 left-0 right-0 p-10 z-20 transform transition-all duration-500 group-hover:translate-z-20"
+                  style={{ transform: "translateZ(30px)" }}
+                >
+                  <div className="flex justify-between items-center mb-6">
                     <Badge
                       variant="secondary"
-                      className="bg-primary/20 text-primary hover:bg-primary/30 border-primary/20 backdrop-blur-xl px-4 py-1.5 text-sm font-semibold"
+                      className="bg-primary/30 text-primary-foreground hover:bg-primary/40 border-primary/30 backdrop-blur-2xl px-6 py-2 text-sm font-bold uppercase tracking-widest"
                     >
                       {item.badge}
                     </Badge>
 
                     {item.location && (
-                      <span className="text-sm text-white/80 font-medium bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-xl border border-white/10">
+                      <span className="text-sm text-white/90 font-bold bg-white/10 px-4 py-2 rounded-full backdrop-blur-2xl border border-white/10 shadow-inner">
                         📍 {item.location}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 leading-tight group-hover:text-primary transition-colors">
+                  <h3 className="text-3xl md:text-5xl font-black text-white mb-3 leading-none group-hover:text-primary transition-colors drop-shadow-2xl">
                     {item.title}
                   </h3>
-                  <p className="text-3xl md:text-4xl font-extrabold text-primary text-glow tracking-tight">
+                  <p className="text-4xl md:text-6xl font-black text-primary text-glow-lg tracking-tighter italic">
                     {item.stat}
                   </p>
                   
                   {/* View Project indicator */}
-                  <div className="mt-6 flex items-center gap-2 text-white/0 group-hover:text-white/100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                    <span className="text-sm font-bold uppercase tracking-widest">Vedi Progetto</span>
-                    <div className="h-[1px] w-12 bg-primary" />
+                  <div className="mt-10 flex items-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-8 group-hover:translate-y-0">
+                    <span className="text-sm font-black uppercase tracking-[0.3em] text-white">Esplora Progetto</span>
+                    <motion.div 
+                      animate={{ x: [0, 10, 0] }}
+                      transition={{ repeat: Infinity, duration: 1.5 }}
+                      className="h-[2px] w-20 bg-primary shadow-[0_0_15px_rgba(var(--primary),0.8)]" 
+                    />
                   </div>
                 </div>
 
-                {/* Shine effect on hover */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 bg-gradient-to-tr from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full pointer-events-none transform skew-x-12" />
+                {/* 3D Reflection/Glass effect */}
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-1000 bg-gradient-to-br from-white via-transparent to-transparent pointer-events-none" />
               </motion.div>
             </StaggerItem>
           ))}
