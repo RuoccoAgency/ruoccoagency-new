@@ -1,3 +1,5 @@
+import vipiesseImage from "@/assets/Screenshot_2026-02-24_181322_1771953306043.png";
+
 export const content = {
   meta: {
     title: "RuoccoAgency | Automazioni e Assistenti AI",
@@ -105,7 +107,7 @@ export const content = {
         stat: "E-commerce",
         badge: "Web Design",
         location: "Napoli, IT",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop", // Immagine segnaposto
+        image: vipiesseImage,
         url: "https://vipiesse.com",
       },
       {

@@ -35,7 +35,7 @@ export function CaseStudies() {
                 {item.image && (
                   <div
                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                    style={{ backgroundImage: `url(${item.image})` }}
+                    style={{ backgroundImage: url(${item.image}) }}
                   />
                 )}
 
