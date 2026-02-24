@@ -98,12 +98,14 @@ export const content = {
   },
   caseStudies: {
     title: "Casi Studio",
-    subtitle: "Risultati reali (In arrivo)",
+    subtitle: "I nostri lavori recenti",
     items: [
       {
-        title: "Studio Dentistico",
-        stat: "+30% Richieste",
-        badge: "Coming Soon",
+        title: "[Nome del tuo Sito]",
+        stat: "Sito Vetrina Completo",
+        badge: "Web Design",
+        location: "La tua Città, IT",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop", // Immagine segnaposto
       },
       {
         title: "Clinica Privata",
