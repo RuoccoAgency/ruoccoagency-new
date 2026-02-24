@@ -128,13 +128,13 @@ html {
   }
 
   .text-gradient-logo {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary via-white to-primary bg-[length:200%_auto] animate-shimmer;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary via-white to-primary bg-[length:200%_auto];
+    animation: shimmer 5s linear infinite;
   }
 
   @keyframes shimmer {
     0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
   }
 
   .text-glow-lg {
