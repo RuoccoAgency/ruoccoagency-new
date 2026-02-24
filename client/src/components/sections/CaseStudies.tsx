@@ -67,7 +67,7 @@ export function CaseStudies() {
                   </p>
 
                   <div className="mt-4 flex items-center gap-2 text-white/60 group-hover:text-primary transition-colors duration-300">
-                    <span className="text-xs font-bold uppercase tracking-widest">Visualizza Progetto</span>
+                    <span className="text-xs font-bold uppercase tracking-widest">{content.caseStudies.viewProject}</span>
                     <svg 
                       xmlns="http://www.w3.org/2000/svg" 
                       width="16" 

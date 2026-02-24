@@ -1,14 +1,18 @@
 import React, { createContext, useContext, useState, ReactNode } from "react";
 import { content as contentIt } from "../content/it";
 import { content as contentEn } from "../content/en";
+import { policies as policiesIt } from "../content/it/policies";
+import { policies as policiesEn } from "../content/en/policies";
 
 type Language = "it" | "en";
 type ContentType = typeof contentIt;
+type PoliciesType = typeof policiesIt;
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   content: ContentType;
+  policies: PoliciesType;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -17,9 +21,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>("it");
 
   const content = language === "it" ? contentIt : contentEn;
+  const policies = language === "it" ? policiesIt : policiesEn;
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, content }}>
+    <LanguageContext.Provider value={{ language, setLanguage, content, policies }}>
       {children}
     </LanguageContext.Provider>
   );

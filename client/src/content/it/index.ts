@@ -101,6 +101,7 @@ export const content = {
   caseStudies: {
     title: "Casi Studio",
     subtitle: "I nostri lavori recenti",
+    viewProject: "Visualizza Progetto",
     items: [
       {
         title: "Vipiesse Ingrosso | Ciabatte e Pantofole",

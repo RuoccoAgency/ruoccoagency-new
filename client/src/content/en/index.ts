@@ -101,6 +101,7 @@ export const content = {
   caseStudies: {
     title: "Case Studies",
     subtitle: "Our recent work",
+    viewProject: "View Project",
     items: [
       {
         title: "Vipiesse Wholesale | Slippers and Footwear",
