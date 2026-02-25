@@ -47,17 +47,30 @@ export function Contact() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    
-    console.log("Form submitted:", values);
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    toast({
-      title: "Richiesta inviata!",
-      description: content.contact.form.success,
-    });
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+
+      if (!response.ok) throw new Error("Submission failed");
+
+      setIsSuccess(true);
+      toast({
+        title: language === "it" ? "Richiesta inviata!" : "Request sent!",
+        description: content.contact.form.success,
+      });
+      form.reset();
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: content.contact.form.error,
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
