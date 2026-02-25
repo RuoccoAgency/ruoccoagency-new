@@ -1,11 +1,12 @@
 import type { Express } from "express";
-import { createServer, type Server } from "http";
+import { type Server } from "http";
 import { storage } from "./storage";
 import { insertLeadSchema } from "@shared/schema";
 
 export async function registerRoutes(
+  httpServer: Server,
   app: Express
-): Promise<Server> {
+): Promise<void> {
   app.post("/api/contact", async (req, res) => {
     try {
       const data = insertLeadSchema.parse(req.body);
@@ -15,7 +16,4 @@ export async function registerRoutes(
       res.status(400).json({ message: "Invalid form data" });
     }
   });
-
-  const httpServer = createServer(app);
-  return httpServer;
 }
