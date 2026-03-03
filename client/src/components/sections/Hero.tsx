@@ -62,7 +62,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16"
           >
-            <Magnetic strength={0.3}>
+            <Magnetic strength={0.1}>
               <Button
                 size="lg"
                 className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white rounded-full px-10 h-14 text-lg font-bold shadow-[0_0_30px_rgba(124,58,237,0.4)] hover:shadow-[0_0_50px_rgba(124,58,237,0.6)] transition-all group"
@@ -73,7 +73,7 @@ export function Hero() {
               </Button>
             </Magnetic>
 
-            <Magnetic strength={0.2}>
+            <Magnetic strength={0.08}>
               <Button
                 size="lg"
                 variant="outline"

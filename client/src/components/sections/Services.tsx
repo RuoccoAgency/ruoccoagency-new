@@ -80,7 +80,7 @@ export function Services() {
                   ))}
                 </ul>
 
-                <Magnetic strength={0.2}>
+                <Magnetic strength={0.08}>
                   <button
                     onClick={() => setLocation(`/services/${service.slug}`)}
                     className="inline-flex items-center gap-2 text-primary font-bold hover:text-white transition-all group/btn mt-auto py-2 px-4 rounded-full hover:bg-primary/20 border border-transparent hover:border-primary/30"
