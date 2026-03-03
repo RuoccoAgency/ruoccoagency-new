@@ -104,7 +104,7 @@ export function ROICalculator() {
                                 </div>
                                 <p className="text-white/50 text-sm font-medium uppercase tracking-widest mb-2">Entrate potenziali perse</p>
                                 <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">€{lostRevenue.toLocaleString()}</h4>
-                                <p className="text-white/40 text-sm italic">Ogni anno il tuo business lascia sul tavolo questa cifra.</p>
+                                <p className="text-white/40 text-sm italic">Ogni mese il tuo business lascia sul tavolo questa cifra.</p>
                             </div>
 
                             <div className="p-8 rounded-3xl glass-premium bg-gradient-to-br from-primary/10 to-transparent border-primary/20 relative overflow-hidden group">
