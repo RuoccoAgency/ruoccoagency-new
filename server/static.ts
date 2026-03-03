@@ -3,14 +3,16 @@ import fs from "fs";
 import path from "path";
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(__dirname, "public");
-  if (!fs.existsSync(distPath)) {
+  const distPath = path.resolve(__dirname, "..");
+  const publicPath = path.resolve(distPath, "dist");
+
+  if (!fs.existsSync(publicPath)) {
     throw new Error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`,
+      `Could not find the build directory: ${publicPath}, make sure to build the client first`,
     );
   }
 
-  app.use(express.static(distPath));
+  app.use(express.static(publicPath));
 
   // fall through to index.html if the file doesn't exist
   app.use("*", (_req, res) => {
