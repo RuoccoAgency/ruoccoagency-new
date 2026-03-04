@@ -48,13 +48,10 @@ export function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/lead", {
+      const response = await fetch("/api/richieste-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...values,
-          business_type: values.type, // Map 'type' to 'business_type'
-        }),
+        body: JSON.stringify(values),
       });
 
       if (!response.ok) throw new Error("Submission failed");

@@ -9,28 +9,43 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<void> {
-  app.post("/api/lead", async (req, res) => {
+  app.post("/api/richieste-form", async (req, res) => {
     try {
-      const { name, email, phone, business_type, message } = req.body;
+      const { name, email, phone, type, message } = req.body;
+
+      // Validation
+      if (!name || !email || !message) {
+        return res.status(400).json({
+          success: false,
+          error: "I campi Nome, Email e Messaggio sono obbligatori."
+        });
+      }
 
       const { error } = await supabase
-        .from("leads")
+        .from("Richieste Form")
         .insert([
           {
-            name,
-            email,
-            phone,
-            business_type,
-            message
+            "nome e cognome": name,
+            "email": email,
+            "cell": phone || null,
+            "settore": type,
+            "Tipo di attività": type, // Mapping 'type' to both columns as requested in context
+            "Messaggio": message
           }
         ]);
 
-      if (error) throw error;
+      if (error) {
+        console.error("Supabase error details:", error);
+        throw error;
+      }
 
-      res.json({ success: true });
+      res.status(200).json({ success: true });
     } catch (error: any) {
-      console.error("Supabase error:", error);
-      res.status(500).json({ message: error.message || "Failed to save lead" });
+      console.error("Contact form error:", error);
+      res.status(500).json({
+        success: false,
+        error: error.message || "Si è verificato un errore durante l'invio."
+      });
     }
   });
 
