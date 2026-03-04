@@ -40,9 +40,9 @@ function Router() {
       <Route path="/" component={() => <RouteWrapper component={Home} />} />
       <Route path="/services/:slug" component={() => <RouteWrapper component={ServiceDetailPage} />} />
       <Route path="/privacy-policy" component={() => <RouteWrapper component={PrivacyPolicy} />} />
-      <Route path="/terms-of-service" component={() => <RouteWrapper component={TermsOfService} />} />
+      <Route path="/termini-servizio" component={() => <RouteWrapper component={TermsOfService} />} />
       <Route path="/cookie-policy" component={() => <RouteWrapper component={CookiePolicy} />} />
-      <Route path="/legal-notice" component={() => <RouteWrapper component={LegalNotice} />} />
+      <Route path="/note-legali" component={() => <RouteWrapper component={LegalNotice} />} />
       <Route path="/disclaimer" component={() => <RouteWrapper component={Disclaimer} />} />
       <Route component={NotFound} />
     </Switch>

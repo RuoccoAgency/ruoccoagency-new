@@ -58,8 +58,8 @@ export function Footer() {
           <div className="flex flex-wrap justify-center gap-4 md:gap-6">
             <a href="/privacy-policy" className="hover:text-white transition-colors">{content.footer.privacy}</a>
             <a href="/cookie-policy" className="hover:text-white transition-colors">{content.footer.cookie}</a>
-            <a href="/terms-of-service" className="hover:text-white transition-colors">{content.footer.terms}</a>
-            <a href="/legal-notice" className="hover:text-white transition-colors">{content.footer.legal}</a>
+            <a href="/termini-servizio" className="hover:text-white transition-colors">{content.footer.terms}</a>
+            <a href="/note-legali" className="hover:text-white transition-colors">{content.footer.legal}</a>
             <a href="/disclaimer" className="hover:text-white transition-colors">{content.footer.disclaimer}</a>
           </div>
         </div>
