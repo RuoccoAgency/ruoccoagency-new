@@ -51,7 +51,13 @@ export function Contact() {
       const response = await fetch("/api/richieste-form", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values),
+        body: JSON.stringify({
+          nomeECognome: values.name,
+          email: values.email,
+          telefono: values.phone,
+          tipoAttivita: values.type,
+          messaggio: values.message,
+        }),
       });
 
       if (!response.ok) throw new Error("Submission failed");
