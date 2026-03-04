@@ -44,6 +44,7 @@ function Router() {
       <Route path="/cookie-policy" component={() => <RouteWrapper component={CookiePolicy} />} />
       <Route path="/note-legali" component={() => <RouteWrapper component={LegalNotice} />} />
       <Route path="/disclaimer" component={() => <RouteWrapper component={Disclaimer} />} />
+      <Route path="/test" component={() => <RouteWrapper component={Home} />} />
       <Route component={NotFound} />
     </Switch>
   );
