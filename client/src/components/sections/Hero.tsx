@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Magnetic } from "@/components/ui/Magnetic";
 import heroBg from "@assets/generated_images/futuristic_abstract_tech_background_with_neon_lines.png";
@@ -35,7 +35,7 @@ export function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentVariant((prev) => (prev === 0 ? 1 : 0));
-    }, 3000);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -68,25 +68,27 @@ export function Hero() {
             <span>{content.hero.badge}</span>
           </motion.div>
 
-          <motion.h1
-            key={`headline-${currentVariant}`}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1] text-gradient-logo"
-          >
-            {HERO_VARIANTS[currentVariant].headline}
-          </motion.h1>
+          {/* Rotating Text Container - Stable height to prevent layout jump */}
+          <div className="min-h-[320px] md:min-h-[400px] flex flex-col items-center justify-start">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentVariant}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25 }}
+                className="w-full"
+              >
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1] text-gradient-logo">
+                  {HERO_VARIANTS[currentVariant].headline}
+                </h1>
 
-          <motion.p
-            key={`subheadline-${currentVariant}`}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
-          >
-            {HERO_VARIANTS[currentVariant].subheadline}
-          </motion.p>
+                <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
+                  {HERO_VARIANTS[currentVariant].subheadline}
+                </p>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
