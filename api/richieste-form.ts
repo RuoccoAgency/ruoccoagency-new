@@ -13,29 +13,28 @@ export default async function handler(req: any, res: any) {
     try {
         const { nomeECognome, email, telefono, tipoAttivita, messaggio } = req.body;
 
-        // Validation
+        // Server-side Validation
         if (!nomeECognome || !email || !messaggio) {
             return res.status(400).json({
                 ok: false,
-                error: 'I campi Nome e Cognome, Email e Messaggio sono obbligatori.'
+                error: 'Missing required fields'
             });
         }
 
         const { error } = await supabase
-            .from('Richieste Form')
+            .from('richieste_form')
             .insert([
                 {
-                    'nome e cognome': nomeECognome,
-                    'email': email,
-                    'cell': telefono || null,
-                    'settore': tipoAttivita,
-                    'Tipo di attività': tipoAttivita,
-                    'Messaggio': messaggio
+                    "nome e cognome": nomeECognome,
+                    "email": email,
+                    "telefono": telefono || null,
+                    "Tipo di attività": tipoAttivita || null,
+                    "Messaggio": messaggio
                 }
             ]);
 
         if (error) {
-            console.error('Supabase insert error:', error);
+            console.error('SUPABASE_INSERT_ERROR', error);
             return res.status(500).json({ ok: false, error: error.message });
         }
 
