@@ -20,8 +20,8 @@ const HERO_VARIANTS = [
   {
     headline: (
       <>
-        Trasforma il Tuo Sito in <br />
-        una Macchina di Clienti
+        Trasforma il Tuo Sito <br />
+        in una Macchina di Clienti
       </>
     ),
     subheadline: "Creiamo siti web e landing page veloci e ottimizzati SEO per aumentare conversioni, richieste e vendite.",
