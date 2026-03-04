@@ -36,7 +36,7 @@ export function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentVariant((prev) => (prev === 0 ? 1 : 0));
-    }, 5000);
+    }, 10000);
     return () => clearInterval(timer);
   }, []);
 
@@ -70,21 +70,26 @@ export function Hero() {
           </motion.div>
 
           {/* Rotating Text Container - Stable height to prevent layout jump */}
-          <div className="min-h-[320px] md:min-h-[400px] flex flex-col items-center justify-start">
+          <div className="min-h-[320px] md:min-h-[400px] flex flex-col items-center justify-start relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentVariant}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25 }}
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -4 }}
+                transition={{ duration: 0.45, ease: "easeInOut" }}
                 className="w-full"
               >
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1] text-gradient-logo">
+                {/* Futuristic Scanline Effect */}
+                <div className="absolute inset-0 pointer-events-none overflow-hidden z-20">
+                  <div className="w-full h-[1px] bg-primary/30 animate-scanline" />
+                </div>
+
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1] text-gradient-logo animate-glitch">
                   {HERO_VARIANTS[currentVariant].headline}
                 </h1>
 
-                <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
+                <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed animate-glitch">
                   {HERO_VARIANTS[currentVariant].subheadline}
                 </p>
               </motion.div>

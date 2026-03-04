@@ -205,4 +205,54 @@ html {
   .text-gradient-logo {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-secondary via-accent to-primary;
   }
+
+  @keyframes scanline {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+
+    50% {
+      opacity: 0.5;
+    }
+
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes glitch {
+    0% {
+      transform: translateX(0);
+    }
+
+    20% {
+      transform: translateX(-2px);
+    }
+
+    40% {
+      transform: translateX(2px);
+    }
+
+    60% {
+      transform: translateX(-1px);
+    }
+
+    80% {
+      transform: translateX(1px);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-scanline {
+    animation: scanline 0.25s linear forwards;
+  }
+
+  .animate-glitch {
+    animation: glitch 0.12s ease-in-out;
+  }
 }
