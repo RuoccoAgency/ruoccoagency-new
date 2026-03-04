@@ -36,7 +36,7 @@ export function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentVariant((prev) => (prev === 0 ? 1 : 0));
-    }, 10000);
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
