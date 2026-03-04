@@ -53,7 +53,7 @@ export function Hero() {
           </motion.div>
 
           {/* Rotating Text Container - Stable height to prevent layout jump */}
-          <div className="min-h-[320px] md:min-h-[400px] flex flex-col items-center justify-start relative">
+          <div className="min-h-[280px] md:min-h-[360px] flex flex-col items-center justify-start relative">
             <AnimatePresence mode="wait">
               <motion.div
                 key={currentVariant}
@@ -68,11 +68,11 @@ export function Hero() {
                   <div className="w-full h-[1px] bg-primary/30 animate-scanline" />
                 </div>
 
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1] text-gradient-logo animate-glitch">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1] text-gradient-logo animate-glitch min-h-[2.2em] flex items-center justify-center">
                   {activeVariant.headline}
                 </h1>
 
-                <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed animate-glitch">
+                <p className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed animate-glitch min-h-[3.25em] flex items-center justify-center">
                   {activeVariant.subheadline}
                 </p>
               </motion.div>
