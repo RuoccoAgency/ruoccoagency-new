@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -5,8 +6,38 @@ import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Magnetic } from "@/components/ui/Magnetic";
 import heroBg from "@assets/generated_images/futuristic_abstract_tech_background_with_neon_lines.png";
 
+// Predefined messages for the hero section rotation
+const HERO_VARIANTS = [
+  {
+    headline: (
+      <>
+        Recupera Tempo e <br />
+        Aumenta i Profitti
+      </>
+    ),
+    subheadline: "Aiutiamo aziende e professionisti a catturare e qualificare lead automaticamente tramite chatbot, assistenti WhatsApp e agenti vocali AI.",
+  },
+  {
+    headline: (
+      <>
+        Trasforma il Tuo Sito in <br />
+        una Macchina di Clienti
+      </>
+    ),
+    subheadline: "Creiamo siti web e landing page veloci e ottimizzati SEO per aumentare conversioni, richieste e vendite.",
+  },
+];
+
 export function Hero() {
   const { content } = useLanguage();
+  const [currentVariant, setCurrentVariant] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentVariant((prev) => (prev === 0 ? 1 : 0));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
@@ -38,22 +69,23 @@ export function Hero() {
           </motion.div>
 
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            key={`headline-${currentVariant}`}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.6 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1] text-gradient-logo"
           >
-            Recupera Tempo e <br />
-            Aumenta i Profitti
+            {HERO_VARIANTS[currentVariant].headline}
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            key={`subheadline-${currentVariant}`}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed"
           >
-            {content.hero.subheadline}
+            {HERO_VARIANTS[currentVariant].subheadline}
           </motion.p>
 
           <motion.div
