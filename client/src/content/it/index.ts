@@ -50,7 +50,7 @@ export const content = {
     variants: [
       {
         headline: "Recupera Tempo e Aumenta i Profitti",
-        subheadline: "Aiutiamo aziende e professionisti a catturare e qualificare lead automaticamente tramite chatbot, assistenti WhatsApp e agenti vocali AI.",
+        subheadline: "Aiutiamo aziende e professionisti a catturare e qualificare lead automaticamente tramite chatbot, assistenti WhatsApp Business e agenti vocali AI.",
       },
       {
         headline: "Trasforma il Tuo Sito in una Macchina di Clienti",
