@@ -124,11 +124,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-wrap justify-center gap-6 md:gap-12"
+            className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap items-center justify-center gap-6 md:gap-8 lg:gap-12"
           >
             {content.hero.benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center gap-3 text-base font-medium text-white/60">
-                <div className="p-1 rounded-full bg-secondary/10 border border-secondary/20">
+              <div key={index} className="flex items-center gap-3 text-base font-medium text-white/60 whitespace-nowrap">
+                <div className="flex-shrink-0 p-1 rounded-full bg-secondary/10 border border-secondary/20">
                   <CheckCircle2 className="h-4 w-4 text-secondary" />
                 </div>
                 <span>{benefit}</span>

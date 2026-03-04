@@ -2,9 +2,11 @@ import { motion } from "framer-motion";
 
 const technologies = [
     { name: "OpenAI", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" },
-    { name: "Make", logo: "https://vibe-coding-assets.s3.amazonaws.com/make-logo.svg" }, // Dummy or fallback needed
+    { name: "Make", logo: "https://vibe-coding-assets.s3.amazonaws.com/make-logo.svg" },
     { name: "WhatsApp", logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" },
-    { name: "HubSpot", logo: "https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg" },
+    { name: "Replit", logo: "" },
+    { name: "Voiceflow", logo: "" },
+    { name: "Bland", logo: "" },
     { name: "Vercel", logo: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Vercel_logo_and_wordmark.svg" },
 ];
 
