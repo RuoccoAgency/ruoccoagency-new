@@ -1,7 +1,21 @@
 {
     "version": 2,
     "cleanUrls": true,
+    "trailingSlash": false,
     "framework": "vite",
+    "redirects": [
+        {
+            "source": "/(.*)",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "www.ruoccoagency.com"
+                }
+            ],
+            "destination": "https://ruoccoagency.com/$1",
+            "permanent": true
+        }
+    ],
     "headers": [
         {
             "source": "/(.*).html",
