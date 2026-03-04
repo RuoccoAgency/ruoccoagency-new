@@ -1,22 +1,40 @@
 import vipiesseImage from "@/assets/Screenshot_2026-02-24_181322_1771953306043.png";
+import { servicesData } from "./services";
 
 export const content = {
   meta: {
     title: "RuoccoAgency | AI Automations and Assistants",
     description: "AI Automations and Assistants that turn requests into customers, 24/7.",
   },
+  common: {
+    servicePremium: "Premium Service",
+    backToHome: "Back to Home",
+    learnMore: "Learn More",
+    hours24: "24/7",
+    demo: "Request Demo",
+    contactUs: "Contact Us",
+    viewProject: "View Project",
+    loading: "Loading...",
+    sending: "Sending...",
+    techStackTitle: "TECHNOLOGIES WE USE",
+  },
   nav: {
     logo: "RuoccoAgency",
     links: [
       { label: "Home", href: "#home" },
-      { label: "About", href: "#about" },
       { label: "Services", href: "#services" },
-      { label: "How It Works", href: "#how-it-works" },
-      { label: "Why It Works", href: "#why-it-works" },
-      { label: "Case Studies", href: "#case-studies" },
+      { label: "About", href: "#about" },
       { label: "FAQ", href: "#faq" },
+      { label: "Contact", href: "#contact" },
     ],
     cta: "Request Demo",
+    languages: {
+      it: "Italiano",
+      en: "English"
+    }
+  },
+  techStack: {
+    title: "TECHNOLOGIES WE USE"
   },
   hero: {
     badge: "AI Automation Agency",
@@ -29,36 +47,28 @@ export const content = {
       "Fewer missed calls / more qualified leads",
       "Modern website + SEO to be found",
     ],
+    variants: [
+      {
+        headline: "Save Time and Increase Profits",
+        subheadline: "We help businesses and professionals capture and qualify leads automatically via chatbots, WhatsApp assistants, and AI voice agents.",
+      },
+      {
+        headline: "Turn Your Website into a Customer Machine",
+        subheadline: "We create fast websites and SEO-optimized landing pages to increase conversions, requests, and sales.",
+      }
+    ]
   },
   services: {
     title: "Our Services",
     subtitle: "Advanced technological solutions to scale your business",
-    items: [
-      {
-        title: "Virtual Assistants (Chatbots)",
-        description: "Intelligent chatbots integrated into your website to answer FAQs and qualify visitors.",
-        features: ["24/7 Availability", "Automatic lead qualification", "Appointment booking"],
-        icon: "Bot",
-      },
-      {
-        title: "WhatsApp Business Assistants",
-        description: "Powerful automations on WhatsApp to manage communications, send reminders, and close sales.",
-        features: ["Instant replies", "Automatic follow-ups", "CRM Integration"],
-        icon: "MessageSquare",
-      },
-      {
-        title: "AI Voice Agents",
-        description: "Telephone assistants that answer calls, take messages, and book appointments for you.",
-        features: ["Inbound call management", "No missed calls", "Natural and professional tone"],
-        icon: "Phone",
-      },
-      {
-        title: "Modern Websites + SEO",
-        description: "Fast websites, optimized for search engines and designed to convert visitors into customers.",
-        features: ["Premium & Responsive Design", "SEO Optimization", "Extreme speed"],
-        icon: "Globe",
-      },
-    ],
+    items: servicesData,
+    detail: {
+      notFound: "Service not found",
+      notFoundDescription: "The service you are looking for does not exist.",
+      ctaTitle: "Ready to transform your business?",
+      ctaDescription: (title: string) => `Book a free consultation and discover how ${title} can help you grow.`,
+      ctaButton: "Speak with an expert",
+    }
   },
   howItWorks: {
     title: "How It Works",
@@ -68,7 +78,7 @@ export const content = {
         description: "We study your business and identify processes to automate to maximize results.",
       },
       {
-        title: "Setup & Integrations",
+        title: "Setup & Integrazioni",
         description: "We configure AI assistants and integrate them with your existing tools (Calendar, CRM).",
       },
       {
@@ -125,9 +135,14 @@ export const content = {
   },
   about: {
     title: "About Me",
+    badge: "Founder of RuoccoAgency",
     name: "Gianluca Ruocco",
     role: "Founder & Automation Expert",
     bio: "My name is Gianluca Ruocco, I am the founder of RuoccoAgency and I help businesses and professional studios recover time and increase profits through artificial intelligence. Specializing in automations, virtual assistants, and web development, my goal is to turn technology into a concrete and measurable competitive advantage for your business.",
+    contacts: {
+      email: "Email",
+      phone: "Phone",
+    }
   },
   faq: {
     title: "Frequently Asked Questions",
@@ -163,13 +178,26 @@ export const content = {
     subtitle: "Tell us about your project",
     form: {
       name: "Full Name",
+      namePlaceholder: "John Doe",
       email: "Email",
+      emailPlaceholder: "john@company.com",
       phone: "Phone (optional)",
+      phonePlaceholder: "+1 234 567 8900",
       type: "Type of business",
+      typePlaceholder: "Law Firm, E-commerce, etc.",
       message: "What do you need?",
+      messagePlaceholder: "Briefly describe what you need...",
       submit: "Send Request",
       success: "Message sent successfully! We'll reply soon.",
       error: "An error occurred. Please try again later.",
+      sendAnother: "Send another request",
+      thanks: "Thank You!",
+      validation: {
+        name: "Name must be at least 2 characters",
+        email: "Invalid email",
+        type: "Specify the type of business",
+        message: "Message must be at least 10 characters",
+      }
     },
     info: {
       email: "ruoccoagency@gmail.com",
@@ -180,6 +208,27 @@ export const content = {
   footer: {
     rights: "© 2026 RuoccoAgency. All rights reserved.",
     privacy: "Privacy Policy",
+    cookie: "Cookie Policy",
     terms: "Terms of Service",
+    legal: "Legal Notice",
+    disclaimer: "Disclaimer",
+    sections: {
+      contacts: "Contacts",
+      links: "Links",
+    }
+  },
+  roi: {
+    title: "How much does it cost you not to automate?",
+    subtitle: "Calculate the potential profit recovered thanks to our AI assistants",
+    labels: {
+      leadsPerMonth: "Leads per month",
+      missedLeadRate: "% Missed/unhandled leads",
+      avgLeadValue: "Average lead value (€)",
+      lostRevenue: "Potential revenue lost",
+      lostRevenueSub: "Every month your business leaves this amount on the table.",
+      estimatedRecovery: "Estimated recovery with AI",
+      estimatedRecoverySub: "Automation can recover up to 80% of lost leads by handling them instantly.",
+      cta: "Stop losing customers now",
+    }
   },
 };

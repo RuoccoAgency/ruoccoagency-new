@@ -4,14 +4,14 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function About() {
   const { content } = useLanguage();
-  
+
   return (
     <section id="about" className="py-24 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12 lg:gap-24 max-w-6xl mx-auto">
-          
+
           {/* Image Placeholder */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -21,10 +21,10 @@ export function About() {
             <div className="aspect-[4/5] rounded-2xl overflow-hidden bg-white/5 border border-white/10 relative group shadow-2xl">
               {/* Glowing Border Effect */}
               <div className="absolute -inset-1 bg-gradient-to-tr from-primary to-secondary opacity-30 blur-lg group-hover:opacity-50 transition-opacity duration-500" />
-              
-              <img 
-                src="/gianluca-profile.jpg" 
-                alt="Gianluca Ruocco" 
+
+              <img
+                src="/gianluca-profile.jpg"
+                alt="Gianluca Ruocco"
                 className="w-full h-full object-cover relative z-10 bg-muted transition-transform duration-700 group-hover:scale-105"
                 onError={(e) => {
                   e.currentTarget.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"; // Fallback to a professional stock photo if local file missing
@@ -52,9 +52,9 @@ export function About() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              Founder of RuoccoAgency
+              {content.about.badge}
             </motion.div>
-            
+
             <Reveal delay={0.1}>
               <div className="space-y-6 text-lg text-muted-foreground">
                 <p className="leading-relaxed">
@@ -66,13 +66,13 @@ export function About() {
             <Reveal delay={0.2}>
               <div className="mt-8 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="group">
-                  <p className="text-sm text-muted-foreground mb-1">Email</p>
+                  <p className="text-sm text-muted-foreground mb-1">{content.about.contacts.email || "Email"}</p>
                   <a href={`mailto:${content.contact.info.email}`} className="text-white hover:text-primary transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300">
                     {content.contact.info.email}
                   </a>
                 </div>
                 <div className="group">
-                  <p className="text-sm text-muted-foreground mb-1">Telefono</p>
+                  <p className="text-sm text-muted-foreground mb-1">{content.about.contacts.phone || "Telefono"}</p>
                   <a href={`tel:${content.contact.info.phone}`} className="text-white hover:text-primary transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300">
                     {content.contact.info.phone}
                   </a>

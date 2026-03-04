@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
-import { Calculator, TrendingUp, Clock, AlertTriangle } from "lucide-react";
+import { Calculator, TrendingUp, AlertTriangle } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 export function ROICalculator() {
+    const { content } = useLanguage();
     const [leadsPerMonth, setLeadsPerMonth] = useState([50]);
     const [missedLeadRate, setMissedLeadRate] = useState([30]);
     const [avgLeadValue, setAvgLeadValue] = useState([100]);
@@ -27,7 +29,7 @@ export function ROICalculator() {
                             viewport={{ once: true }}
                             className="text-3xl md:text-5xl font-bold font-display text-white mb-4 text-gradient-logo"
                         >
-                            Quanto ti costa non automatizzare?
+                            {content.roi.title}
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, y: 20 }}
@@ -36,7 +38,7 @@ export function ROICalculator() {
                             transition={{ delay: 0.1 }}
                             className="text-white/60 text-lg"
                         >
-                            Calcola il potenziale di guadagno recuperato grazie ai nostri assistenti AI
+                            {content.roi.subtitle}
                         </motion.p>
                     </div>
 
@@ -50,7 +52,7 @@ export function ROICalculator() {
                         >
                             <div className="space-y-4">
                                 <div className="flex justify-between items-center text-white font-medium">
-                                    <label>Contatti (Lead) al mese</label>
+                                    <label>{content.roi.labels.leadsPerMonth}</label>
                                     <span className="text-primary text-xl font-bold">{leads}</span>
                                 </div>
                                 <Slider
@@ -64,7 +66,7 @@ export function ROICalculator() {
 
                             <div className="space-y-4">
                                 <div className="flex justify-between items-center text-white font-medium">
-                                    <label>% Contatti persi/non gestiti</label>
+                                    <label>{content.roi.labels.missedLeadRate}</label>
                                     <span className="text-secondary text-xl font-bold">{missedLeadRate[0]}%</span>
                                 </div>
                                 <Slider
@@ -78,7 +80,7 @@ export function ROICalculator() {
 
                             <div className="space-y-4">
                                 <div className="flex justify-between items-center text-white font-medium">
-                                    <label>Valore medio di un cliente (€)</label>
+                                    <label>{content.roi.labels.avgLeadValue}</label>
                                     <span className="text-accent text-xl font-bold">€{value}</span>
                                 </div>
                                 <Slider
@@ -102,19 +104,23 @@ export function ROICalculator() {
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <AlertTriangle className="h-16 w-16 text-destructive" />
                                 </div>
-                                <p className="text-white/50 text-sm font-medium uppercase tracking-widest mb-2">Entrate potenziali perse</p>
+                                <p className="text-white/50 text-sm font-medium uppercase tracking-widest mb-2">
+                                    {content.roi.labels.lostRevenue}
+                                </p>
                                 <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">€{lostRevenue.toLocaleString()}</h4>
-                                <p className="text-white/40 text-sm italic">Ogni mese il tuo business lascia sul tavolo questa cifra.</p>
+                                <p className="text-white/40 text-sm italic">{content.roi.labels.lostRevenueSub}</p>
                             </div>
 
                             <div className="p-8 rounded-3xl glass-premium bg-gradient-to-br from-primary/10 to-transparent border-primary/20 relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
                                     <TrendingUp className="h-16 w-16 text-primary" />
                                 </div>
-                                <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">Recupero stimato con AI</p>
+                                <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">
+                                    {content.roi.labels.estimatedRecovery}
+                                </p>
                                 <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">€{potentialSavings.toLocaleString()}</h4>
                                 <p className="text-white/60 text-sm leading-relaxed">
-                                    L'automazione può recuperare fino all'80% dei contatti persi gestendoli istantaneamente.
+                                    {content.roi.labels.estimatedRecoverySub}
                                 </p>
 
                                 <button
@@ -122,7 +128,7 @@ export function ROICalculator() {
                                     className="mt-8 w-full py-4 rounded-full bg-primary text-white font-bold hover:shadow-[0_0_30px_rgba(124,58,237,0.5)] transition-all flex items-center justify-center gap-2"
                                 >
                                     <Calculator className="h-5 w-5" />
-                                    Smetti di perdere clienti ora
+                                    {content.roi.labels.cta}
                                 </button>
                             </div>
                         </motion.div>

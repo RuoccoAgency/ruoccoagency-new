@@ -1,22 +1,40 @@
 import vipiesseImage from "@/assets/Screenshot_2026-02-24_181322_1771953306043.png";
+import { servicesData } from "./services";
 
 export const content = {
   meta: {
     title: "RuoccoAgency | Automazioni e Assistenti AI",
     description: "Automazioni e Assistenti AI che trasformano richieste in clienti, 24/7.",
   },
+  common: {
+    servicePremium: "Servizio Premium",
+    backToHome: "Torna alla Home",
+    learnMore: "Scopri di più",
+    hours24: "24/7",
+    demo: "Richiedi Demo",
+    contactUs: "Contattaci",
+    viewProject: "Visualizza Progetto",
+    loading: "Caricamento...",
+    sending: "Invio in corso...",
+    techStackTitle: "TECNOLOGIE CHE UTILIZZIAMO",
+  },
   nav: {
     logo: "RuoccoAgency",
     links: [
       { label: "Home", href: "#home" },
-      { label: "Chi Sono", href: "#about" },
       { label: "Servizi", href: "#services" },
-      { label: "Come Funziona", href: "#how-it-works" },
-      { label: "Perché Funziona", href: "#why-it-works" },
-      { label: "Casi Studio", href: "#case-studies" },
+      { label: "Chi Sono", href: "#about" },
       { label: "FAQ", href: "#faq" },
+      { label: "Contatti", href: "#contact" },
     ],
     cta: "Richiedi Demo",
+    languages: {
+      it: "Italiano",
+      en: "English"
+    }
+  },
+  techStack: {
+    title: "TECNOLOGIE CHE UTILIZZIAMO"
   },
   hero: {
     badge: "AI Automation Agency",
@@ -29,36 +47,28 @@ export const content = {
       "Meno chiamate perse / più lead qualificati",
       "Sito moderno + SEO per farsi trovare",
     ],
+    variants: [
+      {
+        headline: "Recupera Tempo e Aumenta i Profitti",
+        subheadline: "Aiutiamo aziende e professionisti a catturare e qualificare lead automaticamente tramite chatbot, assistenti WhatsApp e agenti vocali AI.",
+      },
+      {
+        headline: "Trasforma il Tuo Sito in una Macchina di Clienti",
+        subheadline: "Creiamo siti web e landing page veloci e ottimizzati SEO per aumentare conversioni, richieste e vendite.",
+      }
+    ]
   },
   services: {
     title: "I Nostri Servizi",
     subtitle: "Soluzioni tecnologiche avanzate per scalare il tuo business",
-    items: [
-      {
-        title: "Assistenti Virtuali (Chatbot)",
-        description: "Chatbot intelligenti integrati nel tuo sito web per rispondere alle domande frequenti e qualificare i visitatori.",
-        features: ["Disponibilità 24/7", "Qualificazione lead automatica", "Prenotazione appuntamenti"],
-        icon: "Bot",
-      },
-      {
-        title: "Assistenti WhatsApp Business",
-        description: "Automazioni potenti su WhatsApp per gestire comunicazioni, inviare promemoria e chiudere vendite.",
-        features: ["Risposte istantanee", "Follow-up automatici", "Integrazione CRM"],
-        icon: "MessageSquare",
-      },
-      {
-        title: "Agenti Vocali AI",
-        description: "Assistenti telefonici che rispondono alle chiamate, prendono messaggi e fissano appuntamenti per te.",
-        features: ["Gestione chiamate in entrata", "Nessuna chiamata persa", "Tono naturale e professionale"],
-        icon: "Phone",
-      },
-      {
-        title: "Siti Web Moderni + SEO",
-        description: "Siti web veloci, ottimizzati per i motori di ricerca e progettati per convertire i visitatori in clienti.",
-        features: ["Design Premium & Responsive", "Ottimizzazione SEO", "Velocità estrema"],
-        icon: "Globe",
-      },
-    ],
+    items: servicesData,
+    detail: {
+      notFound: "Servizio non trovato",
+      notFoundDescription: "Il servizio che stai cercando non esiste.",
+      ctaTitle: "Pronto a trasformare il tuo business?",
+      ctaDescription: (title: string) => `Prenota una consulenza gratuita e scopri come ${title} può aiutarti a crescere.`,
+      ctaButton: "Parla con un esperto",
+    }
   },
   howItWorks: {
     title: "Come Funziona",
@@ -125,9 +135,14 @@ export const content = {
   },
   about: {
     title: "Chi Sono",
+    badge: "Founder of RuoccoAgency",
     name: "Gianluca Ruocco",
     role: "Founder & Automation Expert",
     bio: "Mi chiamo Gianluca Ruocco, sono il fondatore di RuoccoAgency e aiuto aziende e studi professionali a recuperare tempo e aumentare i profitti grazie all'intelligenza artificiale. Specializzato in automazioni, assistenti virtuali e sviluppo web, il mio obiettivo è trasformare la tecnologia in un vantaggio competitivo concreto e misurabile per la tua attività.",
+    contacts: {
+      email: "Email",
+      phone: "Telefono",
+    }
   },
   faq: {
     title: "Domande Frequenti",
@@ -163,13 +178,26 @@ export const content = {
     subtitle: "Raccontaci il tuo progetto",
     form: {
       name: "Nome e Cognome",
+      namePlaceholder: "Mario Rossi",
       email: "Email",
+      emailPlaceholder: "mario@azienda.com",
       phone: "Telefono (opzionale)",
+      phonePlaceholder: "+39 333 1234567",
       type: "Tipo di attività",
+      typePlaceholder: "Studio Legale, E-commerce, ecc.",
       message: "Cosa ti serve?",
+      messagePlaceholder: "Descrivi brevemente di cosa hai bisogno...",
       submit: "Invia Richiesta",
       success: "Messaggio inviato con successo! Ti risponderemo presto.",
       error: "Si è verificato un errore. Riprova più tardi.",
+      sendAnother: "Invia un'altra richiesta",
+      thanks: "Grazie!",
+      validation: {
+        name: "Il nome deve essere di almeno 2 caratteri",
+        email: "Email non valida",
+        type: "Specificare il tipo di attività",
+        message: "Il messaggio deve essere di almeno 10 caratteri",
+      }
     },
     info: {
       email: "ruoccoagency@gmail.com",
@@ -180,6 +208,28 @@ export const content = {
   footer: {
     rights: "© 2026 RuoccoAgency. Tutti i diritti riservati.",
     privacy: "Privacy Policy",
+    cookie: "Cookie Policy",
     terms: "Termini di Servizio",
+    legal: "Note Legali",
+    disclaimer: "Disclaimer",
+    sections: {
+      contacts: "Contatti",
+      links: "Links",
+    }
+  },
+  roi: {
+    title: "Quanto ti costa non automatizzare?",
+    subtitle: "Calcola il potenziale di guadagno recuperato grazie ai nostri assistenti AI",
+    labels: {
+      leadsPerMonth: "Contatti (Lead) al mese",
+      missedLeadRate: "% Contatti persi/non gestiti",
+      avgLeadValue: "Valore medio di un cliente (€)",
+      lostRevenue: "Entrate potenziali perse",
+      lostRevenueSub: "Ogni mese il tuo business lascia sul tavolo questa cifra.",
+      estimatedRecovery: "Recupero stimato con AI",
+      estimatedRecoverySub: "L'automazione può recuperare fino all'80% dei contatti persi gestendoli istantaneamente.",
+      cta: "Smetti di perdere clienti ora",
+    }
   },
 };
+

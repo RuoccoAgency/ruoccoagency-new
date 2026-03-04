@@ -13,15 +13,16 @@ import CookiePolicy from "@/pages/CookiePolicy";
 import LegalNotice from "@/pages/LegalNotice";
 import Disclaimer from "@/pages/Disclaimer";
 import { CookieBanner } from "@/components/ui/CookieBanner";
+import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { useEffect } from "react";
 
 function RouteWrapper({ component: Component }: { component: any }) {
   const { language } = useLanguage();
-  
+
   // This hook ensures that when language changes, the component re-renders
   // by forcing a re-mount of the component through React key (if needed) 
   // or just by consuming the context.
-  
+
   return <Component key={language} />;
 }
 
@@ -45,6 +46,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <LanguageProvider>
+          <ScrollToTop />
           <Router />
           <Toaster />
           <CookieBanner />

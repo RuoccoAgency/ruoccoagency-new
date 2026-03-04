@@ -6,39 +6,19 @@ import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Magnetic } from "@/components/ui/Magnetic";
 import heroBg from "@assets/generated_images/futuristic_abstract_tech_background_with_neon_lines.png";
 
-// Predefined messages for the hero section rotation
-const HERO_VARIANTS = [
-  {
-    headline: (
-      <>
-        Recupera Tempo e <br />
-        Aumenta i Profitti
-      </>
-    ),
-    subheadline: "Aiutiamo aziende e professionisti a catturare e qualificare lead automaticamente tramite chatbot, assistenti WhatsApp e agenti vocali AI.",
-  },
-  {
-    headline: (
-      <>
-        Trasforma il Tuo Sito <br />
-        in una Macchina <br />
-        di Clienti
-      </>
-    ),
-    subheadline: "Creiamo siti web e landing page veloci e ottimizzati SEO per aumentare conversioni, richieste e vendite.",
-  },
-];
-
 export function Hero() {
   const { content } = useLanguage();
   const [currentVariant, setCurrentVariant] = useState(0);
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentVariant((prev) => (prev === 0 ? 1 : 0));
+      setCurrentVariant((prev: number) => (prev === 0 ? 1 : 0));
     }, 10000);
     return () => clearInterval(timer);
   }, []);
+
+  // Use variants from content, falling back to empty strings if not available
+  const activeVariant = content.hero.variants?.[currentVariant] || { headline: "", subheadline: "" };
 
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
@@ -86,11 +66,11 @@ export function Hero() {
                 </div>
 
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1] text-gradient-logo animate-glitch">
-                  {HERO_VARIANTS[currentVariant].headline}
+                  {activeVariant.headline}
                 </h1>
 
                 <p className="text-xl md:text-2xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed animate-glitch">
-                  {HERO_VARIANTS[currentVariant].subheadline}
+                  {activeVariant.subheadline}
                 </p>
               </motion.div>
             </AnimatePresence>
@@ -131,7 +111,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap items-center justify-center gap-6 md:gap-8 lg:gap-12"
           >
-            {content.hero.benefits.map((benefit, index) => (
+            {content.hero.benefits.map((benefit: string, index: number) => (
               <div key={index} className="flex items-center gap-3 text-base font-medium text-white/60 whitespace-nowrap">
                 <div className="flex-shrink-0 p-1 rounded-full bg-secondary/10 border border-secondary/20">
                   <CheckCircle2 className="h-4 w-4 text-secondary" />

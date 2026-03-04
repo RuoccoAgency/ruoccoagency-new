@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const technologies = [
     { name: "OpenAI", logo: "https://upload.wikimedia.org/wikipedia/commons/4/4d/OpenAI_Logo.svg" },
@@ -11,11 +12,12 @@ const technologies = [
 ];
 
 export function TechStack() {
+    const { content } = useLanguage();
     return (
         <section className="mt-10 md:mt-12 lg:mt-14 py-12 border-y border-white/5 bg-white/[0.01] overflow-hidden whitespace-nowrap">
             <div className="container mx-auto px-4">
                 <p className="text-center text-sm font-medium text-muted-foreground/60 uppercase tracking-widest mb-8">
-                    TECNOLOGIE CHE UTILIZZIAMO
+                    {content.techStack?.title || "TECNOLOGIE CHE UTILIZZIAMO"}
                 </p>
 
                 <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 grayscale hover:grayscale-0 transition-all duration-500">

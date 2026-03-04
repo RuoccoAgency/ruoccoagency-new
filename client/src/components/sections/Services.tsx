@@ -68,7 +68,7 @@ export function Services() {
                 </h3>
 
                 <p className="text-white/60 mb-8 leading-relaxed flex-grow text-lg">
-                  {service.description}
+                  {service.shortDescription}
                 </p>
 
                 <ul className="space-y-3 mb-8">
@@ -85,7 +85,7 @@ export function Services() {
                     onClick={() => setLocation(`/services/${service.slug}`)}
                     className="inline-flex items-center gap-2 text-primary font-bold hover:text-white transition-all group/btn mt-auto py-2 px-4 rounded-full hover:bg-primary/20 border border-transparent hover:border-primary/30"
                   >
-                    Scopri di più
+                    {content.common.learnMore}
                     <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </button>
                 </Magnetic>

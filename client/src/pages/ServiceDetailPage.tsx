@@ -2,12 +2,11 @@ import { useEffect, useRef } from "react";
 import { Navbar } from "@/components/sections/Navbar";
 import { Footer } from "@/components/sections/Footer";
 import { ParticlesBackground } from "@/components/ui/ParticlesBackground";
-import { servicesData } from "@/content/services";
+import { useLanguage } from "@/hooks/useLanguage";
 import { useRoute, useLocation } from "wouter";
 import { motion, useScroll, useMotionValue, useMotionValueEvent } from "framer-motion";
 import { Bot, MessageSquare, Phone, Globe, LucideIcon, ArrowRight, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Reveal } from "@/components/ui/Reveal";
 
 const iconMap: Record<string, LucideIcon> = {
@@ -20,9 +19,10 @@ const iconMap: Record<string, LucideIcon> = {
 export default function ServiceDetailPage() {
   const [, params] = useRoute("/services/:slug");
   const [, setLocation] = useLocation();
+  const { content } = useLanguage();
   const slug = params?.slug;
 
-  const service = servicesData.find((s) => s.slug === slug);
+  const service = content.services.items.find((s: any) => s.slug === slug);
 
   // Timeline animation logic
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,16 +40,13 @@ export default function ServiceDetailPage() {
     }
   });
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [slug]);
 
   if (!service) {
     return (
       <div className="min-h-screen bg-background text-foreground flex flex-col items-center justify-center p-4">
-        <h1 className="text-4xl font-bold mb-4 text-white">Servizio non trovato</h1>
-        <p className="text-muted-foreground mb-8">Il servizio che stai cercando non esiste.</p>
-        <Button onClick={() => setLocation("/")}>Torna alla Home</Button>
+        <h1 className="text-4xl font-bold mb-4 text-white">{content.services.detail.notFound}</h1>
+        <p className="text-muted-foreground mb-8">{content.services.detail.notFoundDescription}</p>
+        <Button onClick={() => setLocation("/")}>{content.common.backToHome}</Button>
       </div>
     );
   }
@@ -68,7 +65,9 @@ export default function ServiceDetailPage() {
           <div className="container mx-auto px-4">
             {/* Breadcrumb */}
             <div className="mb-8 flex items-center gap-2 text-sm text-muted-foreground">
-              <button onClick={() => setLocation("/")} className="hover:text-white transition-colors">Home</button>
+              <button onClick={() => setLocation("/")} className="hover:text-white transition-colors">
+                {content.nav.links.find((l: any) => l.href === "#home")?.label || "Home"}
+              </button>
               <span>/</span>
               <span className="text-primary">{service.title}</span>
             </div>
@@ -78,7 +77,7 @@ export default function ServiceDetailPage() {
               className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-white transition-colors group"
             >
               <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-              Torna alla Home
+              {content.common.backToHome}
             </button>
 
             {/* Hero Section */}
@@ -93,7 +92,7 @@ export default function ServiceDetailPage() {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
                   </span>
-                  Servizio Premium
+                  {content.common.servicePremium}
                 </div>
                 <h1 className="text-4xl md:text-6xl font-bold font-display text-white mb-6 text-gradient-logo leading-tight">
                   {service.title}
@@ -114,7 +113,7 @@ export default function ServiceDetailPage() {
                       }
                     }}
                   >
-                    {service.ctaText || "Richiedi Demo"}
+                    {(service as any).ctaText || content.common.demo}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
@@ -146,7 +145,7 @@ export default function ServiceDetailPage() {
             {/* Process Steps - Matches HowItWorks timeline style */}
             <div className="mb-24">
               <Reveal>
-                <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-16 text-center">Come Funziona</h2>
+                <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-16 text-center">{content.howItWorks.title}</h2>
               </Reveal>
               <div ref={containerRef} className="relative max-w-5xl mx-auto">
                 {/* Vertical Line for Desktop - Animated */}
@@ -160,7 +159,7 @@ export default function ServiceDetailPage() {
                 </div>
 
                 <div className="space-y-12 md:space-y-24">
-                  {service.processSteps.map((step, index) => (
+                  {service.processSteps.map((step: any, index: number) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 30 }}
@@ -206,8 +205,14 @@ export default function ServiceDetailPage() {
             <div className="text-center bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl p-12 border border-white/10 relative overflow-hidden">
               <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
               <div className="relative z-10">
-                <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-6">Pronto a trasformare il tuo business?</h2>
-                <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">Prenota una consulenza gratuita e scopri come {service.title} può aiutarti a crescere.</p>
+                <h2 className="text-3xl md:text-4xl font-bold font-display text-white mb-6">
+                  {content.services.detail.ctaTitle}
+                </h2>
+                <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+                  {typeof content.services.detail.ctaDescription === 'function'
+                    ? content.services.detail.ctaDescription(service.title)
+                    : content.services.detail.ctaDescription}
+                </p>
                 <Button
                   size="lg"
                   className="bg-white text-primary hover:bg-white/90 rounded-full px-8 h-12 text-base font-bold shadow-lg"
@@ -220,7 +225,7 @@ export default function ServiceDetailPage() {
                     }
                   }}
                 >
-                  Parla con un esperto
+                  {content.services.detail.ctaButton}
                 </Button>
               </div>
             </div>

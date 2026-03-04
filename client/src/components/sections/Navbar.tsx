@@ -57,15 +57,15 @@ export function Navbar() {
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
-        <a 
-          href="#home" 
+        <a
+          href="#home"
           onClick={(e) => scrollToSection(e, "#home")}
           className="flex items-center gap-3 text-2xl font-bold font-display tracking-tighter text-white hover:text-primary transition-colors group text-gradient-logo"
         >
-          <img 
-            src={logo} 
-            alt="RuoccoAgency Logo" 
-            className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(140,82,255,0.5)] transition-transform group-hover:scale-110" 
+          <img
+            src={logo}
+            alt="RuoccoAgency Logo"
+            className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(140,82,255,0.5)] transition-transform group-hover:scale-110"
           />
           {content.nav.logo}
         </a>
@@ -83,8 +83,8 @@ export function Navbar() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
             </a>
           ))}
-          <Button 
-            variant="default" 
+          <Button
+            variant="default"
             className="bg-primary hover:bg-primary/90 text-white font-medium rounded-full px-6 shadow-[0_0_15px_rgba(140,82,255,0.3)] hover:shadow-[0_0_25px_rgba(140,82,255,0.5)] transition-all"
             onClick={(e) => {
               scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#contact");
@@ -101,19 +101,19 @@ export function Navbar() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-40 bg-background/95 backdrop-blur-md border-white/10">
-              <DropdownMenuItem 
+              <DropdownMenuItem
                 onClick={() => setLanguage("it")}
                 className="cursor-pointer hover:bg-white/5 focus:bg-white/10 transition-colors py-2"
               >
                 <span className="mr-3 text-xl leading-none">🇮🇹</span>
-                <span className="font-medium">Italiano</span>
+                <span className="font-medium">{content.nav.languages?.it || "Italiano"}</span>
               </DropdownMenuItem>
-              <DropdownMenuItem 
+              <DropdownMenuItem
                 onClick={() => setLanguage("en")}
                 className="cursor-pointer hover:bg-white/5 focus:bg-white/10 transition-colors py-2"
               >
                 <span className="mr-3 text-xl leading-none">🇬🇧</span>
-                <span className="font-medium">English</span>
+                <span className="font-medium">{content.nav.languages?.en || "English"}</span>
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
@@ -148,26 +148,26 @@ export function Navbar() {
                   {link.label}
                 </a>
               ))}
-              
+
               {/* Mobile Language Switcher */}
               <div className="flex gap-4 py-2 border-b border-white/5">
-                <Button 
-                  variant="ghost" 
-                  className={cn("flex-1 justify-start", language === "it" && "bg-white/10")} 
+                <Button
+                  variant="ghost"
+                  className={cn("flex-1 justify-start", language === "it" && "bg-white/10")}
                   onClick={() => { setLanguage("it"); setMobileMenuOpen(false); }}
                 >
-                  <span className="mr-2 text-xl leading-none">🇮🇹</span> Italiano
+                  <span className="mr-2 text-xl leading-none">🇮🇹</span> {content.nav.languages?.it || "Italiano"}
                 </Button>
-                <Button 
-                  variant="ghost" 
-                  className={cn("flex-1 justify-start", language === "en" && "bg-white/10")} 
+                <Button
+                  variant="ghost"
+                  className={cn("flex-1 justify-start", language === "en" && "bg-white/10")}
                   onClick={() => { setLanguage("en"); setMobileMenuOpen(false); }}
                 >
-                  <span className="mr-2 text-xl leading-none">🇬🇧</span> English
+                  <span className="mr-2 text-xl leading-none">🇬🇧</span> {content.nav.languages?.en || "English"}
                 </Button>
               </div>
 
-              <Button 
+              <Button
                 className="w-full bg-primary mt-4"
                 onClick={(e) => {
                   scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#contact");
