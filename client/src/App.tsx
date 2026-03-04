@@ -2,6 +2,7 @@ import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
+import { motion, AnimatePresence } from "framer-motion";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { LanguageProvider, useLanguage } from "@/hooks/useLanguage";
 import NotFound from "@/pages/not-found";
@@ -20,11 +21,17 @@ function RouteWrapper({ component: Component }: { component: any }) {
   const { language } = useLanguage();
   const [location] = useLocation();
 
-  // This hook ensures that when language changes, the component re-renders
-  // by forcing a re-mount of the component through React key (if needed)
-  // or just by consuming the context.
-
-  return <Component key={`${language}-${location}`} />;
+  return (
+    <motion.div
+      key={`${language}-${location}`}
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <Component />
+    </motion.div>
+  );
 }
 
 function Router() {

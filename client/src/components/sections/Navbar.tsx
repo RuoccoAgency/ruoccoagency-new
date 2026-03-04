@@ -62,10 +62,14 @@ export function Navbar() {
           onClick={(e) => scrollToSection(e, "#home")}
           className="flex items-center gap-3 text-2xl font-bold font-display tracking-tighter text-white hover:text-primary transition-colors group text-gradient-logo"
         >
-          <img
+          <motion.img
+            animate={{
+              filter: ["drop-shadow(0 0 8px rgba(140,82,255,0.4))", "drop-shadow(0 0 16px rgba(140,82,255,0.7))", "drop-shadow(0 0 8px rgba(140,82,255,0.4))"],
+            }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             src={logo}
             alt="RuoccoAgency Logo"
-            className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(140,82,255,0.5)] transition-transform group-hover:scale-110"
+            className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
           />
           {content.nav.logo}
         </a>

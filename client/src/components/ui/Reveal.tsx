@@ -9,7 +9,7 @@ interface RevealProps {
   y?: number;
 }
 
-export const Reveal = ({ children, width = "fit-content", delay = 0.25, duration = 0.5, y = 20 }: RevealProps) => {
+export const Reveal = ({ children, width = "fit-content", delay = 0.25, duration = 0.6, y = 20 }: RevealProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const mainControls = useAnimation();
@@ -29,7 +29,7 @@ export const Reveal = ({ children, width = "fit-content", delay = 0.25, duration
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration, delay }}
+        transition={{ duration, delay, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}
       </motion.div>
@@ -37,7 +37,7 @@ export const Reveal = ({ children, width = "fit-content", delay = 0.25, duration
   );
 };
 
-export const StaggerContainer = ({ children, delay = 0, stagger = 0.1, className = "" }: { children: React.ReactNode, delay?: number, stagger?: number, className?: string }) => {
+export const StaggerContainer = ({ children, delay = 0, stagger = 0.08, className = "" }: { children: React.ReactNode, delay?: number, stagger?: number, className?: string }) => {
   return (
     <motion.div
       initial="hidden"
@@ -65,7 +65,7 @@ export const StaggerItem = ({ children, className = "" }: { children: React.Reac
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },
       }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={className}
     >
       {children}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Magnetic } from "@/components/ui/Magnetic";
 import heroBg from "@assets/generated_images/futuristic_abstract_tech_background_with_neon_lines.png";
@@ -9,6 +9,8 @@ import heroBg from "@assets/generated_images/futuristic_abstract_tech_background
 export function Hero() {
   const { content } = useLanguage();
   const [currentVariant, setCurrentVariant] = useState(0);
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 100]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -25,10 +27,11 @@ export function Hero() {
       {/* Background with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-background/60 to-background z-10" />
-        <img
+        <motion.img
+          style={{ y: y1 }}
           src={heroBg}
           alt="Abstract Tech Background"
-          className="w-full h-full object-cover opacity-40 scale-105"
+          className="w-full h-full object-cover opacity-40 scale-110"
         />
       </div>
 
