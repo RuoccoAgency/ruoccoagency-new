@@ -42,6 +42,8 @@ export function CaseStudies() {
                   <div
                     className="absolute inset-0 bg-cover bg-top transition-transform duration-700 group-hover:scale-105"
                     style={{ backgroundImage: `url(${item.image})` }}
+                    role="img"
+                    aria-label={item.title}
                   />
                 )}
 

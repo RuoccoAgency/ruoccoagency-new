@@ -3,12 +3,14 @@ import { Footer } from "@/components/sections/Footer";
 import { ParticlesBackground } from "@/components/ui/ParticlesBackground";
 import { motion } from "framer-motion";
 import { useLanguage } from "@/hooks/useLanguage";
+import { SEO } from "@/components/SEO";
 
 export default function LegalNotice() {
   const { policies } = useLanguage();
   
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30 relative">
+      <SEO title={policies.legal.title} canonical="/note-legali" />
       <div className="fixed inset-0 z-0 pointer-events-none animate-gradient-bg opacity-40" />
       <ParticlesBackground />
       

@@ -1,4 +1,5 @@
 import vipiesseImage from "@/assets/Screenshot_2026-02-24_181322_1771953306043.png";
+import madeingigiImage from "@/assets/madeingigi.png";
 import { servicesData } from "./services";
 
 export const content = {
@@ -120,6 +121,14 @@ export const content = {
         location: "Napoli, IT",
         image: vipiesseImage,
         url: "https://vipiesse.com",
+      },
+      {
+        title: "MadeInGigi Events",
+        stat: "Sito Vetrina & Eventi",
+        badge: "Web Design",
+        location: "Napoli, IT",
+        image: madeingigiImage,
+        url: "https://madeingigievent.com/",
       },
       {
         title: "WLD Events ",

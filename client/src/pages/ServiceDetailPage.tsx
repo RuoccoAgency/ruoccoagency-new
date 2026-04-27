@@ -8,6 +8,7 @@ import { motion, useScroll, useMotionValue, useMotionValueEvent } from "framer-m
 import { Bot, MessageSquare, Phone, Globe, LucideIcon, ArrowRight, ChevronLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/ui/Reveal";
+import { SEO } from "@/components/SEO";
 
 const iconMap: Record<string, LucideIcon> = {
   Bot,
@@ -55,6 +56,37 @@ export default function ServiceDetailPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30 relative">
+      <SEO 
+        title={service.title}
+        description={service.shortDescription}
+        canonical={`/services/${service.slug}`}
+      >
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            "name": service.title,
+            "description": service.shortDescription,
+            "provider": {
+              "@type": "Organization",
+              "name": "RuoccoAgency",
+              "url": "https://ruoccoagency.com"
+            },
+            "areaServed": "Italy",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "AI Automation Services",
+              "itemListElement": service.features.map((f: string, i: number) => ({
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": f
+                }
+              }))
+            }
+          })}
+        </script>
+      </SEO>
       <div className="fixed inset-0 z-0 pointer-events-none animate-gradient-bg opacity-40" />
       <ParticlesBackground />
 
