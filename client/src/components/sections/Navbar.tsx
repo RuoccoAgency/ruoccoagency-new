@@ -196,7 +196,7 @@ export function Navbar() {
             variant="default"
             className="bg-primary hover:bg-primary/90 text-white font-medium rounded-full px-6 shadow-[0_0_15px_rgba(140,82,255,0.3)] hover:shadow-[0_0_25px_rgba(140,82,255,0.5)] transition-all"
             onClick={(e) => {
-              scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#contact");
+              scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, "/contatti");
             }}
           >
             {content.nav.cta}
@@ -329,7 +329,7 @@ export function Navbar() {
               <Button
                 className="w-full bg-primary mt-4"
                 onClick={(e) => {
-                  scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, "#contact");
+                  scrollToSection(e as unknown as React.MouseEvent<HTMLAnchorElement>, "/contatti");
                 }}
               >
                 {content.nav.cta}

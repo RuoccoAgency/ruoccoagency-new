@@ -25,9 +25,9 @@ export const content = {
     links: [
       { label: "Home", href: "#home" },
       { label: "Services", href: "#services" },
-      { label: "About", href: "#about" },
+      { label: "About", href: "/chi-sono" },
       { label: "FAQ", href: "#faq" },
-      { label: "Contact", href: "#contact" },
+      { label: "Contact", href: "/contatti" },
     ],
     cta: "Request Demo",
     languages: {
