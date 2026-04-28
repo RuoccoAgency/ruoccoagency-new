@@ -1,5 +1,5 @@
 import vipiesseImage from "@/assets/Screenshot_2026-02-24_181322_1771953306043.png";
-const madeingigiImage = vipiesseImage; // Temporary placeholder to fix build
+import madeingigiImage from "@/assets/madeingigi_screenshot.png";
 import { servicesData } from "./services";
 
 export const content = {
