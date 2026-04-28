@@ -22,7 +22,9 @@ export function SEO({
 }: SEOProps) {
   const { language } = useLanguage();
   const siteName = "RuoccoAgency";
-  const fullTitle = title ? `${title} | ${siteName}` : siteName;
+  const fullTitle = title 
+    ? (title.includes(siteName) ? title : `${title} | ${siteName}`)
+    : siteName;
   const defaultDescription = "Trasformiamo richieste in clienti, 24/7. Assistenti AI, Chatbot e Siti Web Moderni per il tuo business.";
   const metaDescription = description || defaultDescription;
   const url = "https://ruoccoagency.com";

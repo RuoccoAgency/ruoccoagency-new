@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "wouter";
+import { useLanguage } from "@/hooks/useLanguage";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
@@ -17,6 +18,7 @@ import { SEO } from "@/components/SEO";
 
 export default function Home() {
   const [location] = useLocation();
+  const { content } = useLanguage();
 
   useEffect(() => {
     if (window.location.hash) {
@@ -33,8 +35,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden selection:bg-primary/30 relative">
       <SEO 
-        title="RuoccoAgency | Automazioni e Assistenti AI"
-        description="Trasformiamo richieste in clienti, 24/7. Assistenti AI, Chatbot e Siti Web Moderni per il tuo business."
+        title={content.meta.title}
+        description={content.meta.description}
         canonical="/"
       >
         <script type="application/ld+json">
