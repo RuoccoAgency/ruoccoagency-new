@@ -144,7 +144,7 @@ export function Navbar() {
                               key={svc.slug}
                               onClick={() => {
                                 setServicesDropdownOpen(false);
-                                setLocation(`/servizi/${svc.slug}`);
+                                setLocation(`/services/${svc.slug}`);
                               }}
                               className="w-full flex items-start gap-3 px-3 py-3 rounded-xl hover:bg-white/5 transition-colors text-left group/item"
                             >
@@ -278,7 +278,7 @@ export function Navbar() {
                                   onClick={() => {
                                     setMobileMenuOpen(false);
                                     setMobileServicesOpen(false);
-                                    setLocation(`/servizi/${svc.slug}`);
+                                    setLocation(`/services/${svc.slug}`);
                                   }}
                                   className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/5 text-left transition-colors"
                                 >
