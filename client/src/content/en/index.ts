@@ -4,7 +4,7 @@ import { servicesData } from "./services";
 
 export const content = {
   meta: {
-    title: "RuoccoAgency | AI Automation, Chatbots & WhatsApp Assistants for Businesses",
+    title: "RuoccoAgency | We Turn Requests into Customers with AI, 24/7",
     description: "RuoccoAgency helps businesses and professionals capture and qualify leads automatically via chatbots, WhatsApp assistants, and AI voice agents. Instant 24/7 responses, fewer missed calls, more customers. Request a free demo.",
   },
   common: {
