@@ -1,5 +1,6 @@
 import vipiesseImage from "@/assets/Screenshot_2026-02-24_181322_1771953306043.png";
 import madeingigiImage from "@/assets/madeingigi_screenshot.png";
+import wldeventiImage from "@/assets/wldeventi_screenshot.png";
 import { servicesData } from "./services";
 
 export const content = {
@@ -131,9 +132,11 @@ export const content = {
         url: "https://madeingigievent.com/",
       },
       {
-        title: "WLD Events ",
+        title: "WLD Events",
         stat: "Full Showcase Website",
-        badge: "Coming Soon",
+        badge: "Web Design",
+        image: wldeventiImage,
+        url: "https://wldeventi.it",
       },
       {
         title: "Wedding Planner",
