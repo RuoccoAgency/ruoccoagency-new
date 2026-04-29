@@ -40,24 +40,37 @@ export default function Home() {
         canonical="/"
       >
         <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "RuoccoAgency",
-            "url": "https://ruoccoagency.com",
-            "logo": "https://ruoccoagency.com/favicon.png",
-            "description": "Agenzia specializzata in automazioni IA, assistenti virtuali e sviluppo web moderno.",
-            "founder": {
-              "@type": "Person",
-              "name": "Gianluca Ruocco"
+          {JSON.stringify([
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "RuoccoAgency",
+              "url": "https://ruoccoagency.com/",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://ruoccoagency.com/?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
             },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+39 380 641 3543",
-              "contactType": "customer service",
-              "email": "ruoccoagency@gmail.com"
+            {
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "RuoccoAgency",
+              "url": "https://ruoccoagency.com",
+              "logo": "https://ruoccoagency.com/favicon.png",
+              "description": "Agenzia specializzata in automazioni IA, assistenti virtuali e sviluppo web moderno.",
+              "founder": {
+                "@type": "Person",
+                "name": "Gianluca Ruocco"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+39 380 641 3543",
+                "contactType": "customer service",
+                "email": "ruoccoagency@gmail.com"
+              }
             }
-          })}
+          ])}
         </script>
       </SEO>
       {/* Premium Visual Layers */}
