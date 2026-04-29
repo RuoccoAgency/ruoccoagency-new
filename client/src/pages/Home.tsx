@@ -37,7 +37,7 @@ export default function Home() {
       <SEO 
         title={content.meta.title}
         description={content.meta.description}
-        canonical="/"
+        canonical=""
       >
         <script type="application/ld+json">
           {JSON.stringify([
