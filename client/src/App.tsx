@@ -19,6 +19,7 @@ import ContactPage from "@/pages/ContactPage";
 import { CookieBanner } from "@/components/ui/CookieBanner";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 function RouteWrapper({ component: Component }: { component: any }) {
   const { language } = useLanguage();
@@ -64,6 +65,7 @@ function App() {
             <Router />
             <Toaster />
             <CookieBanner />
+            <Analytics />
           </LanguageProvider>
         </TooltipProvider>
       </QueryClientProvider>
