@@ -40,17 +40,31 @@ export function Navbar() {
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    const element = document.querySelector(href);
-    if (element) {
-      const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
-      window.scrollTo({ top: offsetTop, behavior: "smooth" });
+    
+    // If it's an internal route starting with '/', navigate directly
+    if (href.startsWith("/") && !href.startsWith("/#")) {
+      setLocation(href);
       setMobileMenuOpen(false);
-    } else {
-      if (href.startsWith("#")) {
-        setLocation("/" + href);
+      return;
+    }
+
+    try {
+      const element = document.querySelector(href);
+      if (element) {
+        const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: offsetTop, behavior: "smooth" });
+        setMobileMenuOpen(false);
       } else {
-        setLocation(href);
+        if (href.startsWith("#")) {
+          setLocation("/" + href);
+        } else {
+          setLocation(href);
+        }
+        setMobileMenuOpen(false);
       }
+    } catch (err) {
+      // Fallback for cases where querySelector fails (e.g. invalid selector)
+      setLocation(href);
       setMobileMenuOpen(false);
     }
   };
