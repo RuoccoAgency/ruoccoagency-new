@@ -146,14 +146,29 @@ export const content = {
     ],
   },
   about: {
-    title: "Chi Sono",
+    title: "L'Anima di RuoccoAgency",
     badge: "Founder of RuoccoAgency",
     name: "Gianluca Ruocco",
     role: "Founder & Automation Expert",
-    bio: "Mi chiamo Gianluca Ruocco, sono il fondatore di RuoccoAgency e aiuto aziende e studi professionali a recuperare tempo e aumentare i profitti grazie all'intelligenza artificiale. Specializzato in automazioni, assistenti virtuali e sviluppo web, il mio obiettivo è trasformare la tecnologia in un vantaggio competitivo concreto e misurabile per la tua attività.",
+    bio: "Mi chiamo Gianluca Ruocco e la mia missione è semplice: liberare il potenziale umano eliminando il lavoro ripetitivo. In RuoccoAgency, non vendiamo solo tecnologia; costruiamo ponti tra le ambizioni dei nostri clienti e le infinite possibilità dell'Intelligenza Artificiale. Con un background focalizzato sull'efficienza e l'innovazione, ho fondato questa agenzia per offrire a studi professionali e aziende strumenti che fino a ieri erano riservati solo ai colossi del tech.",
+    mission: "La nostra missione è democratizzare l'accesso all'automazione avanzata. Crediamo in un futuro dove ogni professionista possa concentrarsi sulla creatività e sulla strategia, lasciando che l'AI gestisca la logistica e la prima linea del servizio clienti.",
+    values: [
+      {
+        title: "Innovazione Etica",
+        description: "Utilizziamo l'IA per potenziare il lavoro umano, mai per sostituirlo senza criterio."
+      },
+      {
+        title: "Efficienza Misurabile",
+        description: "Ogni nostra automazione deve portare un ritorno sull'investimento chiaro e tangibile."
+      },
+      {
+        title: "Trasparenza Totale",
+        description: "Zero fuffa. Spieghiamo cosa può fare l'IA e, soprattutto, cosa non deve fare."
+      }
+    ],
     contacts: {
-      email: "Email",
-      phone: "Telefono",
+      email: "Email Diretta",
+      phone: "Telefono Diretto",
     }
   },
   faq: {
@@ -186,35 +201,36 @@ export const content = {
     ],
   },
   contact: {
-    title: "Inizia Ora",
-    subtitle: "Raccontaci il tuo progetto",
+    title: "Diamo Vita al Tuo Progetto",
+    subtitle: "Che tu voglia automatizzare le vendite o creare un assistente vocale, siamo pronti a parlarne. Rispondiamo solitamente entro 24 ore lavorative.",
     form: {
       name: "Nome e Cognome",
       namePlaceholder: "Mario Rossi",
-      email: "Email",
+      email: "Email Professionale",
       emailPlaceholder: "mario@azienda.com",
       phone: "Telefono (opzionale)",
       phonePlaceholder: "+39 333 1234567",
-      type: "Tipo di attività",
-      typePlaceholder: "Studio Legale, E-commerce, ecc.",
-      message: "Cosa ti serve?",
-      messagePlaceholder: "Descrivi brevemente di cosa hai bisogno...",
-      submit: "Invia Richiesta",
-      success: "Messaggio inviato con successo! Ti risponderemo presto.",
-      error: "Si è verificato un errore. Riprova più tardi.",
+      type: "Il tuo Business",
+      typePlaceholder: "Es: Studio Legale, Agenzia Immobiliare, E-commerce...",
+      message: "Descrivi la tua sfida",
+      messagePlaceholder: "Raccontaci brevemente cosa vorresti automatizzare o migliorare...",
+      submit: "Invia la Sfida",
+      success: "Richiesta ricevuta! Gianluca o un membro del team ti contatterà a breve.",
+      error: "Ops! Qualcosa è andato storto. Riprova o scrivici direttamente via email.",
       sendAnother: "Invia un'altra richiesta",
-      thanks: "Grazie!",
+      thanks: "A presto!",
       validation: {
-        name: "Il nome deve essere di almeno 2 caratteri",
-        email: "Email non valida",
-        type: "Specificare il tipo di attività",
-        message: "Il messaggio deve essere di almeno 10 caratteri",
+        name: "Il nome è necessario per sapere con chi parleremo",
+        email: "Inserisci un'email valida per poterti rispondere",
+        type: "Aiutaci a capire il tuo settore",
+        message: "Dacci qualche dettaglio in più (minimo 10 caratteri)",
       }
     },
     info: {
       email: "ruoccoagency@gmail.com",
       phone: "+39 380 641 3543",
       website: "ruoccoagency.com",
+      location: "Disponibili per consulenze in tutta Italia (e oltre)",
     },
   },
   footer: {

@@ -99,8 +99,11 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="group bg-card/50 border border-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
+          className="group relative bg-card/50 border border-white/10 rounded-2xl p-6 md:p-10 backdrop-blur-sm hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] shadow-2xl"
         >
+          {/* Decorative Elements */}
+          <div className="absolute -top-px left-10 right-10 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+          
           {isSuccess ? (
             <div className="flex flex-col items-center justify-center py-12 text-center space-y-4">
               <motion.div
@@ -126,100 +129,134 @@ export function Contact() {
               </Button>
             </div>
           ) : (
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">{content.contact.form.name}</FormLabel>
-                        <FormControl>
-                          <Input placeholder={content.contact.form.namePlaceholder} {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">{content.contact.form.email}</FormLabel>
-                        <FormControl>
-                          <Input placeholder={content.contact.form.emailPlaceholder} {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+              <div className="lg:col-span-2">
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white text-xs uppercase tracking-widest">{content.contact.form.name}</FormLabel>
+                            <FormControl>
+                              <Input placeholder={content.contact.form.namePlaceholder} {...field} className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/30 focus:border-primary/50 transition-colors h-12" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white text-xs uppercase tracking-widest">{content.contact.form.email}</FormLabel>
+                            <FormControl>
+                              <Input placeholder={content.contact.form.emailPlaceholder} {...field} className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/30 focus:border-primary/50 transition-colors h-12" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white text-xs uppercase tracking-widest">{content.contact.form.phone}</FormLabel>
+                            <FormControl>
+                              <Input placeholder={content.contact.form.phonePlaceholder} {...field} className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/30 focus:border-primary/50 transition-colors h-12" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <FormField
+                        control={form.control}
+                        name="type"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white text-xs uppercase tracking-widest">{content.contact.form.type}</FormLabel>
+                            <FormControl>
+                              <Input placeholder={content.contact.form.typePlaceholder} {...field} className="bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/30 focus:border-primary/50 transition-colors h-12" />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-white text-xs uppercase tracking-widest">{content.contact.form.message}</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder={content.contact.form.messagePlaceholder}
+                              className="min-h-[120px] bg-white/5 border-white/10 text-white placeholder:text-muted-foreground/30 focus:border-primary/50 resize-none transition-colors"
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      className="w-full h-12 text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(140,82,255,0.3)] hover:shadow-[0_0_30px_rgba(140,82,255,0.5)] active:scale-[0.98] transition-all duration-300 font-bold"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                          {content.common.sending}
+                        </>
+                      ) : (
+                        content.contact.form.submit
+                      )}
+                    </Button>
+                  </form>
+                </Form>
+              </div>
+
+              {/* Sidebar Info */}
+              <div className="space-y-8 pt-4 lg:pt-0 border-t lg:border-t-0 lg:border-l border-white/10 lg:pl-12">
+                <div className="group">
+                  <h4 className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Canali Diretti</h4>
+                  <div className="space-y-4">
+                    <a href={`mailto:${content.contact.info.email}`} className="block text-white hover:text-primary transition-colors text-sm font-medium">
+                      {content.contact.info.email}
+                    </a>
+                    <a href={`tel:${content.contact.info.phone}`} className="block text-white hover:text-primary transition-colors text-sm font-medium">
+                      {content.contact.info.phone}
+                    </a>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="phone"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">{content.contact.form.phone}</FormLabel>
-                        <FormControl>
-                          <Input placeholder={content.contact.form.phonePlaceholder} {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="type"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">{content.contact.form.type}</FormLabel>
-                        <FormControl>
-                          <Input placeholder={content.contact.form.typePlaceholder} {...field} className="bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 transition-colors" />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                <div>
+                  <h4 className="text-primary text-xs font-bold uppercase tracking-widest mb-4">Base Operativa</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {content.contact.info.location}
+                  </p>
                 </div>
 
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-white">{content.contact.form.message}</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          placeholder={content.contact.form.messagePlaceholder}
-                          className="min-h-[120px] bg-background/50 border-white/10 text-white placeholder:text-muted-foreground/50 focus:border-primary/50 resize-none transition-colors"
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full h-12 text-lg bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(140,82,255,0.3)] hover:shadow-[0_0_30px_rgba(140,82,255,0.5)] active:scale-[0.98] transition-all duration-300"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                      {content.common.sending}
-                    </>
-                  ) : (
-                    content.contact.form.submit
-                  )}
-                </Button>
-              </form>
-            </Form>
+                <div className="p-4 rounded-xl bg-primary/5 border border-primary/10">
+                  <p className="text-xs text-muted-foreground italic leading-relaxed">
+                    {language === "it" 
+                      ? "Le consulenze vengono svolte via Google Meet o WhatsApp Video per massimizzare l'efficienza."
+                      : "Consultations are held via Google Meet or WhatsApp Video to maximize efficiency."}
+                  </p>
+                </div>
+              </div>
+            </div>
           )}
         </motion.div>
       </div>

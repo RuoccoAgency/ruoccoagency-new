@@ -146,14 +146,29 @@ export const content = {
     ],
   },
   about: {
-    title: "About Me",
+    title: "The Soul of RuoccoAgency",
     badge: "Founder of RuoccoAgency",
     name: "Gianluca Ruocco",
     role: "Founder & Automation Expert",
-    bio: "My name is Gianluca Ruocco, I am the founder of RuoccoAgency and I help businesses and professional studios recover time and increase profits through artificial intelligence. Specializing in automations, virtual assistants, and web development, my goal is to turn technology into a concrete and measurable competitive advantage for your business.",
+    bio: "My name is Gianluca Ruocco and my mission is simple: to liberate human potential by eliminating repetitive work. At RuoccoAgency, we don't just sell technology; we build bridges between our clients' ambitions and the infinite possibilities of Artificial Intelligence. With a background focused on efficiency and innovation, I founded this agency to offer professional studios and businesses tools that until yesterday were reserved only for tech giants.",
+    mission: "Our mission is to democratize access to advanced automation. We believe in a future where every professional can focus on creativity and strategy, letting AI handle the logistics and the front line of customer service.",
+    values: [
+      {
+        title: "Ethical Innovation",
+        description: "We use AI to empower human work, never to replace it indiscriminately."
+      },
+      {
+        title: "Measurable Efficiency",
+        description: "Every one of our automations must bring a clear and tangible return on investment."
+      },
+      {
+        title: "Total Transparency",
+        description: "No fluff. We explain what AI can do and, more importantly, what it should not do."
+      }
+    ],
     contacts: {
-      email: "Email",
-      phone: "Phone",
+      email: "Direct Email",
+      phone: "Direct Phone",
     }
   },
   faq: {
@@ -186,35 +201,36 @@ export const content = {
     ],
   },
   contact: {
-    title: "Start Now",
-    subtitle: "Tell us about your project",
+    title: "Bring Your Project to Life",
+    subtitle: "Whether you want to automate sales or create a voice assistant, we're ready to talk. We usually respond within 24 business hours.",
     form: {
       name: "Full Name",
       namePlaceholder: "John Doe",
-      email: "Email",
+      email: "Professional Email",
       emailPlaceholder: "john@company.com",
       phone: "Phone (optional)",
       phonePlaceholder: "+1 234 567 8900",
-      type: "Type of business",
-      typePlaceholder: "Law Firm, E-commerce, etc.",
-      message: "What do you need?",
-      messagePlaceholder: "Briefly describe what you need...",
-      submit: "Send Request",
-      success: "Message sent successfully! We'll reply soon.",
-      error: "An error occurred. Please try again later.",
+      type: "Your Business",
+      typePlaceholder: "e.g. Law Firm, Real Estate, E-commerce...",
+      message: "Describe your challenge",
+      messagePlaceholder: "Briefly tell us what you'd like to automate or improve...",
+      submit: "Send the Challenge",
+      success: "Request received! Gianluca or a team member will contact you soon.",
+      error: "Oops! Something went wrong. Please try again or email us directly.",
       sendAnother: "Send another request",
-      thanks: "Thank You!",
+      thanks: "See you soon!",
       validation: {
-        name: "Name must be at least 2 characters",
-        email: "Invalid email",
-        type: "Specify the type of business",
-        message: "Message must be at least 10 characters",
+        name: "Name is needed so we know who we're talking to",
+        email: "Enter a valid email so we can reply",
+        type: "Help us understand your sector",
+        message: "Give us a few more details (min 10 characters)",
       }
     },
     info: {
       email: "ruoccoagency@gmail.com",
       phone: "+39 380 641 3543",
       website: "ruoccoagency.com",
+      location: "Available for consultations worldwide",
     },
   },
   footer: {

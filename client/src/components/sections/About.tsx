@@ -60,20 +60,36 @@ export function About() {
                 <p className="leading-relaxed">
                   {content.about.bio}
                 </p>
+                <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10 italic text-white/80 relative overflow-hidden group">
+                  <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
+                  "{content.about.mission}"
+                </div>
               </div>
             </Reveal>
 
-            <Reveal delay={0.2}>
-              <div className="mt-8 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {/* Values Grid */}
+            <div className="mt-12 grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {content.about.values?.map((value: { title: string; description: string }, idx: number) => (
+                <Reveal key={idx} delay={0.1 + idx * 0.1}>
+                  <div className="h-full p-4 rounded-xl bg-white/5 border border-white/10 hover:border-primary/30 transition-colors">
+                    <h4 className="text-white font-bold mb-2 text-sm uppercase tracking-wider">{value.title}</h4>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{value.description}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={0.3}>
+              <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="group">
-                  <p className="text-sm text-muted-foreground mb-1">{content.about.contacts.email || "Email"}</p>
-                  <a href={`mailto:${content.contact.info.email}`} className="text-white hover:text-primary transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300">
+                  <p className="text-xs text-muted-foreground mb-1 uppercase tracking-widest">{content.about.contacts.email || "Email"}</p>
+                  <a href={`mailto:${content.contact.info.email}`} className="text-white hover:text-primary transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300 font-medium">
                     {content.contact.info.email}
                   </a>
                 </div>
                 <div className="group">
-                  <p className="text-sm text-muted-foreground mb-1">{content.about.contacts.phone || "Telefono"}</p>
-                  <a href={`tel:${content.contact.info.phone}`} className="text-white hover:text-primary transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300">
+                  <p className="text-xs text-muted-foreground mb-1 uppercase tracking-widest">{content.about.contacts.phone || "Telefono"}</p>
+                  <a href={`tel:${content.contact.info.phone}`} className="text-white hover:text-primary transition-colors flex items-center gap-2 group-hover:translate-x-1 duration-300 font-medium">
                     {content.contact.info.phone}
                   </a>
                 </div>
