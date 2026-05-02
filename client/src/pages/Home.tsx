@@ -67,7 +67,7 @@ export default function Home() {
               },
               "contactPoint": {
                 "@type": "ContactPoint",
-                "telephone": "+39 380 641 3543",
+                "telephone": "+39 329 467 1410",
                 "contactType": "customer service",
                 "email": "ruoccoagency@gmail.com"
               }

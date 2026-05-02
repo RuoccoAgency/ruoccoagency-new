@@ -244,7 +244,7 @@ export const content = {
     },
     info: {
       email: "ruoccoagency@gmail.com",
-      phone: "+39 380 641 3543",
+      phone: "+39 329 467 1410",
       website: "ruoccoagency.com",
       location: "Disponibili per consulenze in tutta Italia (e oltre)",
     },
