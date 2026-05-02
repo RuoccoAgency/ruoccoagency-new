@@ -40,8 +40,8 @@ export const content = {
   },
   hero: {
     badge: "AI Automation Agency",
-    headline: "Automazioni e Assistenti AI che trasformano richieste in clienti, 24/7.",
-    subheadline: "Aiutiamo aziende e professionisti a catturare e qualificare lead automaticamente tramite chatbot, assistenti WhatsApp e agenti vocali AI.",
+    headline: "Siti web e automazione AI per la crescita aziendale",
+    subheadline: "Realizziamo siti web veloci, moderni e ottimizzati SEO, combinati con automazioni AI per aziende: chatbot AI, sistemi di prenotazione online, assistenti WhatsApp Business e automazioni di email marketing per aumentare contatti e conversioni.",
     ctaPrimary: "Richiedi una demo gratuita",
     ctaSecondary: "Vedi i servizi",
     benefits: [
@@ -49,16 +49,31 @@ export const content = {
       "Meno chiamate perse / più lead qualificati",
       "Sito moderno + SEO per farsi trovare",
     ],
-    variants: [
+  },
+  servicesSEO: {
+    items: [
       {
-        headline: "Recupera Tempo e Aumenta i Profitti",
-        subheadline: "Aiutiamo aziende e professionisti a catturare e qualificare lead automaticamente tramite chatbot, assistenti WhatsApp Business e agenti vocali AI.",
+        title: "Sviluppo di siti web professionali",
+        description: "Creiamo piattaforme su misura per il tuo brand, veloci da caricare e perfette per convertire i visitatori in clienti. Ogni sito è studiato per posizionarsi in alto sui motori di ricerca."
       },
       {
-        headline: "Trasforma il Tuo Sito in una Macchina di Clienti",
-        subheadline: "Creiamo siti web e landing page veloci e ottimizzati SEO per aumentare conversioni, richieste e vendite.",
+        title: "Automazione AI per le aziende",
+        description: "Semplifichiamo i tuoi processi aziendali con l'Intelligenza Artificiale. Riduci il lavoro manuale e lascia che il software gestisca le operazioni ripetitive per te."
+      },
+      {
+        title: "Chatbot AI e assistenti WhatsApp Business",
+        description: "Offri assistenza 24/7 ai tuoi clienti senza dover assumere nuovo personale. I nostri chatbot qualificano i contatti e rispondono istantaneamente su WhatsApp."
+      },
+      {
+        title: "Sistemi di prenotazione online per ridurre i no-show",
+        description: "Automatizza la gestione degli appuntamenti con calendari intelligenti e promemoria automatici. Elimina le mancate presentazioni e ottimizza il tuo tempo."
+      },
+      {
+        title: "Automazione di email marketing per aumentare le vendite",
+        description: "Trasforma i semplici visitatori in clienti fedeli. Impostiamo flussi di email automatici che nutrono i tuoi contatti fino al momento dell'acquisto."
       }
-    ]
+    ],
+    footer: "Operiamo a Napoli, Salerno e in tutta Italia."
   },
   services: {
     title: "I Nostri Servizi",

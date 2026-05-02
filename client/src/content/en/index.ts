@@ -40,8 +40,8 @@ export const content = {
   },
   hero: {
     badge: "AI Automation Agency",
-    headline: "AI Automations and Assistants that turn requests into customers, 24/7.",
-    subheadline: "We help businesses and professionals capture and qualify leads automatically via chatbots, WhatsApp assistants, and AI voice agents.",
+    headline: "Websites and AI automation for business growth",
+    subheadline: "We build fast, modern, and SEO-optimized websites, combined with AI automation for businesses: AI chatbots, online booking systems, WhatsApp Business assistants, and email marketing automation to increase leads and conversions.",
     ctaPrimary: "Request a free demo",
     ctaSecondary: "View services",
     benefits: [
@@ -49,16 +49,31 @@ export const content = {
       "Fewer missed calls / more qualified leads",
       "Modern website + SEO to be found",
     ],
-    variants: [
+  },
+  servicesSEO: {
+    items: [
       {
-        headline: "Save Time and Increase Profits",
-        subheadline: "We help businesses and professionals capture and qualify leads automatically via chatbots, WhatsApp assistants, and AI voice agents.",
+        title: "Professional website development",
+        description: "We create custom platforms for your brand, fast-loading and perfect for converting visitors into clients. Every site is built to rank high on search engines."
       },
       {
-        headline: "Turn Your Website into a Customer Machine",
-        subheadline: "We create fast websites and SEO-optimized landing pages to increase conversions, requests, and sales.",
+        title: "AI automation for businesses",
+        description: "We simplify your business processes with Artificial Intelligence. Reduce manual work and let the software handle repetitive operations for you."
+      },
+      {
+        title: "AI chatbots and WhatsApp Business assistants",
+        description: "Offer 24/7 support to your customers without hiring new staff. Our chatbots qualify leads and reply instantly on WhatsApp."
+      },
+      {
+        title: "Online booking systems to reduce no-shows",
+        description: "Automate appointment management with smart calendars and automatic reminders. Eliminate no-shows and optimize your time."
+      },
+      {
+        title: "Email marketing automation to increase sales",
+        description: "Turn simple visitors into loyal customers. We set up automated email flows that nurture your leads until the moment of purchase."
       }
-    ]
+    ],
+    footer: "We operate in Naples, Salerno, and across Italy."
   },
   services: {
     title: "Our Services",

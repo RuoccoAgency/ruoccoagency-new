@@ -1,26 +1,14 @@
-import { useState, useEffect } from "react";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Button } from "@/components/ui/button";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Magnetic } from "@/components/ui/Magnetic";
 import heroBg from "@assets/generated_images/futuristic_abstract_tech_background_with_neon_lines.png";
 
 export function Hero() {
   const { content } = useLanguage();
-  const [currentVariant, setCurrentVariant] = useState(0);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 100]);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentVariant((prev: number) => (prev === 0 ? 1 : 0));
-    }, 10000);
-    return () => clearInterval(timer);
-  }, []);
-
-  // Use variants from content, falling back to empty strings if not available
-  const activeVariant = content.hero.variants?.[currentVariant] || { headline: "", subheadline: "" };
 
   return (
     <section id="home" className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20">
@@ -52,31 +40,27 @@ export function Hero() {
             <span>{content.hero.badge}</span>
           </motion.div>
 
-          {/* Rotating Text Container - Stable height to prevent layout jump */}
-          <div className="min-h-[280px] md:min-h-[360px] flex flex-col items-center justify-start relative">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentVariant}
-                initial={{ opacity: 0, y: 4 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -4 }}
-                transition={{ duration: 0.45, ease: "easeInOut" }}
-                className="w-full"
-              >
-                {/* Futuristic Scanline Effect */}
-                <div className="absolute inset-0 pointer-events-none overflow-hidden z-20">
-                  <div className="w-full h-[1px] bg-primary/30 animate-scanline" />
-                </div>
+          {/* Fixed Text Container */}
+          <div className="flex flex-col items-center justify-start relative mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, ease: "easeInOut" }}
+              className="w-full"
+            >
+              {/* Futuristic Scanline Effect */}
+              <div className="absolute inset-0 pointer-events-none overflow-hidden z-20">
+                <div className="w-full h-[1px] bg-primary/30 animate-scanline" />
+              </div>
 
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-display tracking-tight text-white mb-8 leading-[1.1] text-gradient-logo animate-glitch min-h-[2.2em] flex items-center justify-center">
-                  {activeVariant.headline}
-                </h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-display tracking-tight text-white mb-8 leading-[1.2] text-gradient-logo animate-glitch flex items-center justify-center">
+                {content.hero.headline}
+              </h1>
 
-                <p className="text-lg md:text-xl text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed animate-glitch min-h-[3.25em] flex items-center justify-center">
-                  {activeVariant.subheadline}
-                </p>
-              </motion.div>
-            </AnimatePresence>
+              <p className="text-lg md:text-xl text-white/70 mb-10 max-w-3xl mx-auto leading-relaxed animate-glitch flex items-center justify-center">
+                {content.hero.subheadline}
+              </p>
+            </motion.div>
           </div>
 
           <motion.div
