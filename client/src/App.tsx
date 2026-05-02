@@ -18,6 +18,7 @@ import AboutPage from "@/pages/AboutPage";
 import ContactPage from "@/pages/ContactPage";
 import { CookieBanner } from "@/components/ui/CookieBanner";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useEffect } from "react";
 
 function RouteWrapper({ component: Component }: { component: any }) {
@@ -64,6 +65,7 @@ function App() {
             <Router />
             <Toaster />
             <CookieBanner />
+            <SpeedInsights />
           </LanguageProvider>
         </TooltipProvider>
       </QueryClientProvider>
