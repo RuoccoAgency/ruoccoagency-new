@@ -23,10 +23,11 @@ export const content = {
   nav: {
     logo: "RuoccoAgency",
     links: [
-      { label: "Home", href: "#home" },
-      { label: "Services", href: "#services" },
+      { label: "Home", href: "/#home" },
+      { label: "Services", href: "/#services" },
+      { label: "Case Studies", href: "/casi-studio" },
       { label: "About", href: "/chi-sono" },
-      { label: "FAQ", href: "#faq" },
+      { label: "FAQ", href: "/#faq" },
       { label: "Contact", href: "/contatti" },
     ],
     cta: "Request Demo",

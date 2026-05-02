@@ -16,6 +16,7 @@ import LegalNotice from "@/pages/LegalNotice";
 import Disclaimer from "@/pages/Disclaimer";
 import AboutPage from "@/pages/AboutPage";
 import ContactPage from "@/pages/ContactPage";
+import CaseStudiesPage from "@/pages/CaseStudiesPage";
 import { CookieBanner } from "@/components/ui/CookieBanner";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
 import { useEffect } from "react";
@@ -48,6 +49,7 @@ function Router() {
       <Route path="/note-legali" component={() => <RouteWrapper component={LegalNotice} />} />
       <Route path="/disclaimer" component={() => <RouteWrapper component={Disclaimer} />} />
       <Route path="/chi-sono" component={() => <RouteWrapper component={AboutPage} />} />
+      <Route path="/casi-studio" component={() => <RouteWrapper component={CaseStudiesPage} />} />
       <Route path="/contatti" component={() => <RouteWrapper component={ContactPage} />} />
       <Route component={NotFound} />
     </Switch>

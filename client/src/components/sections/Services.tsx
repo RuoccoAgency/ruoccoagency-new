@@ -5,6 +5,7 @@ import { StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
 import { useLocation } from "wouter";
 import { servicesData } from "@/content/services";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 
 const iconMap: Record<string, LucideIcon> = {
   Bot,
@@ -54,10 +55,8 @@ export function Services() {
           {servicesWithSlugs.map((service, index) => {
             const Icon = iconMap[service.icon];
             return (
-              <StaggerItem
-                key={index}
-                className="group p-8 rounded-3xl glass-premium transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex flex-col"
-              >
+              <StaggerItem key={index} className="h-full">
+                <SpotlightCard className="h-full group p-8 rounded-3xl glass-premium transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.4)] flex flex-col border-white/5">
                 <div className="h-14 w-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:bg-primary/20 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 relative">
                   <div className="absolute inset-0 bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <Icon className="h-7 w-7 text-primary relative z-10 animate-float" />
@@ -92,6 +91,7 @@ export function Services() {
                     <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
                   </button>
                 </Magnetic>
+                </SpotlightCard>
               </StaggerItem>
             );
           })}
