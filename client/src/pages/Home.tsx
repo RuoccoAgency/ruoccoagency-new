@@ -3,6 +3,7 @@ import { useLocation } from "wouter";
 import { useLanguage } from "@/hooks/useLanguage";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
+import { Marquee } from "@/components/sections/Marquee";
 import { ServicesSEO } from "@/components/sections/ServicesSEO";
 import { Services } from "@/components/sections/Services";
 import { HowItWorks } from "@/components/sections/HowItWorks";
@@ -91,6 +92,7 @@ export default function Home() {
         <Navbar />
         <main>
           <Hero />
+          <Marquee />
           <ServicesSEO />
           <TechStack />
           <About />

@@ -260,4 +260,21 @@
   .animate-glitch {
     animation: glitch 0.12s ease-in-out;
   }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+  
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 }

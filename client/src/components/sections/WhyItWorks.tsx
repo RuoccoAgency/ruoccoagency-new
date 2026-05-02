@@ -2,6 +2,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
 import { Clock, Zap, Target, LucideIcon } from "lucide-react";
 import { StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
+import { SpotlightCard } from "@/components/ui/SpotlightCard";
 
 const iconMap: Record<number, LucideIcon> = {
   0: Clock,
@@ -32,15 +33,14 @@ export function WhyItWorks() {
           {content.whyItWorks.cards.map((card, index) => {
             const Icon = iconMap[index];
             return (
-              <StaggerItem
-                key={index}
-                className="group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] backdrop-blur-sm hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10 text-center"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6 ring-1 ring-primary/20 shadow-[0_0_20px_rgba(124,58,237,0.1)] group-hover:scale-110 transition-transform duration-300 group-hover:bg-primary/20">
-                  <Icon className="h-8 w-8" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors">{card.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{card.description}</p>
+              <StaggerItem key={index} className="h-full">
+                <SpotlightCard className="h-full group p-8 rounded-2xl bg-white/5 border border-white/10 text-center flex flex-col items-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6 ring-1 ring-primary/20 shadow-[0_0_20px_rgba(124,58,237,0.1)] group-hover:scale-110 transition-transform duration-300 group-hover:bg-primary/20 relative z-10">
+                    <Icon className="h-8 w-8" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-primary transition-colors relative z-10">{card.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed relative z-10">{card.description}</p>
+                </SpotlightCard>
               </StaggerItem>
             );
           })}
