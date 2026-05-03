@@ -18,9 +18,9 @@ export default function CaseStudiesPage() {
   }, []);
 
   const items = content.caseStudies.items;
-  // First 3 items are actual projects, the 4th is coming soon
-  const projects = items.slice(0, 3);
-  const comingSoon = items[3];
+  // First 4 items are actual projects, the 5th is coming soon
+  const projects = items.slice(0, 4);
+  const comingSoon = items[4];
 
   // Map of specific challenge/solution for each project since they aren't fully detailed in the content file yet
   // We provide fallbacks here that match the design we proposed.
@@ -36,6 +36,10 @@ export default function CaseStudiesPage() {
     {
       sfida: content.nav.languages.it === "Italiano" ? "Posizionare il brand nel mercato competitivo degli eventi con un sito che ne rispecchiasse il valore." : "Position the brand in the competitive events market with a site that reflected its value.",
       soluzione: content.nav.languages.it === "Italiano" ? "Struttura SEO-friendly, performance veloci e un design pulito che guida l'utente a richiedere informazioni." : "SEO-friendly structure, fast performance, and a clean design that guides the user to request information.",
+    },
+    {
+      sfida: content.nav.languages.it === "Italiano" ? "Progettare una piattaforma digitale moderna e futuristica per presentare servizi avanzati di stampa 3D." : "Design a modern and futuristic digital platform to showcase advanced 3D printing services.",
+      soluzione: content.nav.languages.it === "Italiano" ? "Un sito web dal design high-tech, con focus visivo sui progetti e moduli di preventivo integrati." : "A high-tech designed website, with a visual focus on projects and integrated quote forms.",
     }
   ];
 
