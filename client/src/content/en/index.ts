@@ -1,6 +1,7 @@
 import vipiesseImage from "@/assets/Screenshot_2026-02-24_181322_1771953306043.png";
 import madeingigiImage from "@/assets/madeingigi_screenshot.png";
 import wldeventiImage from "@/assets/wldeventi_screenshot.png";
+import drealstudioImage from "@/assets/3drealstudio_screenshot.png";
 import { servicesData } from "./services";
 
 export const content = {
@@ -25,7 +26,7 @@ export const content = {
     links: [
       { label: "Home", href: "/#home" },
       { label: "Services", href: "/#services" },
-      { label: "Case Studies", href: "/casi-studio" },
+      { label: "My Projects", href: "/casi-studio" },
       { label: "About", href: "/chi-sono" },
       { label: "FAQ", href: "/#faq" },
       { label: "Contact", href: "/contatti" },
@@ -127,7 +128,7 @@ export const content = {
     ],
   },
   caseStudies: {
-    title: "Case Studies",
+    title: "My Projects",
     subtitle: "Our recent work",
     viewProject: "View Project",
     items: [
@@ -158,7 +159,7 @@ export const content = {
         title: "3DRealStudio",
         stat: "3D Printing Service",
         badge: "Web Design",
-        // image: drealstudioImage, // TODO: Add the image to src/assets and import it at the top
+        image: drealstudioImage,
         url: "https://3drealstudio.it",
       },
       {

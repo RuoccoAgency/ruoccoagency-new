@@ -1,6 +1,7 @@
 import vipiesseImage from "@/assets/Screenshot_2026-02-24_181322_1771953306043.png";
 import madeingigiImage from "@/assets/madeingigi_screenshot.png";
 import wldeventiImage from "@/assets/wldeventi_screenshot.png";
+import drealstudioImage from "@/assets/3drealstudio_screenshot.png";
 import { servicesData } from "./services";
 
 export const content = {
@@ -25,7 +26,7 @@ export const content = {
     links: [
       { label: "Home", href: "/#home" },
       { label: "Servizi", href: "/#services" },
-      { label: "Casi Studio", href: "/casi-studio" },
+      { label: "I miei Progetti", href: "/casi-studio" },
       { label: "Chi Sono", href: "/chi-sono" },
       { label: "FAQ", href: "/#faq" },
       { label: "Contatti", href: "/contatti" },
@@ -127,7 +128,7 @@ export const content = {
     ],
   },
   caseStudies: {
-    title: "Casi Studio",
+    title: "I miei Progetti",
     subtitle: "I nostri lavori recenti",
     viewProject: "Visualizza Progetto",
     items: [
@@ -158,7 +159,7 @@ export const content = {
         title: "3DRealStudio",
         stat: "Servizio di Stampa 3D",
         badge: "Web Design",
-        // image: drealstudioImage, // TODO: Aggiungi l'immagine in src/assets e importala in alto
+        image: drealstudioImage,
         url: "https://3drealstudio.it",
       },
       {

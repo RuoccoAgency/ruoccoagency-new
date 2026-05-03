@@ -2,6 +2,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { StaggerContainer, StaggerItem } from "@/components/ui/Reveal";
+import { Link } from "wouter";
 
 export function CaseStudies() {
   const { content } = useLanguage();
@@ -24,7 +25,7 @@ export function CaseStudies() {
         </div>
 
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-          {content.caseStudies.items.map((item, index) => (
+          {content.caseStudies.items.slice(0, 4).map((item: any, index: number) => (
             <StaggerItem key={index}>
               <motion.div
                 whileHover={{ y: -8, scale: 1.01 }}
@@ -93,6 +94,21 @@ export function CaseStudies() {
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        {/* CTA Button */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.4 }}
+          className="mt-12 md:mt-16 text-center w-full flex justify-center"
+        >
+          <Link href="/casi-studio">
+            <button className="w-full sm:w-auto px-10 py-5 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-lg shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all hover:scale-105 inline-flex items-center justify-center gap-3 group">
+              Guarda tutti i miei progetti
+            </button>
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
