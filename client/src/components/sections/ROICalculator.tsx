@@ -58,8 +58,7 @@ export function ROICalculator() {
                         <motion.div
                             initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="space-y-10 p-8 rounded-3xl glass-premium"
+                            className="space-y-10 p-6 md:p-8 rounded-3xl glass-premium"
                         >
                             <div className="space-y-4">
                                 <div className="flex justify-between items-center text-white font-medium gap-4">
@@ -140,7 +139,7 @@ export function ROICalculator() {
                             viewport={{ once: true }}
                             className="grid grid-cols-1 gap-6"
                         >
-                            <div className="p-8 rounded-3xl bg-white/[0.02] border border-white/5 relative overflow-hidden group">
+                            <div className="p-6 md:p-8 rounded-3xl bg-white/[0.02] border border-white/5 relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                                     <AlertTriangle className="h-16 w-16 text-destructive" />
                                 </div>
@@ -151,7 +150,7 @@ export function ROICalculator() {
                                 <p className="text-white/40 text-sm italic">{content.roi.labels.lostRevenueSub}</p>
                             </div>
 
-                            <div className="p-8 rounded-3xl glass-premium bg-gradient-to-br from-primary/10 to-transparent border-primary/20 relative overflow-hidden group">
+                            <div className="p-6 md:p-8 rounded-3xl glass-premium bg-gradient-to-br from-primary/10 to-transparent border-primary/20 relative overflow-hidden group">
                                 <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-40 transition-opacity">
                                     <TrendingUp className="h-16 w-16 text-primary" />
                                 </div>

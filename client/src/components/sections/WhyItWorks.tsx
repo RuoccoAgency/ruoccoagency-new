@@ -34,7 +34,7 @@ export function WhyItWorks() {
             const Icon = iconMap[index];
             return (
               <StaggerItem key={index} className="h-full">
-                <SpotlightCard className="h-full group p-8 rounded-2xl bg-white/5 border border-white/10 text-center flex flex-col items-center">
+                <SpotlightCard className="h-full group p-6 md:p-8 rounded-2xl bg-white/5 border border-white/10 text-center flex flex-col items-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 text-primary mb-6 ring-1 ring-primary/20 shadow-[0_0_20px_rgba(124,58,237,0.1)] group-hover:scale-110 transition-transform duration-300 group-hover:bg-primary/20 relative z-10">
                     <Icon className="h-8 w-8" />
                   </div>

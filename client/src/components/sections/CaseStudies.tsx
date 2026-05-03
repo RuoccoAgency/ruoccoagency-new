@@ -24,7 +24,7 @@ export function CaseStudies() {
           </p>
         </div>
 
-        <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
           {content.caseStudies.items.slice(0, 4).map((item: any, index: number) => (
             <StaggerItem key={index}>
               <motion.div
@@ -103,8 +103,8 @@ export function CaseStudies() {
           transition={{ delay: 0.4 }}
           className="mt-12 md:mt-16 text-center w-full flex justify-center"
         >
-          <Link href="/casi-studio">
-            <button className="w-full sm:w-auto px-10 py-5 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-lg shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all hover:scale-105 inline-flex items-center justify-center gap-3 group">
+          <Link href="/casi-studio" className="w-full block sm:inline-block">
+            <button className="w-full sm:w-auto px-6 sm:px-10 py-4 sm:py-5 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-[15px] sm:text-lg shadow-[0_0_30px_rgba(124,58,237,0.4)] transition-all hover:scale-105 inline-flex items-center justify-center gap-3 group">
               Guarda tutti i miei progetti
             </button>
           </Link>

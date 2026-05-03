@@ -203,7 +203,7 @@ export default function ServiceDetailPage() {
                     >
                       {/* Content Card */}
                       <div className="flex-1 w-full text-center md:text-left">
-                        <div className={`group p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] backdrop-blur-sm shadow-lg hover:shadow-primary/10 ${index % 2 === 0 ? "md:text-right" : "md:text-left"
+                        <div className={`group p-6 md:p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-all duration-300 hover:bg-white/[0.07] backdrop-blur-sm shadow-lg hover:shadow-primary/10 ${index % 2 === 0 ? "md:text-right" : "md:text-left"
                           }`}>
                           <div className={`flex items-center gap-3 mb-4 ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"} justify-center md:justify-start`}>
                             <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors shrink-0">

@@ -91,14 +91,14 @@ export default function CaseStudiesPage() {
               const isEven = index % 2 === 0;
               
               return (
-                <div key={index} className={`flex flex-col gap-12 lg:gap-24 items-center ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
+                <div key={index} className={`flex flex-col gap-12 md:gap-24 items-center ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                   {/* Image Side */}
                   <motion.div 
                     initial={{ opacity: 0, x: isEven ? -50 : 50 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="w-full lg:w-1/2 relative group"
+                    className="w-full md:w-1/2 relative group"
                   >
                     <SpotlightCard className="p-2 rounded-3xl bg-white/5 border-white/10 w-full aspect-[4/3] overflow-hidden flex items-center justify-center relative">
                       <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 opacity-50 mix-blend-overlay" />
@@ -116,7 +116,7 @@ export default function CaseStudiesPage() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="w-full lg:w-1/2 flex flex-col justify-center"
+                    className="w-full md:w-1/2 flex flex-col justify-center"
                   >
                     <div className="flex flex-wrap gap-2 mb-6">
                       <span className="px-3 py-1 text-xs font-semibold rounded-full bg-primary/20 text-primary border border-primary/30">{project.badge}</span>
