@@ -19,7 +19,6 @@ import ContactPage from "@/pages/ContactPage";
 import CaseStudiesPage from "@/pages/CaseStudiesPage";
 import { CookieBanner } from "@/components/ui/CookieBanner";
 import { ScrollToTop } from "@/components/ui/ScrollToTop";
-import { LiveChatDemo } from "@/components/ui/LiveChatDemo";
 import { useEffect } from "react";
 
 function RouteWrapper({ component: Component }: { component: any }) {
@@ -66,7 +65,6 @@ function App() {
             <ScrollToTop />
             <Router />
             <Toaster />
-            <LiveChatDemo />
             <CookieBanner />
           </LanguageProvider>
         </TooltipProvider>

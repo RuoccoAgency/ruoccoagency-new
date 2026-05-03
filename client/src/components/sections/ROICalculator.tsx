@@ -62,9 +62,15 @@ export function ROICalculator() {
                             className="space-y-10 p-8 rounded-3xl glass-premium"
                         >
                             <div className="space-y-4">
-                                <div className="flex justify-between items-center text-white font-medium">
+                                <div className="flex justify-between items-center text-white font-medium gap-4">
                                     <label>{content.roi.labels.leadsPerMonth}</label>
-                                    <span className="text-primary text-xl font-bold">{leads}</span>
+                                    <input 
+                                        type="number"
+                                        min="0"
+                                        value={leads}
+                                        onChange={(e) => setLeadsPerMonth([Number(e.target.value) || 0])}
+                                        className="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-right w-24 text-primary text-xl font-bold focus:outline-none focus:border-primary/50 transition-colors [&::-webkit-inner-spin-button]:appearance-none"
+                                    />
                                 </div>
                                 <Slider
                                     value={leadsPerMonth}
@@ -76,9 +82,23 @@ export function ROICalculator() {
                             </div>
 
                             <div className="space-y-4">
-                                <div className="flex justify-between items-center text-white font-medium">
+                                <div className="flex justify-between items-center text-white font-medium gap-4">
                                     <label>{content.roi.labels.missedLeadRate}</label>
-                                    <span className="text-secondary text-xl font-bold">{missedLeadRate[0]}%</span>
+                                    <div className="relative w-24">
+                                        <input 
+                                            type="number"
+                                            min="0"
+                                            max="100"
+                                            value={missedLeadRate[0]}
+                                            onChange={(e) => {
+                                                let val = Number(e.target.value);
+                                                if (val > 100) val = 100;
+                                                setMissedLeadRate([val || 0]);
+                                            }}
+                                            className="bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-right w-full text-secondary text-xl font-bold focus:outline-none focus:border-secondary/50 transition-colors pr-7 [&::-webkit-inner-spin-button]:appearance-none"
+                                        />
+                                        <span className="absolute right-3 top-1/2 -translate-y-1/2 text-secondary text-lg font-bold">%</span>
+                                    </div>
                                 </div>
                                 <Slider
                                     value={missedLeadRate}
@@ -90,9 +110,18 @@ export function ROICalculator() {
                             </div>
 
                             <div className="space-y-4">
-                                <div className="flex justify-between items-center text-white font-medium">
+                                <div className="flex justify-between items-center text-white font-medium gap-4">
                                     <label>{content.roi.labels.avgLeadValue}</label>
-                                    <span className="text-accent text-xl font-bold">€{value}</span>
+                                    <div className="relative w-28">
+                                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-accent text-lg font-bold">€</span>
+                                        <input 
+                                            type="number"
+                                            min="0"
+                                            value={value}
+                                            onChange={(e) => setAvgLeadValue([Number(e.target.value) || 0])}
+                                            className="bg-white/5 border border-white/10 rounded-lg py-1.5 pr-3 pl-8 text-right w-full text-accent text-xl font-bold focus:outline-none focus:border-accent/50 transition-colors [&::-webkit-inner-spin-button]:appearance-none"
+                                        />
+                                    </div>
                                 </div>
                                 <Slider
                                     value={avgLeadValue}
