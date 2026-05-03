@@ -155,6 +155,13 @@ export const content = {
         url: "https://wldeventi.it",
       },
       {
+        title: "3DRealStudio",
+        stat: "Servizio di Stampa 3D",
+        badge: "Web Design",
+        // image: drealstudioImage, // TODO: Aggiungi l'immagine in src/assets e importala in alto
+        url: "https://3drealstudio.it",
+      },
+      {
         title: "Wedding Planner",
         stat: "Sito Vetrina Completo",
         badge: "Coming Soon",

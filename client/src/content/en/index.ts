@@ -155,6 +155,13 @@ export const content = {
         url: "https://wldeventi.it",
       },
       {
+        title: "3DRealStudio",
+        stat: "3D Printing Service",
+        badge: "Web Design",
+        // image: drealstudioImage, // TODO: Add the image to src/assets and import it at the top
+        url: "https://3drealstudio.it",
+      },
+      {
         title: "Wedding Planner",
         stat: "Full Showcase Website",
         badge: "Coming Soon",
