@@ -128,8 +128,8 @@ export const content = {
     ],
   },
   caseStudies: {
-    title: "I miei Progetti",
-    subtitle: "I nostri lavori recenti",
+    title: "Risultati che Parlano da Soli.",
+    subtitle: "Scopri come abbiamo aiutato e-commerce, agenzie di eventi e professionisti a scalare online con design moderni e automazioni mirate.",
     viewProject: "Visualizza Progetto",
     items: [
       {
@@ -139,6 +139,8 @@ export const content = {
         location: "Napoli, IT",
         image: vipiesseImage,
         url: "https://vipiesse.com",
+        sfida: "Portare un'attività di ingrosso tradizionale nel mondo digitale in modo efficiente.",
+        soluzione: "Sviluppo di un e-commerce su misura, veloce e ottimizzato per conversioni e gestione ordini B2B/B2C.",
       },
       {
         title: "MadeInGigi Events",
@@ -147,6 +149,8 @@ export const content = {
         location: "Napoli, IT",
         image: madeingigiImage,
         url: "https://madeingigievent.com/",
+        sfida: "Creare una vetrina digitale che trasmettesse l'emozione e la professionalità dei loro eventi fisici.",
+        soluzione: "Design immersivo, gallerie fotografiche d'impatto e un'interfaccia utente focalizzata sulla generazione di contatti.",
       },
       {
         title: "WLD Events",
@@ -154,6 +158,8 @@ export const content = {
         badge: "Web Design",
         image: wldeventiImage,
         url: "https://wldeventi.it",
+        sfida: "Posizionare il brand nel mercato competitivo degli eventi con un sito che ne rispecchiasse il valore.",
+        soluzione: "Struttura SEO-friendly, performance veloci e un design pulito che guida l'utente a richiedere informazioni.",
       },
       {
         title: "3DRealStudio",
@@ -161,6 +167,8 @@ export const content = {
         badge: "Web Design",
         image: drealstudioImage,
         url: "https://3drealstudio.it",
+        sfida: "Progettare una piattaforma digitale moderna e futuristica per presentare servizi avanzati di stampa 3D.",
+        soluzione: "Un sito web dal design high-tech, con focus visivo sui progetti e moduli di preventivo integrati.",
       },
       {
         title: "Wedding Planner",

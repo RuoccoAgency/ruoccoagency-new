@@ -128,8 +128,8 @@ export const content = {
     ],
   },
   caseStudies: {
-    title: "My Projects",
-    subtitle: "Our recent work",
+    title: "Results that Speak for Themselves.",
+    subtitle: "Discover how we helped e-commerce, event agencies, and professionals scale online with modern designs and targeted automations.",
     viewProject: "View Project",
     items: [
       {
@@ -139,6 +139,8 @@ export const content = {
         location: "Naples, IT",
         image: vipiesseImage,
         url: "https://vipiesse.com",
+        sfida: "Bring a traditional wholesale business into the digital world efficiently.",
+        soluzione: "Development of a custom e-commerce, fast and optimized for conversions and B2B/B2C order management.",
       },
       {
         title: "MadeInGigi Events",
@@ -147,6 +149,8 @@ export const content = {
         location: "Naples, IT",
         image: madeingigiImage,
         url: "https://madeingigievent.com/",
+        sfida: "Create a digital showcase that conveyed the emotion and professionalism of their physical events.",
+        soluzione: "Immersive design, striking photo galleries, and a user interface focused on lead generation.",
       },
       {
         title: "WLD Events",
@@ -154,6 +158,8 @@ export const content = {
         badge: "Web Design",
         image: wldeventiImage,
         url: "https://wldeventi.it",
+        sfida: "Position the brand in the competitive events market with a site that reflected its value.",
+        soluzione: "SEO-friendly structure, fast performance, and a clean design that guides the user to request information.",
       },
       {
         title: "3DRealStudio",
@@ -161,6 +167,8 @@ export const content = {
         badge: "Web Design",
         image: drealstudioImage,
         url: "https://3drealstudio.it",
+        sfida: "Design a modern and futuristic digital platform to showcase advanced 3D printing services.",
+        soluzione: "A high-tech designed website, with a visual focus on projects and integrated quote forms.",
       },
       {
         title: "Wedding Planner",

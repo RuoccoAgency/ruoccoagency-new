@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 
 export default function CaseStudiesPage() {
-  const { content } = useLanguage();
+  const { content, language } = useLanguage();
   const [, setLocation] = useLocation();
 
   useEffect(() => {
@@ -21,27 +21,6 @@ export default function CaseStudiesPage() {
   // First 4 items are actual projects, the 5th is coming soon
   const projects = items.slice(0, 4);
   const comingSoon = items[4];
-
-  // Map of specific challenge/solution for each project since they aren't fully detailed in the content file yet
-  // We provide fallbacks here that match the design we proposed.
-  const descriptions = [
-    {
-      sfida: content.nav.languages.it === "Italiano" ? "Portare un'attività di ingrosso tradizionale nel mondo digitale in modo efficiente." : "Bring a traditional wholesale business into the digital world efficiently.",
-      soluzione: content.nav.languages.it === "Italiano" ? "Sviluppo di un e-commerce su misura, veloce e ottimizzato per conversioni e gestione ordini B2B/B2C." : "Development of a custom e-commerce, fast and optimized for conversions and B2B/B2C order management.",
-    },
-    {
-      sfida: content.nav.languages.it === "Italiano" ? "Creare una vetrina digitale che trasmettesse l'emozione e la professionalità dei loro eventi fisici." : "Create a digital showcase that conveyed the emotion and professionalism of their physical events.",
-      soluzione: content.nav.languages.it === "Italiano" ? "Design immersivo, gallerie fotografiche d'impatto e un'interfaccia utente focalizzata sulla generazione di contatti." : "Immersive design, striking photo galleries, and a user interface focused on lead generation.",
-    },
-    {
-      sfida: content.nav.languages.it === "Italiano" ? "Posizionare il brand nel mercato competitivo degli eventi con un sito che ne rispecchiasse il valore." : "Position the brand in the competitive events market with a site that reflected its value.",
-      soluzione: content.nav.languages.it === "Italiano" ? "Struttura SEO-friendly, performance veloci e un design pulito che guida l'utente a richiedere informazioni." : "SEO-friendly structure, fast performance, and a clean design that guides the user to request information.",
-    },
-    {
-      sfida: content.nav.languages.it === "Italiano" ? "Progettare una piattaforma digitale moderna e futuristica per presentare servizi avanzati di stampa 3D." : "Design a modern and futuristic digital platform to showcase advanced 3D printing services.",
-      soluzione: content.nav.languages.it === "Italiano" ? "Un sito web dal design high-tech, con focus visivo sui progetti e moduli di preventivo integrati." : "A high-tech designed website, with a visual focus on projects and integrated quote forms.",
-    }
-  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground selection:bg-primary/30 relative">
@@ -73,7 +52,7 @@ export default function CaseStudiesPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-5xl md:text-7xl font-bold font-display text-white mb-6 text-gradient-logo"
             >
-              {content.nav.languages.it === "Italiano" ? "Risultati che Parlano da Soli." : "Results that Speak for Themselves."}
+              {content.caseStudies.title}
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
@@ -81,7 +60,7 @@ export default function CaseStudiesPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-white/70 max-w-3xl mx-auto"
             >
-              {content.nav.languages.it === "Italiano" ? "Scopri come abbiamo aiutato e-commerce, agenzie di eventi e professionisti a scalare online con design moderni e automazioni mirate." : "Discover how we helped e-commerce, event agencies, and professionals scale online with modern designs and targeted automations."}
+              {content.caseStudies.subtitle}
             </motion.p>
           </section>
 
@@ -134,19 +113,19 @@ export default function CaseStudiesPage() {
                       <div>
                         <h4 className="text-lg font-semibold text-white/90 mb-2 flex items-center gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                          {content.nav.languages.it === "Italiano" ? "La Sfida" : "The Challenge"}
+                          {language === "it" ? "La Sfida" : "The Challenge"}
                         </h4>
                         <p className="text-white/60 leading-relaxed">
-                          {descriptions[index].sfida}
+                          {project.sfida}
                         </p>
                       </div>
                       <div>
                         <h4 className="text-lg font-semibold text-white/90 mb-2 flex items-center gap-2">
                           <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-                          {content.nav.languages.it === "Italiano" ? "La Soluzione" : "The Solution"}
+                          {language === "it" ? "La Soluzione" : "The Solution"}
                         </h4>
                         <p className="text-white/60 leading-relaxed">
-                          {descriptions[index].soluzione}
+                          {project.soluzione}
                         </p>
                       </div>
                     </div>
@@ -190,7 +169,7 @@ export default function CaseStudiesPage() {
                     {comingSoon.title}
                   </h3>
                   <p className="text-xl text-white/50 max-w-2xl mx-auto">
-                    {content.nav.languages.it === "Italiano" ? "Stiamo cucinando qualcosa di speciale per il settore matrimoni. Ritorna presto per vederlo in azione." : "We are cooking something special for the wedding sector. Check back soon to see it in action."}
+                    {language === "it" ? "Stiamo cucinando qualcosa di speciale per il settore matrimoni. Ritorna presto per vederlo in azione." : "We are cooking something special for the wedding sector. Check back soon to see it in action."}
                   </p>
                   
                   <div className="mt-10 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/50 text-sm tracking-widest uppercase">
@@ -214,10 +193,10 @@ export default function CaseStudiesPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-50" />
                 <div className="relative z-10 max-w-3xl mx-auto">
                   <h2 className="text-4xl md:text-6xl font-bold text-white mb-8">
-                    {content.nav.languages.it === "Italiano" ? "Vuoi essere il nostro prossimo Caso di Successo?" : "Want to be our next Success Story?"}
+                    {language === "it" ? "Vuoi essere il nostro prossimo Caso di Successo?" : "Want to be our next Success Story?"}
                   </h2>
                   <p className="text-xl text-white/70 mb-12">
-                    {content.nav.languages.it === "Italiano" ? "Che tu abbia bisogno di un sito web, di un e-commerce o di un assistente AI, siamo pronti ad ascoltare la tua sfida." : "Whether you need a website, an e-commerce, or an AI assistant, we are ready to hear your challenge."}
+                    {language === "it" ? "Che tu abbia bisogno di un sito web, di un e-commerce o di un assistente AI, siamo pronti ad ascoltare la tua sfida." : "Whether you need a website, an e-commerce, or an AI assistant, we are ready to hear your challenge."}
                   </p>
                   <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                     <Magnetic strength={0.1}>
@@ -234,7 +213,6 @@ export default function CaseStudiesPage() {
               </div>
             </motion.div>
           </section>
-
         </main>
         
         <Footer />
