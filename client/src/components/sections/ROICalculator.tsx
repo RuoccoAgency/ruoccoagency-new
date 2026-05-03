@@ -1,8 +1,19 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, useSpring, useTransform } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
 import { Calculator, TrendingUp, AlertTriangle } from "lucide-react";
 import { useLanguage } from "@/hooks/useLanguage";
+
+function AnimatedNumber({ value }: { value: number }) {
+    const spring = useSpring(value, { mass: 0.8, stiffness: 75, damping: 15 });
+    const display = useTransform(spring, (current) => Math.round(current).toLocaleString());
+
+    useEffect(() => {
+        spring.set(value);
+    }, [value, spring]);
+
+    return <motion.span>{display}</motion.span>;
+}
 
 export function ROICalculator() {
     const { content } = useLanguage();
@@ -107,7 +118,7 @@ export function ROICalculator() {
                                 <p className="text-white/50 text-sm font-medium uppercase tracking-widest mb-2">
                                     {content.roi.labels.lostRevenue}
                                 </p>
-                                <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">€{lostRevenue.toLocaleString()}</h4>
+                                <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">€<AnimatedNumber value={lostRevenue} /></h4>
                                 <p className="text-white/40 text-sm italic">{content.roi.labels.lostRevenueSub}</p>
                             </div>
 
@@ -118,7 +129,7 @@ export function ROICalculator() {
                                 <p className="text-primary text-sm font-bold uppercase tracking-widest mb-2">
                                     {content.roi.labels.estimatedRecovery}
                                 </p>
-                                <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">€{potentialSavings.toLocaleString()}</h4>
+                                <h4 className="text-4xl md:text-5xl font-bold text-white mb-2">€<AnimatedNumber value={potentialSavings} /></h4>
                                 <p className="text-white/60 text-sm leading-relaxed">
                                     {content.roi.labels.estimatedRecoverySub}
                                 </p>
