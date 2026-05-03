@@ -37,6 +37,7 @@ export function ServicesSEO() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className={colSpan}
+              >
                 <SpotlightCard className="h-full p-6 md:p-8 group border-white/5 bg-card/40 backdrop-blur-md flex flex-col justify-between">
                   <div className="relative z-10">
                     <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/10 border border-white/10 flex items-center justify-center mb-8 shadow-inner">
