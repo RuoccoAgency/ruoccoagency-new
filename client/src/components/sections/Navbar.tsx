@@ -116,7 +116,7 @@ export function Navbar() {
         <div className="hidden md:flex items-center gap-8">
           {content.nav.links.map((link: { label: string; href: string }) => {
             // Intercept the "Servizi" link and replace it with a dropdown
-            if (link.href === "#services") {
+            if (link.href === "#services" || link.href === "/#services") {
               return (
                 <div
                   key={link.label}
@@ -262,7 +262,7 @@ export function Navbar() {
           >
             <div className="flex flex-col p-4 gap-1">
               {content.nav.links.map((link: { label: string; href: string }) => {
-                if (link.href === "#services") {
+                if (link.href === "#services" || link.href === "/#services") {
                   return (
                     <div key={link.label}>
                       <button
