@@ -16,7 +16,7 @@ export function SEO({
   description,
   canonical,
   ogType = "website",
-  ogImage = "https://ruoccoagency.com/opengraph.jpg",
+  ogImage = "https://www.ruoccoagency.com/opengraph.jpg",
   twitterCard = "summary_large_image",
   children,
 }: SEOProps) {
@@ -27,7 +27,7 @@ export function SEO({
     : siteName;
   const defaultDescription = "Trasformiamo richieste in clienti, 24/7. Assistenti AI, Chatbot e Siti Web Moderni per il tuo business.";
   const metaDescription = description || defaultDescription;
-  const url = "https://ruoccoagency.com";
+  const url = "https://www.ruoccoagency.com";
   const currentCanonical = canonical ? `${url}${canonical}` : url;
 
   return (

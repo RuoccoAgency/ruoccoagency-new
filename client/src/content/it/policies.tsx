@@ -7,7 +7,7 @@ export const policies = {
 
         <h3>1. Chi siamo</h3>
         <p>
-          L'indirizzo del nostro sito web è: <strong>https://ruoccoagency.com</strong>.
+          L'indirizzo del nostro sito web è: <strong>https://www.ruoccoagency.com</strong>.
           <br />
           Il Titolare del trattamento dei dati è Gianluca Ruocco, professionista freelance operante in Italia.
           <br />

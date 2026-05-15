@@ -7,7 +7,7 @@ export const policies = {
 
         <h3>1. Who We Are</h3>
         <p>
-          Our website address is: <strong>https://ruoccoagency.com</strong>.
+          Our website address is: <strong>https://www.ruoccoagency.com</strong>.
           <br />
           The Data Controller is Gianluca Ruocco, a freelance professional operating in Italy.
           <br />

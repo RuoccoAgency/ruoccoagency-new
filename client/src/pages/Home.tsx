@@ -47,10 +47,10 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "RuoccoAgency",
-              "url": "https://ruoccoagency.com/",
+              "url": "https://www.ruoccoagency.com/",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://ruoccoagency.com/?s={search_term_string}",
+                "target": "https://www.ruoccoagency.com/?s={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             },
@@ -58,8 +58,8 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "RuoccoAgency",
-              "url": "https://ruoccoagency.com",
-              "logo": "https://ruoccoagency.com/favicon.png",
+              "url": "https://www.ruoccoagency.com",
+              "logo": "https://www.ruoccoagency.com/favicon.png",
               "description": "Agenzia specializzata in automazioni IA, assistenti virtuali e sviluppo web moderno.",
               "founder": {
                 "@type": "Person",

@@ -70,7 +70,7 @@ export default function ServiceDetailPage() {
             "provider": {
               "@type": "Organization",
               "name": "RuoccoAgency",
-              "url": "https://ruoccoagency.com"
+              "url": "https://www.ruoccoagency.com"
             },
             "areaServed": "Italy",
             "hasOfferCatalog": {
