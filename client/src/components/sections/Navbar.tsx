@@ -98,7 +98,7 @@ export function Navbar() {
         <a
           href="#home"
           onClick={(e) => scrollToSection(e, "#home")}
-          className="flex items-center gap-3 text-2xl font-bold font-display tracking-tighter text-white hover:text-primary transition-colors group text-gradient-logo"
+          className="flex items-center gap-3 text-2xl font-bold font-display tracking-tighter text-white hover:text-primary transition-colors group"
         >
           <motion.img
             animate={{
@@ -109,7 +109,10 @@ export function Navbar() {
             alt="RuoccoAgency Logo"
             className="w-10 h-10 object-contain transition-transform group-hover:scale-110"
           />
-          {content.nav.logo}
+          <span className="flex">
+            <span className="text-white">Ruocco</span>
+            <span className="text-gradient-logo">Agency</span>
+          </span>
         </a>
 
         {/* Desktop Menu */}

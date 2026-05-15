@@ -36,8 +36,11 @@ export function About() {
           {/* Text Content */}
           <div className="w-full md:w-1/2">
             <Reveal>
-              <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6 text-gradient-logo">
-                {content.about.title}
+              <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">
+                {content.about.title.split("RuoccoAgency")[0]}
+                <span className="text-white">Ruocco</span>
+                <span className="text-gradient-logo">Agency</span>
+                {content.about.title.split("RuoccoAgency")[1]}
               </h2>
             </Reveal>
 
@@ -58,7 +61,15 @@ export function About() {
             <Reveal delay={0.1}>
               <div className="space-y-6 text-lg text-muted-foreground">
                 <p className="leading-relaxed">
-                  {content.about.bio}
+                  {content.about.bio.split("RuoccoAgency").map((part, index, array) => (
+                    index === array.length - 1 ? part : (
+                      <span key={index}>
+                        {part}
+                        <span className="text-white">Ruocco</span>
+                        <span className="text-gradient-logo">Agency</span>
+                      </span>
+                    )
+                  ))}
                 </p>
                 <div className="p-6 rounded-2xl bg-primary/5 border border-primary/10 italic text-white/80 relative overflow-hidden group">
                   <div className="absolute top-0 left-0 w-1 h-full bg-primary" />
