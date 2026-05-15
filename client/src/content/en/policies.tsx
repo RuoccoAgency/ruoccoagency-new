@@ -11,7 +11,7 @@ export const policies = {
           <br />
           The Data Controller is Gianluca Ruocco, a freelance professional operating in Italy.
           <br />
-          For any privacy-related requests, you can contact us at: <strong>ruoccoagency@gmail.com</strong>
+          For any privacy-related requests, you can contact us at: <strong>info@ruoccoagency.com</strong>
         </p>
 
         <h3>2. What Personal Data We Collect and Why</h3>
@@ -58,7 +58,7 @@ export const policies = {
           <li>Request the portability of your data.</li>
         </ul>
         <p>
-          To exercise any of these rights, please contact us by email at ruoccoagency@gmail.com.
+          To exercise any of these rights, please contact us by email at info@ruoccoagency.com.
         </p>
 
         <h3>6. Where We Send Your Data</h3>
@@ -235,7 +235,7 @@ export const policies = {
         <div className="bg-black/20 p-6 rounded-xl border border-white/5 my-6">
           <p className="mb-2"><strong>Owner:</strong> Gianluca Ruocco</p>
           <p className="mb-2"><strong>Location:</strong> Naples, Italy</p>
-          <p className="mb-0"><strong>Contact Email:</strong> <a href="mailto:ruoccoagency@gmail.com" className="text-primary hover:underline">ruoccoagency@gmail.com</a></p>
+          <p className="mb-0"><strong>Contact Email:</strong> <a href="mailto:info@ruoccoagency.com" className="text-primary hover:underline">info@ruoccoagency.com</a></p>
         </div>
 
         <h3>Purpose of the site</h3>

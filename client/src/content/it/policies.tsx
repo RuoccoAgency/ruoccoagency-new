@@ -11,7 +11,7 @@ export const policies = {
           <br />
           Il Titolare del trattamento dei dati è Gianluca Ruocco, professionista freelance operante in Italia.
           <br />
-          Per qualsiasi richiesta relativa alla privacy, puoi contattarci a: <strong>ruoccoagency@gmail.com</strong>
+          Per qualsiasi richiesta relativa alla privacy, puoi contattarci a: <strong>info@ruoccoagency.com</strong>
         </p>
 
         <h3>2. Quali dati personali raccogliamo e perché</h3>
@@ -58,7 +58,7 @@ export const policies = {
           <li>Richiedere la portabilità dei tuoi dati.</li>
         </ul>
         <p>
-          Per esercitare uno qualsiasi di questi diritti, ti invitiamo a contattarci via email all'indirizzo ruoccoagency@gmail.com.
+          Per esercitare uno qualsiasi di questi diritti, ti invitiamo a contattarci via email all'indirizzo info@ruoccoagency.com.
         </p>
 
         <h3>6. Dove spediamo i tuoi dati</h3>
@@ -235,7 +235,7 @@ export const policies = {
         <div className="bg-black/20 p-6 rounded-xl border border-white/5 my-6">
           <p className="mb-2"><strong>Titolare:</strong> Gianluca Ruocco</p>
           <p className="mb-2"><strong>Sede:</strong> Napoli, Italia</p>
-          <p className="mb-0"><strong>Contatto Email:</strong> <a href="mailto:ruoccoagency@gmail.com" className="text-primary hover:underline">ruoccoagency@gmail.com</a></p>
+          <p className="mb-0"><strong>Contatto Email:</strong> <a href="mailto:info@ruoccoagency.com" className="text-primary hover:underline">info@ruoccoagency.com</a></p>
         </div>
 
         <h3>Finalità del sito</h3>

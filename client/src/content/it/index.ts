@@ -259,7 +259,7 @@ export const content = {
       }
     },
     info: {
-      email: "ruoccoagency@gmail.com",
+      email: "info@ruoccoagency.com",
       phone: "+39 329 467 1410",
       website: "ruoccoagency.com",
       location: "Disponibili per consulenze in tutta Italia (e oltre)",

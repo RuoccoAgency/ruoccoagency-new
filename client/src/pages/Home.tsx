@@ -69,7 +69,7 @@ export default function Home() {
                 "@type": "ContactPoint",
                 "telephone": "+39 329 467 1410",
                 "contactType": "customer service",
-                "email": "ruoccoagency@gmail.com"
+                "email": "info@ruoccoagency.com"
               }
             }
           ])}
